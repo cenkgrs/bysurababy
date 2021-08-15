@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/
+    - export DEPLOYPATH=/home/ruf254evfebs/public_html/
     - /bin/cp -r * $DEPLOYPATH #copy all from root
     #    - /bin/cp -r ./public/* $DEPLOYPATH/
     - /bin/cp ./public/js/*.js $DEPLOYPATH/js
