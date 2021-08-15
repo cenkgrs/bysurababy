@@ -1,14 +1,13 @@
 $background-color: #000000;
+$theme-pink: #a36879;
+$fade-white: #0000;
+$text-color: #ffffff;
 
 .coming-soon{
-    background-image: linear-gradient(#a36879, #0000);
+    background-image: linear-gradient($theme-pink, $fade-white);
     background-position: center;
     background-size: cover;
     height: 100vh;
-}
-
-.center{
-
 }
 
 .coming-soon .logo{
@@ -27,12 +26,14 @@ $background-color: #000000;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    color: #ffffff;
+    color: $text-color;
     text-align: center;
     font-size: 40px;
     letter-spacing: 30px;
     font-weight: 300;
     font-family: "Saira Semi Condensed", sans-serif;
+    width: 100%;
+    text-align: center;
 }
 
 .coming-soon hr{
@@ -55,19 +56,19 @@ $background-color: #000000;
     font-size: 35px;
     word-spacing: 2px;
     font-family: "Saira Semi Condensed", sans-serif;
-    color: #ffffff;
+    color: $text-color;
     letter-spacing: 10px;
+    width: 100%;
+    text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .coming-soon .logo {
         top: 35%;
     }
     .coming-soon h1{
         top: 46%;
         letter-spacing: 10px;
-        width: 100%;
-        text-align: center;
     }
     hr{
         top: 53%;
@@ -75,7 +76,19 @@ $background-color: #000000;
     .coming-soon .launch {
         top: 60% !important;
         letter-spacing: 5px;
-        width: 100%;
-        text-align: center;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .coming-soon h1{
+        font-size: 25px;
+    }
+    hr{
+        top: 51% !important;
+    }
+    .coming-soon .launch {
+        top: 55% !important;
+        font-size: 20px;
+    }
+}
+

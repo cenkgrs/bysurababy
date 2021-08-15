@@ -36,6 +36,8 @@
   letter-spacing: 30px;
   font-weight: 300;
   font-family: "Saira Semi Condensed", sans-serif;
+  width: 100%;
+  text-align: center;
 }
 
 .coming-soon hr {
@@ -60,9 +62,11 @@
   font-family: "Saira Semi Condensed", sans-serif;
   color: #ffffff;
   letter-spacing: 10px;
+  width: 100%;
+  text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .coming-soon .logo {
     top: 35%;
   }
@@ -70,8 +74,6 @@
   .coming-soon h1 {
     top: 46%;
     letter-spacing: 10px;
-    width: 100%;
-    text-align: center;
   }
 
   hr {
@@ -81,8 +83,20 @@
   .coming-soon .launch {
     top: 60% !important;
     letter-spacing: 5px;
-    width: 100%;
-    text-align: center;
+  }
+}
+@media screen and (max-width: 350px) {
+  .coming-soon h1 {
+    font-size: 25px;
+  }
+
+  hr {
+    top: 51% !important;
+  }
+
+  .coming-soon .launch {
+    top: 55% !important;
+    font-size: 20px;
   }
 }
 /*!
