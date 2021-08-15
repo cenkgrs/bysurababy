@@ -1,0 +1,60 @@
+$background-color: #000000;
+
+.coming-soon{
+    background-image: linear-gradient(#a36879, #0000);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.center{
+
+}
+
+.coming-soon .logo{
+    top: 40%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.coming-soon .logo img{
+    width: 35vh;
+}
+
+.coming-soon h1{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 30px;
+    font-weight: 300;
+    font-family: "Saira Semi Condensed", sans-serif;
+}
+
+.coming-soon hr{
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    margin: auto;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#030303), to(#fff));
+    border: 2px;
+    border-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#030303), to(#fff));
+}
+
+.coming-soon .launch{
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    word-spacing: 2px;
+    font-family: "Saira Semi Condensed", sans-serif;
+    color: #ffffff;
+    letter-spacing: 10px;
+}
