@@ -58,3 +58,24 @@ $background-color: #000000;
     color: #ffffff;
     letter-spacing: 10px;
 }
+
+@media screen and (max-width: 600px) {
+    .coming-soon .logo {
+        top: 35%;
+    }
+    .coming-soon h1{
+        top: 46%;
+        letter-spacing: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    hr{
+        top: 53%;
+    }
+    .coming-soon .launch {
+        top: 60% !important;
+        letter-spacing: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
