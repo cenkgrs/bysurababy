@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,6 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('home.index');
 });
+
+Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 

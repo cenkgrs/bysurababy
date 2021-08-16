@@ -15,13 +15,12 @@
 
 </head>
 <body>
+    @include('partials.navbar')
 
-@include('partials.soon')
+<!--@include('partials.soon')-->
 
     @yield('content')
 
-@include('partials.footer')
-
-
+    @include('partials.footer')
 </body>
 </html>
