@@ -10,11 +10,36 @@ class ProductsController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Products::with('price')->paginate(30);
+        $input = $request->all();
+
+        $products = Products::with('price')->where(function ($q) {
+
+            if (isset($input["category"]) && $input["category"]) {
+                $q->where('category_id', $input["category"]);
+            }
+
+            })->paginate(30);
+
+        if (isset($input["category"]) && $input["category"]) {
+        }
 
         $data = [
             "products" => $products,
-            "breadcrumbs" => [],
+            "title" => "Ürünler",
+            "breadcrumbs" => [
+                0 => [
+                    "title" => "Ana Sayfa",
+                    "route" => "index"
+                ],
+                1 => [
+                    "title" => "Ürünler",
+                    "route" => "products",
+                ],
+                2 => [
+                    "title" => "Üst Kıyafet",
+                    "route" => "products?category_id=1"
+                ]
+            ],
         ];
 
         return view('products.index', $data);

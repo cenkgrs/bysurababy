@@ -17,9 +17,18 @@
 <body>
     @include('partials.navbar')
 
-<!--@include('partials.soon')-->
+    <div class="container mt1">
 
-    @yield('content')
+        <h3>{{ $title }}</h3>
+
+        @include('partials.breadcrumbs')
+
+        <!--@include('partials.soon')-->
+
+        @yield('content')
+    </div>
+
+
 
     @include('partials.footer')
 </body>

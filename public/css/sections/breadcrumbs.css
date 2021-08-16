@@ -1,0 +1,18 @@
+.breadcrumbs {
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+.breadcrumbs li {
+  margin-right: 1rem;
+  display: inline;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs li a {
+  text-decoration: none;
+  color: #000000c9;
+}
+
+/*# sourceMappingURL=breadcrumbs.css.map */

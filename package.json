@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "compile:sass": "sass --watch public/scss:public/css",
-      "open":"start http://localhost:1234"
+    "open": "start http://localhost:1234"
   },
   "devDependencies": {
     "axios": "^0.21",
@@ -27,6 +27,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "autoprefixer": "^10.3.1",
     "bootstrap": "^5.0.2",
+    "font-awesome": "^4.7.0",
     "postcss-cli": "^8.3.1"
   }
 }
