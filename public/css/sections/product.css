@@ -1,0 +1,50 @@
+.product {
+  padding: 8px;
+  box-shadow: 0 0 3px #d5d5d5;
+  font-family: "Nunito";
+  transition: 0.5s;
+}
+
+.product:hover {
+  box-shadow: 0 0 10px 2px #d5d5d5;
+  transition: 0.5s;
+}
+.product:hover .product .product-summary .sale-button {
+  display: block;
+}
+
+.product .product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product .product-title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  line-height: 3rem;
+}
+
+.product .product-summary {
+  border-top: 1px dotted #d5d5d5;
+  padding: 8px 0;
+}
+
+.product .product-price {
+  text-align: center;
+  color: #a36879;
+  font-weight: 500;
+}
+
+.product .product-summary .sale-button {
+  background-color: #a36879;
+  color: white;
+  font-weight: 500;
+  /* display: none; */
+  text-align: center;
+  margin: 0.1rem auto;
+  width: 100%;
+}
+
+/*# sourceMappingURL=product.css.map */

@@ -14,4 +14,12 @@ class Products extends Model
     public function price(){
         return $this->hasOne('App\Models\Prices', 'product_id');
     }
+
+    public function category(){
+        return $this->belongsTo('App\Models\Categories', 'id');
+    }
+
+    public function sub_category(){
+        return $this->hasOne('App\Models\SubCategories', 'id');
+    }
 }

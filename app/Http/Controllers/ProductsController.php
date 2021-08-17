@@ -12,7 +12,7 @@ class ProductsController extends Controller
     {
         $input = $request->all();
 
-        $products = Products::with('price')->where(function ($q) {
+        $products = Products::with('price', 'category', 'sub_category')->where(function ($q) {
 
             if (isset($input["category"]) && $input["category"]) {
                 $q->where('category_id', $input["category"]);
