@@ -1,0 +1,30 @@
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    #search-column{
+        display: none;
+    }
+    .nav-bar .auth{
+        float: right;
+    }
+    .nav-bar .shopping-cart{
+        float: right;
+    }
+    .nav-bar .auth button span{
+        display: none;
+    }
+
+    .nav-bar .shopping-cart span{
+        display: none;
+    }
+
+    .nav-bar .auth i{
+        margin-right: 0;
+    }
+
+    .nav-bar .shopping-cart i{
+        margin-right: 0;
+    }
+}
+
+
