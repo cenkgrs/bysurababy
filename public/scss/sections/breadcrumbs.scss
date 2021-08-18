@@ -5,7 +5,6 @@ $primary-color : #000000c9;
     padding-left: 0;
 }
 .breadcrumbs li{
-    margin-right: 1rem;
     display: inline;
     font-weight: 500;
     font-size: .9rem;
@@ -14,5 +13,11 @@ $primary-color : #000000c9;
 .breadcrumbs li a {
     text-decoration: none;
     color: $primary-color;
+}
+
+.breadcrumbs li i{
+    font-size: .5rem;
+    color: #444;
+    margin: 0 .5rem;
 }
 

@@ -2,8 +2,36 @@
   margin-top: 1rem;
 }
 
+.mt2 {
+  margin-top: 2rem;
+}
+
+.mb2 {
+  margin-bottom: 2rem;
+}
+
 .title-main {
   color: #a36879;
+}
+
+.btn {
+  background-color: #a36879;
+  color: white;
+}
+
+input:active {
+  border: none;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.primary-button {
+  background-color: #a36879 !important;
+  color: white !important;
+  font-weight: 500 !important;
 }
 
 /*# sourceMappingURL=common.css.map */

@@ -3,7 +3,33 @@ $primary-color: #a36879;
 .mt1{
     margin-top: 1rem;
 }
+.mt2{
+    margin-top: 2rem;
+}
+
+.mb2{
+    margin-bottom: 2rem;
+}
 
 .title-main{
     color: $primary-color;
+}
+
+.btn{
+    background-color: $primary-color;
+    color: white;
+}
+
+input:active{
+    border: none;
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+
+.primary-button{
+    background-color: $primary-color !important;
+    color: white !important;;
+    font-weight: 500 !important;
 }

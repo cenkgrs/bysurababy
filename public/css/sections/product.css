@@ -45,11 +45,15 @@
   text-align: center;
   margin: 0.1rem auto;
   width: 100%;
+  transition: 0.5s;
 }
 
 .product .product-summary .sale-button:hover {
   background-color: #cd5b7c;
   border-radius: 10px;
+  transition: 0.5s;
 }
+
+/* FILTERS */
 
 /*# sourceMappingURL=product.css.map */

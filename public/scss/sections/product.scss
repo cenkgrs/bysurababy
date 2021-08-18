@@ -49,9 +49,17 @@ $shadow-color: #d5d5d5;
     text-align: center;
     margin: .1rem auto;
     width: 100%;
+    transition: .5s;
 }
 
 .product .product-summary .sale-button:hover{
     background-color: $primary-color-hover;
     border-radius: 10px;
+    transition: .5s;
+}
+
+/* FILTERS */
+
+.product-filter{
+
 }

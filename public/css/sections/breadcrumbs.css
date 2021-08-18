@@ -4,7 +4,6 @@
 }
 
 .breadcrumbs li {
-  margin-right: 1rem;
   display: inline;
   font-weight: 500;
   font-size: 0.9rem;
@@ -13,6 +12,12 @@
 .breadcrumbs li a {
   text-decoration: none;
   color: #000000c9;
+}
+
+.breadcrumbs li i {
+  font-size: 0.5rem;
+  color: #444;
+  margin: 0 0.5rem;
 }
 
 /*# sourceMappingURL=breadcrumbs.css.map */
