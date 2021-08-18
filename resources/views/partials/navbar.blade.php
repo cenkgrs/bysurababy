@@ -13,7 +13,19 @@
                     <button class="btn search-button">Ara</button>
                 </div>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-5">
+                <div class="auth">
+                @auth
+                    <button class="btn"><i class="fa fa-user"></i>Hesabım</button>
+                @endauth
+                @guest
+                    <button class="btn"><i class="fa fa-user"></i>Giriş Yap / Üye Ol</button>
+                @endguest
+                </div>
+                <div class="shopping-cart">
+                    <button class="btn"><i class="fas fa-shopping-basket"></i>Sepetim</button>
+                </div>
+            </div>
         </div>
     </div>
 
