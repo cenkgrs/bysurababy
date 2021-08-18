@@ -25,3 +25,5 @@ Route::get('/index', function () {
 
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 
+Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
+

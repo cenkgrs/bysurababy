@@ -47,4 +47,9 @@
   width: 100%;
 }
 
+.product .product-summary .sale-button:hover {
+  background-color: #cd5b7c;
+  border-radius: 10px;
+}
+
 /*# sourceMappingURL=product.css.map */

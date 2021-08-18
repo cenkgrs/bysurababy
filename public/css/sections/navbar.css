@@ -1,9 +1,26 @@
-.bg-primary {
-  background: #17fae0;
+.nav-bar {
+  color: #a36879;
 }
 
-.bg-secondary {
-  background: #f3497e;
+.nav-bar img {
+  width: 100%;
+  height: auto;
+}
+
+.nav-bar .nav-bar-search {
+  position: relative;
+}
+
+.nav-bar .nav-bar-search input {
+  width: 100%;
+}
+
+.nav-bar .nav-bar-search .search-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #a36879;
+  color: white;
 }
 
 /*# sourceMappingURL=navbar.css.map */

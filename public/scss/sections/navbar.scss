@@ -1,9 +1,27 @@
-$primary-color: #17fae0;
-$secondary-color: #f3497e;
+$primary-color: #a36879;
 
-.bg-primary{
-    background: $primary-color;
+.nav-bar{
+    color: $primary-color;
+
 }
-.bg-secondary{
-    background: $secondary-color;
+
+.nav-bar img{
+    width: 100%;
+    height: auto;
+}
+
+.nav-bar .nav-bar-search{
+    position: relative;
+}
+
+.nav-bar .nav-bar-search input{
+    width: 100%;
+}
+
+.nav-bar .nav-bar-search .search-button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: $primary-color;
+    color: white;
 }
