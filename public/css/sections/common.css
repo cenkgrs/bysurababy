@@ -1,9 +1,9 @@
 .mt1 {
-  margin-top: 1rem;
+  margin-top: 1rem !important;
 }
 
 .mt2 {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
 .mb2 {
@@ -32,6 +32,10 @@ input:focus {
   background-color: #a36879 !important;
   color: white !important;
   font-weight: 500 !important;
+}
+
+.color-primary {
+  color: #a36879;
 }
 
 /*# sourceMappingURL=common.css.map */

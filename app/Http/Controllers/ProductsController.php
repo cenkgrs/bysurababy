@@ -36,7 +36,7 @@ class ProductsController extends Controller
                     "route" => "products",
                 ],
                 2 => [
-                    "title" => "Üst Kıyafet",
+                    "title" => "Bebe Giyim",
                     "route" => "products?category_id=1"
                 ]
             ],

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row mt2">
     <div class="col-lg-3">
         @include ('products.partials.filter')
     </div>

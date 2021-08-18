@@ -32,12 +32,32 @@
   color: white;
 }
 
+.nav-bar .auth {
+  float: right;
+}
+
 .nav-bar .auth i {
   margin-right: 1rem;
 }
 
 .nav-bar .shopping-cart i {
   margin-right: 1rem;
+}
+
+.upper-navbar {
+  float: right;
+}
+
+.upper-navbar ul li {
+  display: inline;
+  font-weight: 500;
+  font-size: 0.75rem;
+  margin: auto 1rem;
+}
+
+.upper-navbar li a {
+  text-decoration: none;
+  color: #000000c9;
 }
 
 /*# sourceMappingURL=navbar.css.map */

@@ -1,6 +1,6 @@
 <div class="row">
 @foreach ($products as $product)
-    <div class="col-lg-3">
+    <div class="col-lg-4">
         <div class="product">
             <div class="product-image">
 
@@ -14,7 +14,7 @@
             </div>
             <div class="product-summary">
                 <div class="product-price">
-                    {{ number_format((float)$product->price->sale_price, 2, '.', '') }} TL
+                    {{ number_format((float)$product->price->sale_price, 2, '.', '') }} ₺
                 </div>
                 <div class="btn sale-button">
                     Sepete Ekle
