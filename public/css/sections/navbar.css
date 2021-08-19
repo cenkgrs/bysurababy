@@ -63,6 +63,7 @@
 
 .navbar-categories {
   border-top: 2px solid #cd5b7c;
+  box-shadow: 0 0 3px #d5d5d5;
 }
 
 .navbar-categories .container {
@@ -78,7 +79,9 @@
 .navbar-categories ul li {
   display: inline;
   padding: 10px 120px;
-  box-shadow: 0 0 3px #d5d5d5;
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #d5d5d561;
 }
 
 .navbar-categories ul li a {

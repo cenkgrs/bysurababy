@@ -15,15 +15,12 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('index');
+Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('index');
 
-Route::get('/index', function () {
-    return view('home.index');
-});
 
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
+Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
 

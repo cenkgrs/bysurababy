@@ -21,10 +21,11 @@
 
     @include('partials.categories')
 
-    <div class="container mt1">
+    <div class="container mt2">
 
-        <h3 class="title-main">{{ $title }}</h3>
-
+        @if (isset($title) && $title)
+            <h3 class="title-main">{{ $title }}</h3>
+        @endif
 
         @include('partials.breadcrumbs')
 
