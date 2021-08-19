@@ -10,4 +10,5 @@ class SubCategories extends Model
     use HasFactory;
 
     protected $table = 'sub_categories';
+
 }

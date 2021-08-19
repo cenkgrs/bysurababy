@@ -169,6 +169,43 @@
 }
 
 /* FILTERS */
+.filter-category {
+  margin-top: 1rem;
+}
+
+.filter-category ul:first-child {
+  padding-left: 0;
+}
+
+.filter-category ul {
+  list-style-type: none;
+}
+
+.filter-category ul li input {
+  margin-right: 1rem;
+}
+
+.filter-price {
+  margin-top: 1rem;
+}
+
+.filter-price .primary-button {
+  width: 100%;
+}
+
+.filter-gender {
+  margin-top: 1rem;
+}
+
+.filter-gender ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.filter-gender ul li input {
+  margin-right: 1rem;
+}
+
 .coming-soon {
   background-image: linear-gradient(#a36879, #0000);
   background-position: center;
