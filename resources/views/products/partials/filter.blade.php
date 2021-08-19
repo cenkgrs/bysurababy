@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     @if (Request::input('category') || Request::input('sub_category'))
                         <ul>
-                            <li><input type="checkbox" id="selected_sub_category" name="sub_category" value="{{ $category->id }}" checked>{{ $category->name }}
+                            <li><input type="checkbox" id="selected_sub_category" name="category" value="{{ $category->id }}" checked>{{ $category->name }}
                                 <ul>
                                     @foreach ($category->subCategories as $sub_cat)
                                         <li><input type="checkbox" name="sub_category" {{ Request::input('sub_category') == $sub_cat->id ? 'checked' : '' }} value="{{ $sub_cat->id }}">{{ $sub_cat->name }}
