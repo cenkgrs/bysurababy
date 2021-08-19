@@ -24,6 +24,22 @@ class ProductsController extends Controller
                 $q->where('sub_category_id', $input["sub_category"]);
             }
 
+            if (isset($input["gender"]) && $input["gender"]) {
+                $q->where("gender", $input["gender"]);
+            }
+
+            if (isset($input["price-min"]) && $input["price-min"]) {
+                $q->whereHas("price", function($q) use ($input) {
+                    $q->where("sale_price", ">=", $input["price-min"]);
+                });
+            }
+
+            if (isset($input["price-max"]) && $input["price-max"]) {
+                $q->whereHas("price", function($q) use ($input) {
+                    $q->where("sale_price", "<=", $input["price-max"]);
+                });
+            }
+
             })->paginate(30);
 
         if (isset($input["category"]) && $input["category"]) {
@@ -44,6 +60,7 @@ class ProductsController extends Controller
             !isset($category) ? $category = Categories::where('id', $sub_category->category_id)->first() : '' ;
         }
 
+        // Get categories and sub categories for listing
         $categories = Categories::with('subCategories')->get();
         $sub_categories = SubCategories::get();
 
@@ -66,7 +83,7 @@ class ProductsController extends Controller
             ],
         ];
 
-
+        // Get category breadcrumb
         if (isset($category)) {
             $data["breadcrumbs"][3] = [
                 "title" => $category->name,
@@ -74,6 +91,7 @@ class ProductsController extends Controller
             ];
         }
 
+        // Get sub category breadcrumb
         if (isset($sub_category)) {
             $data["breadcrumbs"][4] = [
                 "title" => $sub_category->name,

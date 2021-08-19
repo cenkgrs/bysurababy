@@ -14,6 +14,14 @@ let Product = function ()
                 } else {
                 }
             });
+
+            $('.category-checkbox').on('change', function() {
+                $('.category-checkbox').not(this).prop('checked', false);
+            });
+
+            $('.sub-category-checkbox').on('change', function() {
+                $('.sub-category-checkbox').not(this).prop('checked', false);
+            });
         })
     }
 
