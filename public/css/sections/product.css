@@ -33,12 +33,12 @@
 
 .product .product-price {
   text-align: center;
-  color: #a36879;
+  color: #cd5b7c;
   font-weight: 500;
 }
 
 .product .product-summary .sale-button {
-  background-color: #a36879;
+  background-color: #cd5b7c;
   color: white;
   font-weight: 500;
   /* display: none; */

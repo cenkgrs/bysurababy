@@ -11,11 +11,11 @@
 }
 
 .title-main {
-  color: #a36879;
+  color: #cd5b7c;
 }
 
 .btn {
-  background-color: #a36879;
+  background-color: #cd5b7c;
   color: white;
 }
 
@@ -29,13 +29,13 @@ input:focus {
 }
 
 .primary-button {
-  background-color: #a36879 !important;
+  background-color: #cd5b7c !important;
   color: white !important;
   font-weight: 500 !important;
 }
 
 .color-primary {
-  color: #a36879;
+  color: #cd5b7c;
 }
 
 /*# sourceMappingURL=common.css.map */

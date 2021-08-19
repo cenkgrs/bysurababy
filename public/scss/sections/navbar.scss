@@ -1,4 +1,5 @@
-$primary-color: #a36879;
+$primary-color: #cd5b7c;
+/* a36879 */
 $color-black : #000000c9;
 
 .nav-bar{
@@ -58,6 +59,30 @@ $color-black : #000000c9;
 }
 
 .upper-navbar li a {
+    text-decoration: none;
+    color: $color-black;
+}
+
+.navbar-categories {
+    border-top: 2px solid #cd5b7c;
+}
+.navbar-categories .container {
+    padding:10px 0;
+}
+
+.navbar-categories ul{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar-categories ul li {
+    display: inline;
+    padding: 10px 120px;
+    box-shadow: 0 0 3px #d5d5d5;
+}
+
+.navbar-categories ul li a {
     text-decoration: none;
     color: $color-black;
 }

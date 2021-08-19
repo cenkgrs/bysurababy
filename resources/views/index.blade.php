@@ -19,9 +19,12 @@
 <body>
     @include('partials.navbar')
 
+    @include('partials.categories')
+
     <div class="container mt1">
 
         <h3 class="title-main">{{ $title }}</h3>
+
 
         @include('partials.breadcrumbs')
 
