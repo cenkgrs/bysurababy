@@ -89,6 +89,10 @@
   .nav-bar .shopping-cart i {
     margin-right: 0;
   }
+
+  .upper-navbar {
+    display: none;
+  }
 }
 .breadcrumbs {
   margin-top: 1rem;
@@ -169,6 +173,10 @@
 }
 
 /* FILTERS */
+.filter .primary-button {
+  width: 100%;
+}
+
 .filter-category {
   margin-top: 1rem;
 }
@@ -187,10 +195,6 @@
 
 .filter-price {
   margin-top: 1rem;
-}
-
-.filter-price .primary-button {
-  width: 100%;
 }
 
 .filter-gender {

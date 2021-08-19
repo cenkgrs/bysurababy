@@ -26,6 +26,10 @@
   .nav-bar .shopping-cart i {
     margin-right: 0;
   }
+
+  .upper-navbar {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=m_navbar.css.map */
