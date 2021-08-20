@@ -24,3 +24,10 @@ Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\Pr
 
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
 
+Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard'); 
+
+Route::match(['get', 'post'], '/login', 'App\Http\Controllers\Auth\AuthController@login')->name('login');
+Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthController@register')->name('register');
+
+Route::get('signout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('signout');
+
