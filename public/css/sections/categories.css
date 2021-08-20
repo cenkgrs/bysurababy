@@ -1,0 +1,15 @@
+.category {
+  background-image: url("public/images/products/1.jpg");
+  box-shadow: 0 0 3px #d5d5d5;
+  height: 25vh;
+}
+
+.category span {
+  position: relative;
+  left: 35%;
+  top: 40%;
+  -webkit-transform: translate(-40%, -50%);
+  transform: translate(-40%, -50%);
+}
+
+/*# sourceMappingURL=categories.css.map */
