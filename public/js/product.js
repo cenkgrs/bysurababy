@@ -22,6 +22,10 @@ let Product = function ()
             $('.sub-category-checkbox').on('change', function() {
                 $('.sub-category-checkbox').not(this).prop('checked', false);
             });
+
+            $(".product").on("click", function () {
+                
+            })
         })
     }
 

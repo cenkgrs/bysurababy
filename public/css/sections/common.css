@@ -38,4 +38,8 @@ input:focus {
   color: #cd5b7c;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 /*# sourceMappingURL=common.css.map */

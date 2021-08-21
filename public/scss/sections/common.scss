@@ -37,3 +37,7 @@ input:focus{
 .color-primary{
     color: $primary-color;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}

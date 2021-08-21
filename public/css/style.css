@@ -122,6 +122,15 @@
   .upper-navbar {
     display: none;
   }
+
+  .navbar-categories {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .navbar-categories ul li {
+    padding: 10px 20px;
+  }
 }
 .breadcrumbs {
   margin-top: 1rem;
@@ -251,6 +260,105 @@
   top: 40%;
   -webkit-transform: translate(-40%, -50%);
   transform: translate(-40%, -50%);
+}
+
+.footer-clean {
+  padding: 25px 0 35px 0;
+  background-color: #fff;
+  color: #4b4c4d;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid #cd5b7c;
+}
+
+.footer-clean h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #cd5b7c;
+}
+
+.footer-clean ul {
+  padding: 0;
+  list-style: none;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.footer-clean ul li {
+  margin-bottom: 0.3rem;
+}
+
+.footer-clean ul a {
+  color: #000000c9;
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.footer-clean ul a span {
+  color: #000000c9;
+}
+
+.footer-clean ul a:hover {
+  opacity: 1;
+}
+
+.footer-clean .item.social {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .footer-clean .item {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align: center;
+  }
+}
+.footer-clean .item.social > a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  margin-top: 22px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 991px) {
+  .footer-clean .item.social > a {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .footer-clean .item.social > a {
+    margin-top: 10px;
+  }
+}
+.footer-clean .copyright {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 13px;
+  opacity: 0.6;
 }
 
 .coming-soon {
@@ -383,6 +491,10 @@ input:focus {
 
 .color-primary {
   color: #cd5b7c;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /*!

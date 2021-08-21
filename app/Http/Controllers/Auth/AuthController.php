@@ -14,7 +14,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if ($request->isMethod('get')) {
+        if (Auth::check()) {
+            return redirect()->route("products");
+        }
+
+        if ($request->isMethod('get') && !isset($request->email)) {
+
             return view('auth.login');
         }
 
@@ -22,13 +27,13 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('products')
                         ->withSuccess('Signed in');
         }
-  
+
         return redirect("login")->withSuccess('Kullanıcı adı veya şifre hatalı');
     }
 
@@ -43,11 +48,11 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
-           
+
         $data = $request->all();
         $check = $this->create($data);
-         
-        return redirect("dashboard")->withSuccess('You have signed-in');
+
+        return redirect("products")->withSuccess('You have signed-in');
     }
 
     public function create(array $data)
@@ -57,23 +62,23 @@ class AuthController extends Controller
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
-    }    
-    
+    }
+
 
     public function dashboard()
     {
         if(Auth::check()){
             return view('dashboard');
         }
-  
+
         return redirect("login")->withSuccess('You are not allowed to access');
     }
-    
+
 
     public function signOut() {
         Session::flush();
         Auth::logout();
-  
+
         return Redirect('login');
     }
 }

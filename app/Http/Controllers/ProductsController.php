@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Products;
 use App\Models\Categories;
@@ -12,6 +13,11 @@ class ProductsController extends Controller
 {
     public function index(Request $request)
     {
+        // Remove when publishing - for testing
+        if (!Auth::check()) {
+            return redirect()->route('index');
+        }
+
         $input = $request->all();
 
         $products = Products::with('price', 'category', 'sub_category')->where(function ($q) use ($input) {

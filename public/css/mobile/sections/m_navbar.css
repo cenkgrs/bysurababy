@@ -30,6 +30,15 @@
   .upper-navbar {
     display: none;
   }
+
+  .navbar-categories {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .navbar-categories ul li {
+    padding: 10px 20px;
+  }
 }
 
 /*# sourceMappingURL=m_navbar.css.map */
