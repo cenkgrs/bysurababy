@@ -12,7 +12,7 @@
                 <div class="product-price">
                     {{ number_format((float)$product->price->sale_price, 2, '.', '') }} ₺
                 </div>
-                <div class="btn sale-button">
+                <div class="btn sale-button primary-button">
                     Sepete Ekle
                 </div>
             </div>

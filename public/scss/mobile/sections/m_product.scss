@@ -1,0 +1,5 @@
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    .product{margin-top: 1rem}
+}

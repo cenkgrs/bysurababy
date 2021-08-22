@@ -1,8 +1,10 @@
 $primary-color : #000000c9;
+$font-size: 1.7vh;
 
 .breadcrumbs{
     margin-top: 1rem;
     padding-left: 0;
+    font-size: $font-size;
 }
 .breadcrumbs li{
     display: inline;

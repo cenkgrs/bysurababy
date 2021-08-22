@@ -25,7 +25,7 @@
                         <div class="nav-bar-search">
                             <i class="fa fa-search"></i>
                             <input class="form-control" type="text" name="search" placeholder="Aramak istediğiniz ürünün ismini veya kategorisini giriniz...">
-                            <button class="btn search-button">Ara</button>
+                            <button class="btn search-button primary-button">Ara</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">
@@ -33,7 +33,9 @@
                             <div class="col-lg-8 col-8">
                                 <div class="auth">
                                     @auth
-                                        <button class="btn primary-button"><i class="fa fa-user"></i>Hesabım</button>
+                                        <button class="btn primary-button"><i class="fa fa-user"></i>
+                                            <span>Hesabım</span>
+                                        </button>
                                     @endauth
                                     @guest
                                         <button class="btn primary-button"><i class="fa fa-user"></i>

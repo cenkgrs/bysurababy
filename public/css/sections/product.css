@@ -16,12 +16,13 @@
 .product .product-image img {
   width: 100%;
   height: auto;
+  height: 22.5vh;
 }
 
 .product .product-title {
   text-align: center;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 1.45vh;
   letter-spacing: 0.05rem;
   line-height: 3rem;
 }
@@ -35,6 +36,7 @@
   text-align: center;
   color: #cd5b7c;
   font-weight: 500;
+  font-size: 1.6vh;
 }
 
 .product .product-summary .sale-button {
@@ -55,6 +57,10 @@
 }
 
 /* FILTERS */
+.filter {
+  font-size: 1.6vh;
+}
+
 .filter .primary-button {
   width: 100%;
 }

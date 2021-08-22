@@ -1,4 +1,4 @@
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 995px) {
   #search-column {
     display: none;
   }
@@ -38,6 +38,10 @@
 
   .navbar-categories ul li {
     padding: 10px 20px;
+  }
+
+  .nav-bar .fixed-navigation {
+    padding: 5px 15px;
   }
 }
 

@@ -24,6 +24,8 @@
 .nav-bar img {
   width: 100%;
   height: auto;
+  height: 3.7vh;
+  width: 20.2vh;
 }
 
 .nav-bar .nav-bar-search {
@@ -32,9 +34,14 @@
   float: right;
 }
 
+.nav-bar .nav-bar-search i {
+  font-size: 1.6vh;
+}
+
 .nav-bar .nav-bar-search input {
   width: 100%;
   padding-left: 30px;
+  font-size: 1.6vh;
 }
 
 .nav-bar .nav-bar-search i {
@@ -65,6 +72,7 @@
 
 .upper-navbar {
   float: right;
+  font-size: 1.6vh;
 }
 
 .upper-navbar ul li {
@@ -82,6 +90,7 @@
 .navbar-categories {
   border-top: 2px solid #cd5b7c;
   box-shadow: 0 0 3px #d5d5d5;
+  font-size: 1.7vh;
 }
 
 .navbar-categories .container {
@@ -107,7 +116,7 @@
   color: #000000c9;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 995px) {
   #search-column {
     display: none;
   }
@@ -148,10 +157,15 @@
   .navbar-categories ul li {
     padding: 10px 20px;
   }
+
+  .nav-bar .fixed-navigation {
+    padding: 5px 15px;
+  }
 }
 .breadcrumbs {
   margin-top: 1rem;
   padding-left: 0;
+  font-size: 1.7vh;
 }
 
 .breadcrumbs li {
@@ -189,12 +203,13 @@
 .product .product-image img {
   width: 100%;
   height: auto;
+  height: 22.5vh;
 }
 
 .product .product-title {
   text-align: center;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 1.45vh;
   letter-spacing: 0.05rem;
   line-height: 3rem;
 }
@@ -208,6 +223,7 @@
   text-align: center;
   color: #cd5b7c;
   font-weight: 500;
+  font-size: 1.6vh;
 }
 
 .product .product-summary .sale-button {
@@ -228,6 +244,10 @@
 }
 
 /* FILTERS */
+.filter {
+  font-size: 1.6vh;
+}
+
 .filter .primary-button {
   width: 100%;
 }
@@ -265,6 +285,11 @@
   margin-right: 1rem;
 }
 
+@media screen and (max-width: 900px) {
+  .product {
+    margin-top: 1rem;
+  }
+}
 .categories {
   list-style-type: none;
 }
@@ -502,6 +527,7 @@ html, body {
 
 .title-main {
   color: #cd5b7c;
+  font-size: 2.5vh;
 }
 
 .btn {
@@ -522,6 +548,7 @@ input:focus {
   background-color: #cd5b7c !important;
   color: white !important;
   font-weight: 500 !important;
+  font-size: 1.6vh !important;
 }
 
 .color-primary {

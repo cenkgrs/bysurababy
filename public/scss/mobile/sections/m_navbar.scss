@@ -1,4 +1,4 @@
-$small: 900px;
+$small: 995px;
 
 @media screen and (max-width: $small) {
     #search-column{
@@ -37,6 +37,10 @@ $small: 900px;
 
     .navbar-categories ul li {
         padding: 10px 20px;
+    }
+
+    .nav-bar .fixed-navigation{
+        padding: 5px 15px;
     }
 }
 

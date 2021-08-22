@@ -1,6 +1,9 @@
 $primary-color: #cd5b7c;
 $primary-color-hover: #cd5b7c;
 $shadow-color: #d5d5d5;
+$filter-font-size: 1.6vh;
+body{
+}
 .product{
     padding: 8px;
     box-shadow: 0 0 3px $shadow-color;
@@ -20,12 +23,13 @@ $shadow-color: #d5d5d5;
 .product .product-image img{
     width: 100%;
     height: auto;
+    height: 22.5vh;
 }
 
 .product .product-title{
     text-align: center;
     font-weight: 400;
-    font-size: .9rem;
+    font-size: 1.45vh;
     letter-spacing: 0.05rem;
     line-height: 3rem;
 }
@@ -39,6 +43,7 @@ $shadow-color: #d5d5d5;
     text-align: center;
     color: $primary-color;
     font-weight: 500;
+    font-size: 1.6vh;
 }
 
 .product .product-summary .sale-button{
@@ -59,6 +64,10 @@ $shadow-color: #d5d5d5;
 }
 
 /* FILTERS */
+
+.filter{
+    font-size: $filter-font-size;
+}
 
 .filter .primary-button{
     width: 100%;
