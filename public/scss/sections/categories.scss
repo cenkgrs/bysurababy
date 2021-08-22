@@ -1,14 +1,19 @@
-.category{
-    background-image: url('public/images/products/1.jpg');
-    
+.categories{
+    list-style-type: none;
+}
+.categories li {
+    display: inline-block;
     box-shadow: 0 0 3px #d5d5d5;
-    height: 25vh;
+    height: 5vh;
+    width: 30vh;
+    margin: 0 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-.category span{
+.categories li span {
     position: relative;
-    left: 35%;
-    top: 40%;
-    -webkit-transform: translate(-40%, -50%);
-    transform: translate(-40%, -50%);
+    left: 11vh;
+    top: 1vh;
 }

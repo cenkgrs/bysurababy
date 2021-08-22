@@ -1,5 +1,13 @@
 $primary-color: #cd5b7c;
 
+html,body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.content{
+    flex: 1;
+}
 .mt1{
     margin-top: 1rem !important;
 }

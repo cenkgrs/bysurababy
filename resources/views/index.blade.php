@@ -17,23 +17,25 @@
 
 </head>
 <body>
-    @include('partials.navbar')
+        @include('partials.navbar')
 
-    @include('partials.categories')
+        <div class="content">
 
-    <div class="container mt2">
+            @include('partials.categories')
 
-        @if (isset($title) && $title)
-            <h3 class="title-main">{{ $title }}</h3>
-        @endif
+            <div class="container mt2">
 
-        @include('partials.breadcrumbs')
+                @if (isset($title) && $title)
+                    <h3 class="title-main">{{ $title }}</h3>
+                @endif
 
-        <!--@include('partials.soon')-->
+                @include('partials.breadcrumbs')
 
-        @yield('content')
-    </div>
+                @yield('content')
+            </div>
 
-    @include('partials.footer')
+        </div>
+
+        @include('partials.footer')
 </body>
 </html>

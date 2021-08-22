@@ -2,14 +2,13 @@
 
 @section('content')
 
-<div class="row">
+<ul class="categories">
     @foreach ($categories as $category)
-        <div class="col-lg-3">
-            <div class="category">
-                <span>{{ $category->name }}</span>
-            </div>
-        </div>
+        <li class="category" <!--style="background-image: url(../images/categories/{{ $category->slug }}.jpg);"-->
+            <span>{{ $category->name }}</span>
+        </li>
     @endforeach
-</div>
+</ul
+
 
 @endsection

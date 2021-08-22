@@ -24,8 +24,24 @@ let Product = function ()
             });
 
             $(".product").on("click", function () {
-                
+
             })
+
+            // Check scroll height
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+
+                if(scroll > 50){
+                    $(".nav-bar .nav").addClass("fixed-navigation");
+                }
+                else if(scroll < 50){
+                    $(".nav-bar .nav").removeClass("fixed-navigation");
+                }
+                else if(scroll > 100){
+                    alert("a");
+                }
+
+            });
         })
     }
 
