@@ -550,6 +550,7 @@ input:focus {
   color: white !important;
   font-weight: 500 !important;
   font-size: 1.6vh !important;
+  font-size: 1rem !important;
 }
 
 .color-primary {
@@ -596,9 +597,16 @@ input:focus {
 
 .account-form a {
   text-decoration: none;
-  color: #21e5c7e0 !important;
+  color: #010101 !important;
+  font-weight: 500;
 }
 
+@media screen and (max-width: 900px) {
+  .account-form {
+    border: none;
+    box-shadow: none;
+  }
+}
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

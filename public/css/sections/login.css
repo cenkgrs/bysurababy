@@ -34,7 +34,8 @@
 
 .account-form a {
   text-decoration: none;
-  color: #21e5c7e0 !important;
+  color: #010101 !important;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=login.css.map */

@@ -1,5 +1,6 @@
 $primary-color: #cd5b7c;
 $secondary-color: #21e5c7e0;
+$third-color: #010101;
 
 .account-container{
     position: relative;
@@ -37,5 +38,6 @@ $secondary-color: #21e5c7e0;
 
 .account-form a {
     text-decoration: none;
-    color: $secondary-color !important;
+    color: $third-color !important;
+    font-weight: 500;
 }

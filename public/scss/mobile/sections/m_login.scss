@@ -1,0 +1,8 @@
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    .account-form{
+        border: none;
+        box-shadow: none;
+    }
+}
