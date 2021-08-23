@@ -36,6 +36,7 @@
 
         </div>
 
-        @include('partials.footer')
 </body>
+@include('partials.footer')
+
 </html>
