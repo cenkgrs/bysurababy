@@ -1,0 +1,17 @@
+$pink: pink;
+$beige: beige;
+$orange: #e39a71;
+
+.color-circle{
+    height: 2vh;
+    width: 2vh;
+    border-radius: 1vh;
+    border: 1px solid #dedede;
+    padding: 1vh;
+    text-align: center;
+    margin: .5vh;
+}
+
+.pink{background-color: $pink}
+.beige{background-color: $beige}
+.orange{background-color: $orange}

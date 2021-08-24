@@ -1,0 +1,23 @@
+.color-circle {
+  height: 2vh;
+  width: 2vh;
+  border-radius: 1vh;
+  border: 1px solid #dedede;
+  padding: 1vh;
+  text-align: center;
+  margin: 0.5vh;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.beige {
+  background-color: beige;
+}
+
+.orange {
+  background-color: #e39a71;
+}
+
+/*# sourceMappingURL=colors.css.map */

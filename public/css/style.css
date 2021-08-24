@@ -191,6 +191,7 @@
   box-shadow: 0 0 3px #d5d5d5;
   font-family: "Nunito";
   transition: 0.5s;
+  border-radius: 1.3vh;
 }
 
 .product:hover {
@@ -213,6 +214,20 @@
   font-size: 1.45vh;
   letter-spacing: 0.05rem;
   line-height: 3rem;
+}
+
+.product .product-colors {
+  display: inline-flex;
+  width: 100%;
+  margin: 0 auto 0 2vh;
+}
+
+.product .product-age {
+  float: right;
+  font-size: 1.6vh;
+  font-weight: 600;
+  color: #cd5b7c;
+  margin-right: 2vh;
 }
 
 .product .product-summary {
@@ -18018,6 +18033,28 @@ readers do not read off random characters that represent icons */
   overflow: visible;
   position: static;
   width: auto;
+}
+
+.color-circle {
+  height: 2vh;
+  width: 2vh;
+  border-radius: 1vh;
+  border: 1px solid #dedede;
+  padding: 1vh;
+  text-align: center;
+  margin: 0.5vh;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.beige {
+  background-color: beige;
+}
+
+.orange {
+  background-color: #e39a71;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -76,7 +76,7 @@ class ProductsController extends Controller
             "sub_categories" => $sub_categories,
             "category" => $category ?? null,
             "sub_category" => $sub_category ?? null,
-            "title" => "Ürünler",
+            "title" => __("Ürünler"),
             "breadcrumbs" => [
                 0 => [
                     "title" => "Ana Sayfa",
