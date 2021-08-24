@@ -1,3 +1,11 @@
+@if ($products->isEmpty())
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4 class="color-primary">{{ __("Aradığınız kriterlerde ürün bulunamadı") }}</h4>
+        </div>
+    </div>
+@endif
+
 <div class="row">
     @foreach ($products as $product)
         <div class="col-lg-4">
