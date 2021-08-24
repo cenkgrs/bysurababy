@@ -33,14 +33,23 @@
                             <div class="col-lg-8 col-8">
                                 <div class="auth">
                                     @auth
-                                        <button class="btn primary-button"><i class="fa fa-user"></i>
-                                            <span>{{ __("Hesabım") }}</span>
-                                        </button>
+                                        <div class="dropdown">
+                                            <button class="btn primary-button">
+                                                <i class="fa fa-user"></i>
+                                                <span>{{ __("Hesabım") }}</span>
+                                            </button>
+
+                                            <div class="dropdown-content">
+                                                <a href="#">{{ __("Siparişlerim") }}</a>
+                                                <a href="#">{{ __("Ayarlarım") }}</a>
+                                                <a href="{{ route('logout') }}">{{ __("Çıkış Yap") }}</a>
+                                            </div>
+                                        </div>
                                     @endauth
                                     @guest
-                                        <button class="btn primary-button"><i class="fa fa-user"></i>
+                                        <a href="{{ route('login') }}" class="btn primary-button"><i class="fa fa-user"></i>
                                             <span>{{ __("Giriş Yap / Üye Ol") }}</span>
-                                        </button>
+                                        </a>
                                     @endguest
                                 </div>
                             </div>

@@ -1,3 +1,5 @@
+$color-black : #000000c9;
+
 .categories{
     list-style-type: none;
     padding: 0;
@@ -13,7 +15,13 @@
     background-size: contain;
 }
 
-.categories li span {
+.categories li a {
+    text-decoration: none;
+    color: $color-black;
+    font-weight: 500;
+}
+
+.categories li a span {
     position: relative;
     left: 11vh;
     top: 1vh;

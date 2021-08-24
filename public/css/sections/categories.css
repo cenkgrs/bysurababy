@@ -14,7 +14,13 @@
   background-size: contain;
 }
 
-.categories li span {
+.categories li a {
+  text-decoration: none;
+  color: #000000c9;
+  font-weight: 500;
+}
+
+.categories li a span {
   position: relative;
   left: 11vh;
   top: 1vh;
