@@ -9,6 +9,11 @@ html,body{
 .content{
     flex: 1;
 }
+
+@font-face {
+    font-display: swap
+}
+
 .mt1{
     margin-top: 1rem !important;
 }

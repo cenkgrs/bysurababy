@@ -205,7 +205,6 @@
 .product .product-image img {
   width: 100%;
   height: auto;
-  height: 22.5vh;
 }
 
 .product .product-title {
@@ -282,6 +281,8 @@
 
 .filter-category ul li input {
   margin-right: 1rem;
+  float: left;
+  margin-top: 0.3rem;
 }
 
 .filter-price {
@@ -299,6 +300,8 @@
 
 .filter-gender ul li input {
   margin-right: 1rem;
+  float: left;
+  margin-top: 0.3rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -555,6 +558,9 @@ html, body {
   flex: 1;
 }
 
+@font-face {
+  font-display: swap;
+}
 .mt1 {
   margin-top: 1rem !important;
 }

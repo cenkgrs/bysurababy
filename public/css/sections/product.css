@@ -17,7 +17,6 @@
 .product .product-image img {
   width: 100%;
   height: auto;
-  height: 22.5vh;
 }
 
 .product .product-title {
@@ -94,6 +93,8 @@
 
 .filter-category ul li input {
   margin-right: 1rem;
+  float: left;
+  margin-top: 0.3rem;
 }
 
 .filter-price {
@@ -111,6 +112,8 @@
 
 .filter-gender ul li input {
   margin-right: 1rem;
+  float: left;
+  margin-top: 0.3rem;
 }
 
 /*# sourceMappingURL=product.css.map */

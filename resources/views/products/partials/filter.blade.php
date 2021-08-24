@@ -24,10 +24,18 @@
                             @else
                                 <ul>
                                     @foreach ($categories as $cat)
-                                        <li><input type="checkbox" class="category-checkbox" name="category" value="{{ $cat->id }}">{{ $cat->name }}
+                                        <li>
+                                            <label>{{ $cat->name }}
+                                                <input type="checkbox" class="category-checkbox" name="category" value="{{ $cat->id }}">
+                                            </label>
                                             <ul>
                                                 @foreach ($cat->subCategories as $sub_cat)
-                                                    <li><input type="checkbox" class="sub-category-checkbox" name="sub_category" value="{{ $sub_cat->id }}">{{ $sub_cat->name }}</li>
+                                                    <li>
+                                                        <label>
+                                                            {{ $sub_cat->name }}
+                                                            <input type="checkbox" class="sub-category-checkbox" name="sub_category" value="{{ $sub_cat->id }}">
+                                                        </label>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -43,13 +51,13 @@
                 </div>
 
                 <div class="filter-price">
-                    <h6>Fiyat Aralığı</h6>
+                    <h6>{{ __("Fiyat Aralığı") }}</h6>
                     <div class="row mt1">
                         <div class="col-lg-6 col-6">
-                            <input type="text" name="price-min" class="form-control" placeholder="En Az" value="{{ Request::input('price-min') ?? '' }}">
+                            <input type="text" name="price-min" class="form-control" placeholder="{{ __("En Az") }}" value="{{ Request::input('price-min') ?? '' }}">
                         </div>
                         <div class="col-lg-6 col-6">
-                            <input type="text" name="price-max" class="form-control" placeholder="En Çok" value="{{ Request::input('price-max') ?? '' }}">
+                            <input type="text" name="price-max" class="form-control" placeholder="{{ __("En Çok") }}" value="{{ Request::input('price-max') ?? '' }}">
                         </div>
 
                     </div>
@@ -60,15 +68,30 @@
                     <div class="row mt1">
                         <div class="col-lg-12">
                             <ul>
-                                <li><input type="checkbox" name="gender" {{ Request::input('gender') == 'male' ? 'checked' : ''}} value="male">Erkek</li>
-                                <li><input type="checkbox" name="gender" {{ Request::input('gender') == 'female' ? 'checked' : ''}} value="female">Kız</li>
-                                <li><input type="checkbox" name="gender" {{ Request::input('gender') == 'unisex' ? 'checked' : ''}} value="unisex">Unisex</li>
+                                <li>
+                                    <label>
+                                        {{ __("Erkek") }}
+                                        <input type="checkbox" name="gender" {{ Request::input('gender') == 'male' ? 'checked' : ''}} value="male">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        {{ __("Kız") }}
+                                        <input type="checkbox" name="gender" {{ Request::input('gender') == 'female' ? 'checked' : ''}} value="female">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        {{ __("Unisex") }}
+                                        <input type="checkbox" name="gender" {{ Request::input('gender') == 'unisex' ? 'checked' : ''}} value="unisex">
+                                    </label>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <button class="btn primary-button" type="submit">Uygula</button>
+                <button class="btn primary-button" type="submit">{{ __("Uygula") }}</button>
 
             </div>
         </div>
