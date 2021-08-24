@@ -11,15 +11,23 @@ class Products extends Model
 
     protected $table = 'products';
 
-    public function price(){
-        return $this->hasOne('App\Models\Prices', 'product_id');
+    public function price()
+    {
+        return $this->belongsTo('App\Models\Prices', 'price_id');
     }
 
-    public function category(){
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo('App\Models\Categories', 'id');
     }
 
-    public function sub_category(){
+    public function sub_category(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne('App\Models\SubCategories', 'id');
+    }
+
+    public function colors() : \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\Products', 'parent_id');
     }
 }

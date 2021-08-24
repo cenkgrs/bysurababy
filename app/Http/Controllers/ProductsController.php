@@ -20,7 +20,7 @@ class ProductsController extends Controller
 
         $input = $request->all();
 
-        $products = Products::with('price', 'category', 'sub_category')->where(function ($q) use ($input) {
+        $products = Products::with('price', 'category', 'sub_category', 'colors')->where(function ($q) use ($input) {
 
             if (isset($input["category"]) && $input["category"]) {
                 $q->where('category_id', $input["category"]);
@@ -46,7 +46,7 @@ class ProductsController extends Controller
                 });
             }
 
-            })->paginate(30);
+            })->whereNull('parent_id')->paginate(30);
 
         if (isset($input["category"]) && $input["category"]) {
             $category = Categories::with('subCategories')->where('id', $input["category"])->first();
