@@ -190,13 +190,13 @@
   padding: 8px;
   box-shadow: 0 0 3px #d5d5d5;
   font-family: "Nunito";
-  transition: 0.5s;
+  transition: 0.2s;
   border-radius: 1.3vh;
 }
 
 .product:hover {
   box-shadow: 0 0 10px 2px #d5d5d5;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 .product:hover .product .product-summary .sale-button {
   display: block;
@@ -324,6 +324,11 @@
 
   .filter {
     font-size: 2vh;
+  }
+}
+@media screen and (min-width: 900px) {
+  .product {
+    margin-bottom: 2vh;
   }
 }
 .categories {

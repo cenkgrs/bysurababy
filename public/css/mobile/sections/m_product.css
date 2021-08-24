@@ -23,5 +23,10 @@
     font-size: 2vh;
   }
 }
+@media screen and (min-width: 900px) {
+  .product {
+    margin-bottom: 2vh;
+  }
+}
 
 /*# sourceMappingURL=m_product.css.map */

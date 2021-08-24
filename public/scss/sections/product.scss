@@ -9,13 +9,13 @@ body{
     padding: 8px;
     box-shadow: 0 0 3px $shadow-color;
     font-family: 'Nunito';
-    transition: .5s;
+    transition: .2s;
     border-radius: 1.3vh;
 }
 
 .product:hover{
     box-shadow: 0 0 10px 2px $shadow-color;
-    transition: .5s;
+    transition: .2s;
 
     .product .product-summary .sale-button{
         display: block;

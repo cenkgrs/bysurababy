@@ -1,4 +1,5 @@
 $small: 900px;
+$desktop: 1500px;
 $filter-font-size: 2vh;
 $title-font-size: 2vh;
 
@@ -29,3 +30,8 @@ $title-font-size: 2vh;
     }
 
 }
+
+@media screen and (min-width: $small) {
+    .product{margin-bottom: 2vh;}
+}
+
