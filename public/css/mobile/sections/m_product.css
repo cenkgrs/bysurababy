@@ -11,8 +11,12 @@
     font-size: 2vh;
   }
 
+  .product .product-age {
+    font-size: 2vh;
+  }
+
   .product .product-price {
-    font-size: 2.1vh;
+    font-size: 2.5vh;
   }
 
   .filter {

@@ -50,7 +50,6 @@ body{
     margin-right: 2vh;
 }
 
-
 .product .product-summary{
     border-top: 1px dotted $shadow-color;
     padding: 8px 0;
@@ -60,7 +59,7 @@ body{
     text-align: center;
     color: $primary-color;
     font-weight: 500;
-    font-size: 1.6vh;
+    font-size: 1.9vh;
 }
 
 .product .product-summary .sale-button{
@@ -69,7 +68,7 @@ body{
     font-weight: 500;
     /* display: none; */
     text-align: center;
-    margin: .1rem auto;
+    margin: .5vh auto;
     width: 100%;
     transition: .5s;
 }

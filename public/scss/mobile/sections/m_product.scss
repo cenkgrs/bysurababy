@@ -13,8 +13,15 @@ $title-font-size: 2vh;
         font-size: $title-font-size;
     }
 
+    .product .product-colors{
+    }
+
+    .product .product-age{
+        font-size: 2vh;
+    }
+
     .product .product-price{
-        font-size: $title-font-size + .1vh;
+        font-size: $title-font-size + .5vh;
     }
 
     .filter{
