@@ -152,6 +152,7 @@
   .navbar-categories {
     overflow-x: auto;
     white-space: nowrap;
+    font-size: 2vh;
   }
 
   .navbar-categories ul li {
@@ -288,6 +289,22 @@
 @media screen and (max-width: 900px) {
   .product {
     margin-top: 1rem;
+  }
+
+  .product .product-image img {
+    height: auto;
+  }
+
+  .product .product-title {
+    font-size: 2vh;
+  }
+
+  .product .product-price {
+    font-size: 2.1vh;
+  }
+
+  .filter {
+    font-size: 2vh;
   }
 }
 .categories {
@@ -561,6 +578,11 @@ input:focus {
   display: none;
 }
 
+@media screen and (max-width: 900px) {
+  .form-control {
+    font-size: 2vh !important;
+  }
+}
 .account-container {
   position: relative;
   display: flex;

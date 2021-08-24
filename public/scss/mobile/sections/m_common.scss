@@ -1,0 +1,7 @@
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    .form-control{
+        font-size: 2vh !important;
+    }
+}

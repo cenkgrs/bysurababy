@@ -1,5 +1,24 @@
 $small: 900px;
+$filter-font-size: 2vh;
+$title-font-size: 2vh;
 
 @media screen and (max-width: $small) {
     .product{margin-top: 1rem}
+
+    .product .product-image img{
+        height: auto;
+    }
+
+    .product .product-title{
+        font-size: $title-font-size;
+    }
+
+    .product .product-price{
+        font-size: $title-font-size + .1vh;
+    }
+
+    .filter{
+        font-size: $filter-font-size;
+    }
+
 }

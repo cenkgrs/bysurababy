@@ -1,4 +1,5 @@
 $small: 995px;
+$sub-font-size: 2vh;
 
 @media screen and (max-width: $small) {
     #search-column{
@@ -33,6 +34,7 @@ $small: 995px;
     .navbar-categories {
         overflow-x: auto;
         white-space: nowrap;
+        font-size: $sub-font-size;
     }
 
     .navbar-categories ul li {

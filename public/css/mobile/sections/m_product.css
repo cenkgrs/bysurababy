@@ -2,6 +2,22 @@
   .product {
     margin-top: 1rem;
   }
+
+  .product .product-image img {
+    height: auto;
+  }
+
+  .product .product-title {
+    font-size: 2vh;
+  }
+
+  .product .product-price {
+    font-size: 2.1vh;
+  }
+
+  .filter {
+    font-size: 2vh;
+  }
 }
 
 /*# sourceMappingURL=m_product.css.map */

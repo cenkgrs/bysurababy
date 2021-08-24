@@ -34,6 +34,7 @@
   .navbar-categories {
     overflow-x: auto;
     white-space: nowrap;
+    font-size: 2vh;
   }
 
   .navbar-categories ul li {
