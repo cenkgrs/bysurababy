@@ -1,4 +1,4 @@
-$small: 995px;
+$small: 1000px;
 $sub-font-size: 2vh;
 
 @media screen and (max-width: $small) {
@@ -11,7 +11,7 @@ $sub-font-size: 2vh;
     .nav-bar .shopping-cart{
         float: right;
     }
-    .nav-bar .auth button span{
+    .nav-bar .auth span{
         display: none;
     }
 

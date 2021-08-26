@@ -1,4 +1,4 @@
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 1000px) {
   #search-column {
     display: none;
   }
@@ -11,7 +11,7 @@
     float: right;
   }
 
-  .nav-bar .auth button span {
+  .nav-bar .auth span {
     display: none;
   }
 

@@ -34,3 +34,12 @@ $text-small: 1.4vh;
 }
 
 .dropdown:hover .dropdown-content {display: block;}
+
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    .dropdown-content {
+        width: fit-content;
+    }
+}
+

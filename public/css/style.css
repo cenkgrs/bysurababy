@@ -116,7 +116,7 @@
   color: #000000c9;
 }
 
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 1000px) {
   #search-column {
     display: none;
   }
@@ -129,7 +129,7 @@
     float: right;
   }
 
-  .nav-bar .auth button span {
+  .nav-bar .auth span {
     display: none;
   }
 
@@ -18118,6 +18118,12 @@ readers do not read off random characters that represent icons */
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media screen and (max-width: 900px) {
+  .dropdown-content {
+    width: fit-content;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
