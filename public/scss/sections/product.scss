@@ -2,13 +2,31 @@ $primary-color: #cd5b7c;
 $secondary-color: #21e5c7e0;
 $shadow-color: #d5d5d5;
 
-.product-photo{
+.product-index .product-photo{
     box-shadow: 0 0 3px $shadow-color;
     border: 1px solid $shadow-color;
 }
 
-.product-photo img{
+.product-index .product-photo img{
     width: 100%;
     height: auto;
+}
+
+.product-index .product-title{
+    font-weight: 500;
+    font-size: 1.7vh;
+    letter-spacing: 0.05rem;
+    line-height: 2rem;
+}
+
+.product-index .product-price {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 2.5vh;
+}
+
+.product-index .product-colors{
+    display: inline-flex;
+    width: 100%;
 }
 

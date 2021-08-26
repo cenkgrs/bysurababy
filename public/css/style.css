@@ -334,14 +334,32 @@
     margin-bottom: 2vh;
   }
 }
-.product-photo {
+.product-index .product-photo {
   box-shadow: 0 0 3px #d5d5d5;
   border: 1px solid #d5d5d5;
 }
 
-.product-photo img {
+.product-index .product-photo img {
   width: 100%;
   height: auto;
+}
+
+.product-index .product-title {
+  font-weight: 500;
+  font-size: 1.7vh;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+}
+
+.product-index .product-price {
+  color: #cd5b7c;
+  font-weight: 600;
+  font-size: 2.5vh;
+}
+
+.product-index .product-colors {
+  display: inline-flex;
+  width: 100%;
 }
 
 .categories {
@@ -583,6 +601,10 @@ html, body {
 
 .mt2 {
   margin-top: 2rem !important;
+}
+
+.mt5 {
+  margin-top: 5rem !important;
 }
 
 .mb2 {

@@ -6,26 +6,29 @@
 
     <script type="text/javascript" src="{{ URL::asset('/js/product.js') }}"></script>
 
-    <div class="row mt2">
-        <div class="col-lg-5">
-            @include('products.product.partials.photo')
+    <div class="product-index">
+        <div class="row mt2">
+            <div class="col-lg-5">
+                @include('products.product.partials.photo')
+            </div>
+            <div class="col-lg-7">
+                @include('products.product.partials.details')
+            </div>
         </div>
-        <div class="col-lg-7">
-            @include('products.product.partials.details')
+
+        <div class="row mt2">
+            <div class="col-lg-12">
+                @include('products.product.partials.similar_products')
+            </div>
+        </div>
+
+        <div class="row mt2">
+            <div class="col-lg-12">
+                @include('products.product.partials.comments')
+            </div>
         </div>
     </div>
 
-    <div class="row mt2">
-        <div class="col-lg-12">
-            @include('products.product.partials.similar_products')
-        </div>
-    </div>
-
-    <div class="row mt2">
-        <div class="col-lg-12">
-            @include('products.product.partials.comments')
-        </div>
-    </div>
 
 
 @endsection
