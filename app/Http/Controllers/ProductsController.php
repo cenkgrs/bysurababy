@@ -107,4 +107,32 @@ class ProductsController extends Controller
 
         return view('products.index', $data);
     }
+
+    public function product(Request $request, $product_id)
+    {
+        $input = $request->all();
+
+        $product = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product_id)->first();
+
+        $data = [
+            "product" => $product,
+            "breadcrumbs" => [
+                0 => [
+                    "title" => "Ana Sayfa",
+                    "route" => "index"
+                ],
+                1 => [
+                    "title" => "Ürünler",
+                    "route" => "products",
+                ],
+                2 => [
+                    "title" => $product->name,
+                    "route" => "/products/" . $product->id,
+                ]
+            ]
+        ];
+
+        return view('products.product.index', $data);
+
+    }
 }

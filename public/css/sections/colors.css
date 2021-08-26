@@ -8,6 +8,10 @@
   margin: 0.5vh;
 }
 
+.color-muted {
+  color: #d5d5d5;
+}
+
 .pink {
   background-color: pink;
 }

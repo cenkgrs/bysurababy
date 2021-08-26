@@ -3,8 +3,10 @@
 
 @use 'sections/breadcrumbs';
 
+@use 'sections/products';
+@use 'mobile/sections/m_products';
+
 @use 'sections/product';
-@use 'mobile/sections/m_product';
 
 @use 'sections/categories';
 

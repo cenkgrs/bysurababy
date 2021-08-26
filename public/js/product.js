@@ -15,6 +15,11 @@ let Product = function ()
                 }
             });
 
+            // Go to product page when clicked on it
+            $(".product").on("click", function() {
+                window.location.href = $(this).data("href");
+            })
+
             $('.category-checkbox').on('change', function() {
                 $('.category-checkbox').not(this).prop('checked', false);
             });

@@ -9,9 +9,9 @@
 <div class="row">
     @foreach ($products as $product)
         <div class="col-lg-4">
-            <div class="product" data-href="{{ route('product', $product->id)}}">
+            <div class="product" data-href="{{ route('product', $product->id) }}">
                 <div class="product-image">
-                    <img src="{{ asset('/images/products/'.$product->id.'.jpg') }}" alt="">
+                    <img src="{{ asset('/images/products/'.$product->id.'.jpg') }}" alt="{{ $product->name }}">
                 </div>
                 <div class="product-title">
                     {{ $product->name }}

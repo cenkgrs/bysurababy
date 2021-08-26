@@ -58,4 +58,8 @@ input:focus {
   display: none;
 }
 
+.bolded {
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=common.css.map */

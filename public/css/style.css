@@ -334,6 +334,16 @@
     margin-bottom: 2vh;
   }
 }
+.product-photo {
+  box-shadow: 0 0 3px #d5d5d5;
+  border: 1px solid #d5d5d5;
+}
+
+.product-photo img {
+  width: 100%;
+  height: auto;
+}
+
 .categories {
   list-style-type: none;
   padding: 0;
@@ -612,6 +622,10 @@ input:focus {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.bolded {
+  font-weight: bold;
 }
 
 @media screen and (max-width: 900px) {
@@ -18064,6 +18078,10 @@ readers do not read off random characters that represent icons */
   padding: 1vh;
   text-align: center;
   margin: 0.5vh;
+}
+
+.color-muted {
+  color: #d5d5d5;
 }
 
 .pink {

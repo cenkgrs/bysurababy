@@ -6,7 +6,7 @@
 
     <title>Coming Soon</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Saira Semi Condensed">
 

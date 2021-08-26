@@ -1,0 +1,125 @@
+$primary-color: #cd5b7c;
+$primary-color-hover: #cd5b7c;
+$secondary-color: #21e5c7e0;
+$shadow-color: #d5d5d5;
+$filter-font-size: 1.6vh;
+body{
+}
+.product{
+    padding: 8px;
+    box-shadow: 0 0 3px $shadow-color;
+    font-family: 'Nunito';
+    transition: .2s;
+    border-radius: 1.3vh;
+}
+
+.product:hover{
+    box-shadow: 0 0 10px 2px $shadow-color;
+    transition: .2s;
+
+    .product .product-summary .sale-button{
+        display: block;
+    }
+}
+
+.product .product-image img{
+    width: 100%;
+    height: auto;
+}
+
+.product .product-title{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.45vh;
+    letter-spacing: 0.05rem;
+    line-height: 3rem;
+}
+
+.product .product-colors{
+    display: inline-flex;
+    width: 100%;
+    margin: 0 auto 0 2vh;
+}
+
+.product .product-age{
+    float: right;
+    font-size: 1.6vh;
+    font-weight: 600;
+    color: $primary-color;
+    margin-right: 2vh;
+}
+
+.product .product-summary{
+    border-top: 1px dotted $shadow-color;
+    padding: 8px 0;
+}
+
+.product .product-price{
+    text-align: center;
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 1.9vh;
+}
+
+.product .product-summary .sale-button{
+    background-color: $primary-color;
+    color: white;
+    font-weight: 500;
+    /* display: none; */
+    text-align: center;
+    margin: .5vh auto;
+    width: 100%;
+    transition: .5s;
+}
+
+.product .product-summary .sale-button:hover{
+    background-color: $primary-color-hover;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+/* FILTERS */
+
+.filter{
+    font-size: $filter-font-size;
+}
+
+.filter .primary-button{
+    width: 100%;
+}
+
+.filter-category{
+    margin-top: 1rem;
+}
+
+.filter-category ul:first-child {
+    padding-left: 0;
+}
+
+.filter-category ul {
+    list-style-type: none;
+}
+
+.filter-category ul li input {
+    margin-right: 1rem;
+    float: left;
+    margin-top: .3rem;
+}
+
+.filter-price{
+    margin-top: 1rem;
+}
+
+.filter-gender{
+    margin-top: 1rem;
+}
+.filter-gender ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.filter-gender ul li input{
+    margin-right: 1rem;
+    float: left;
+    margin-top: .3rem;
+}
