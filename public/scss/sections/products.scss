@@ -30,7 +30,7 @@ body{
 .product .product-title{
     text-align: center;
     font-weight: 400;
-    font-size: 1.45vh;
+    font-size: 1.45vh !important;
     letter-spacing: 0.05rem;
     line-height: 3rem;
 }
@@ -58,7 +58,7 @@ body{
     text-align: center;
     color: $primary-color;
     font-weight: 500;
-    font-size: 1.9vh;
+    font-size: 1.9vh !important;
 }
 
 .product .product-summary .sale-button{

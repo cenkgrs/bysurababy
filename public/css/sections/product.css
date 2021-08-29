@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+.product-index .product .product-summary .sale-button {
+  display: none;
+}
+
 .add-product-button {
   padding: 0.375rem 2rem !important;
 }

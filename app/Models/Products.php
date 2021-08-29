@@ -30,4 +30,9 @@ class Products extends Model
     {
         return $this->hasMany('App\Models\Products', 'parent_id');
     }
+
+    public function similar_products()
+    {
+        return $this->hasMany('App\Models\Products', 'category_id')->whereNull('parent_id')->get();
+    }
 }

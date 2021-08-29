@@ -119,9 +119,13 @@ class ProductsController extends Controller
             $product->colors = $parent->colors;
         }
 
+        $categories = Categories::with('subCategories')->get();
+
         $data = [
             "product" => $product,
             "parent" => $parent ?? null,
+            "similar_products" => $product->similar_products(),
+            //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [
                     "title" => "Ana Sayfa",

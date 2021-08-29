@@ -210,7 +210,7 @@
 .product .product-title {
   text-align: center;
   font-weight: 400;
-  font-size: 1.45vh;
+  font-size: 1.45vh !important;
   letter-spacing: 0.05rem;
   line-height: 3rem;
 }
@@ -238,7 +238,7 @@
   text-align: center;
   color: #cd5b7c;
   font-weight: 500;
-  font-size: 1.9vh;
+  font-size: 1.9vh !important;
 }
 
 .product .product-summary .sale-button {
@@ -355,6 +355,10 @@
 .product-index .product-colors {
   display: inline-flex;
   width: 100%;
+}
+
+.product-index .product .product-summary .sale-button {
+  display: none;
 }
 
 .add-product-button {
