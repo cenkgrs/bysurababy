@@ -57,9 +57,9 @@
                             </div>
                             <div class="col-lg-4 col-4">
                                 <div class="shopping-cart">
-                                    <button class="btn primary-button"><i class="fa fa-cart-plus"></i>
+                                    <a href="{{ route('cart') }}" class="btn primary-button"><i class="fa fa-cart-plus"></i>
                                         <span>{{ __("Sepetim") }}</span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

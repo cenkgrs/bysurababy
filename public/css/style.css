@@ -8,12 +8,13 @@
   position: fixed;
   top: 0%;
   z-index: 1;
-  height: 7% !important;
+  height: fit-content;
   left: 0% !important;
   right: 0%;
   box-shadow: 0 0 3px #d5d5d5;
   background-color: #ffffff;
   border-bottom: 2px solid #cd5b7c;
+  padding: 1vh 0;
 }
 
 .fixed-navigation .fixed-container {
@@ -318,15 +319,15 @@
   }
 
   .product .product-age {
-    font-size: 2vh;
+    font-size: 2vh !important;
   }
 
   .product .product-price {
-    font-size: 2.5vh;
+    font-size: 2.5vh !important;
   }
 
   .filter {
-    font-size: 2vh;
+    font-size: 2vh !important;
   }
 }
 @media screen and (min-width: 900px) {

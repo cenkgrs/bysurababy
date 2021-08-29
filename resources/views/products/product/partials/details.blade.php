@@ -23,9 +23,13 @@
         <h5>{{ __('Renk Seçenekleri') }}</h5>
         <div class="product-colors">
             @if (isset($parent) && $parent)
-                <div class="color-circle {{ $parent->color }}"></div>
+                <a href="/products/{{ $parent->id }}">
+                    <div class="color-circle {{ $parent->color }}"></div>
+                </a>
             @else
-                <div class="color-circle {{ $product->color }}"></div>
+                <a href="/products/{{ $product->id }}">
+                    <div class="color-circle {{ $product->color }}"></div>
+                </a>
             @endif
 
             @foreach ($product->colors as $color)

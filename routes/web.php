@@ -23,6 +23,7 @@ Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsControl
 Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
 // Cart
+Route::get('/cart', [ProductsController::class, "cart"])->name('cart');
 Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('addToCart');
 
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');

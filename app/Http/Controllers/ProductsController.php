@@ -129,11 +129,11 @@ class ProductsController extends Controller
             "breadcrumbs" => [
                 0 => [
                     "title" => "Ana Sayfa",
-                    "route" => "index"
+                    "route" => "/index"
                 ],
                 1 => [
                     "title" => "Ürünler",
-                    "route" => "products",
+                    "route" => "/products",
                 ],
                 2 => [
                     "title" => $product->name,
@@ -167,7 +167,7 @@ class ProductsController extends Controller
 
         $cart = session()->get('cart', []);
 
-        if (isset($cart) && $cart) {
+        if (isset($cart[$input["id"]])) {
             $cart[$input['id']]['quantity'] = $cart[$input['id']]['quantity'] + $input["quantity"];
         } else {
             $cart[$input['id']] = [

@@ -4,7 +4,7 @@
 
     <div class="row mt2">
         @foreach ($similar_products as $product)
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                 <div class="product" data-href="{{ route('product', $product->id) }}">
                     <div class="product-image">
                         <img src="{{ asset('/images/products/'.$product->id.'.jpg') }}" alt="{{ $product->name }}">
