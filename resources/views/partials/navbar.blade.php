@@ -19,7 +19,9 @@
             <div class="col-lg-12 fixed-container">
                 <div class="row">
                     <div class="col-lg-2 col-6">
-                        <img src="{{ asset('/images/logo-background.png') }}" alt="">
+                        <a href="{{ route('index') }}">
+                            <img src="{{ asset('/images/logo-background.png') }}" alt="">
+                        </a>
                     </div>
                     <div class="col-lg-6 col-0" id="search-column">
                         <div class="nav-bar-search">
