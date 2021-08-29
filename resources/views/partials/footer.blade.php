@@ -5,13 +5,13 @@
                 <div class="col-sm-4 col-6 item">
                     <h3>bySura baby</h3>
                     <ul>
-                        <li><a href="#"><span>{{ __("Ürünler") }}</span></a></li>
-                        <li><a href="#"><span>{{ __("Kategoriler") }}</span></a></li
+                        <li><a href="{{ route('products') }}"><span>{{ __("Ürünler") }}</span></a></li>
+                        <li><a href="{{ route('categories') }}"><span>{{ __("Kategoriler") }}</span></a></li
                         <li><a href="#"><span>{{ __("İletişim") }}</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-6 item">
-                    <h3>Hakkımızda</h3>
+                    <h3>{{ __("Hakkımızda") }}</h3>
                     <ul>
                         <li><a href="#">{{ __("Blog") }}</a></li>
                         <li><a href="#">{{ __("Vizyon") }}</a></li>

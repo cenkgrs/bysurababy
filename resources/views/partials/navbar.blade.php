@@ -42,7 +42,7 @@
                                             </button>
 
                                             <div class="dropdown-content">
-                                                <a href="#">{{ __("Siparişlerim") }}</a>
+                                                <a href="{{ route('cart') }}">{{ __("Siparişlerim") }}</a>
                                                 <a href="#">{{ __("Ayarlarım") }}</a>
                                                 <a href="{{ route('logout') }}">{{ __("Çıkış Yap") }}</a>
                                             </div>

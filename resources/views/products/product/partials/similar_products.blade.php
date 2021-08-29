@@ -1,4 +1,4 @@
-@if (isset($similar_products) && $similar_products)
+@if (isset($similar_products) && !$similar_products->isEmpty())
 
     <h3 class="title-main text-center">Benzer Ürünler</h3>
 

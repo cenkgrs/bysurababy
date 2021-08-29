@@ -121,10 +121,12 @@ class ProductsController extends Controller
 
         $categories = Categories::with('subCategories')->get();
 
+        $similar_products = Products::where('category_id', $product->category_id)->whereNull('parent_id')->where('id', '!=', $product->id)->where('id', '!=', $product->parent_id)->get();
+
         $data = [
             "product" => $product,
             "parent" => $parent ?? null,
-            "similar_products" => $product->similar_products(),
+            "similar_products" => $similar_products ?? null,
             //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [
@@ -142,6 +144,7 @@ class ProductsController extends Controller
             ]
         ];
 
+
         return view('products.product.index', $data);
 
     }
@@ -150,9 +153,29 @@ class ProductsController extends Controller
     {
         $cart = session()->get('cart');
 
-        foreach ($cart as $products) {
+        foreach ($cart as $product) {
+            $products[] = $product;
 
+            isset($total_price) ? $total_price += $product["price"] * $product["quantity"] : $total_price = $product["price"] * $product["quantity"];
         }
+
+        $data = [
+            "products" => $products ?? null,
+            "total_price" => $total_price ?? null,
+            "title" => __("Sepetim"),
+            "breadcrumbs" => [
+                0 => [
+                    "title" => __("Ana Sayfa"),
+                    "route" => "/index"
+                ],
+                1 => [
+                    "title" => __("Sepetim"),
+                    "route" => "/cart",
+                ]
+            ]
+        ];
+
+        return view('booking.cart.index', $data);
     }
 
     public function addToCart(Request $request): bool
