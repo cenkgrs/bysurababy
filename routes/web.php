@@ -22,6 +22,9 @@ Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('index')
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
+// Cart
+Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('addToCart');
+
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
 
 Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard');

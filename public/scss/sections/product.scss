@@ -3,8 +3,8 @@ $secondary-color: #21e5c7e0;
 $shadow-color: #d5d5d5;
 
 .product-index .product-photo{
-    box-shadow: 0 0 3px $shadow-color;
-    border: 1px solid $shadow-color;
+    //box-shadow: 0 0 3px $shadow-color;
+    //border: 1px solid $shadow-color;
 }
 
 .product-index .product-photo img{
@@ -28,5 +28,9 @@ $shadow-color: #d5d5d5;
 .product-index .product-colors{
     display: inline-flex;
     width: 100%;
+}
+
+.add-product-button{
+    padding: .375rem 2rem !important;
 }
 

@@ -7,6 +7,13 @@ let Product = function ()
     init();
 
     function init() {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $(document).ready(function () {
 
             window.$(".category-checkbox").change(function() {
@@ -28,9 +35,26 @@ let Product = function ()
                 $('.sub-category-checkbox').not(this).prop('checked', false);
             });
 
-            $(".product").on("click", function () {
+            // Counter
+            $(".minus").click(function () {
+                let input = $("#product_count");
+                let count = parseInt(input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                input.val(count);
+                input.change();
+                return false;
+            });
+            $(".plus").click(function () {
+                let input = $("#product_count");
+                input.val(parseInt(input.val()) + 1);
+                input.change();
+                return false;
+            });
 
-            })
+            // Sale Button
+            $(".add-product-button").on("click", function () {
+
+            });
 
             // Check scroll height
             $(window).scroll(function() {
@@ -38,9 +62,11 @@ let Product = function ()
 
                 if(scroll > 50){
                     $(".nav-bar .nav").addClass("fixed-navigation");
+                    $(".alert-bar").addClass("alert-bar-scrolled");
                 }
                 else if(scroll < 50){
                     $(".nav-bar .nav").removeClass("fixed-navigation");
+                    $(".alert-bar").removeClass("alert-bar-scrolled");
                 }
                 else if(scroll > 100){
                     alert("a");
@@ -52,6 +78,53 @@ let Product = function ()
 
 }
 
+let Cart = function ()
+{
+    initCart();
+
+    function initCart() {
+
+        $(document).ready(function () {
+
+            // Sale Button
+            $(".add-product-button").on("click", function () {
+
+                $(".alert-bar").addClass("alert-bar-fade");
+                $(".alert-bar span").html("Ürün Sepetinize Eklendi");
+
+                setTimeout(function () {
+                    $(".alert-bar").removeClass("alert-bar-fade");
+                }, 3000);
+
+                var id = $(this).data("id");
+
+                let quantity = 1;
+
+                if ($("#product_count")) {
+                    quantity = $("#product_count").val();
+                }
+
+                $.ajax({
+                    url: '/add-to-cart',
+                    type: "POST",
+                    data: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        'id': id,
+                        'quantity': quantity
+                    },
+                    success: function (response) {
+                        //window.location.reload();
+                    }
+                });
+            });
+
+        });
+
+
+    }
+}
+
 
 
 Product();
+Cart();

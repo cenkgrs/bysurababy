@@ -135,4 +135,56 @@ class ProductsController extends Controller
         return view('products.product.index', $data);
 
     }
+
+    public function cart()
+    {
+        $cart = session()->get('cart');
+    }
+
+    public function addToCart(Request $request): bool
+    {
+        $input = $request->all();
+
+        $product = Products::where("id", $input["id"])->first();
+
+        if (!$product) {
+            return false;
+        }
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart) && $cart) {
+            $cart[$input['id']]['quantity'] = $cart[$input['id']]['quantity'] + $input["quantity"];
+        } else {
+            $cart[$input['id']] = [
+                "name" => $product->name,
+                "quantity" => $input["quantity"],
+                "price" => $product->price->sale_price,
+            ];
+        }
+
+        session()->put('cart', $cart);
+
+        return true;
+    }
+
+    public function removeFromCart(Request $request)
+    {
+        $input = $request->all();
+
+        $product = Products::where("id", $input["id"])->first();
+
+        if (!$product) {
+            return false;
+        }
+
+        $cart = session()->get('cart', []);
+
+        if (!isset($cart['id'])) {
+            return false;
+        }
+
+
+
+    }
 }

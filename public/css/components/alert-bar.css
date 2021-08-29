@@ -1,0 +1,28 @@
+.alert-bar {
+  position: fixed;
+  top: 20%;
+  right: -20%;
+  width: fit-content;
+  height: fit-content;
+  color: #cd5b7c;
+  font-weight: 500;
+  box-shadow: 0 0 3px 1px #cd5b7c;
+  padding: 0 15px;
+  transition: 1s;
+}
+
+.alert-bar i {
+  color: #5df1de;
+  margin-right: 1rem;
+}
+
+.alert-bar-fade {
+  right: 0%;
+  transition: 1s;
+}
+
+.alert-bar-scrolled {
+  top: 10%;
+}
+
+/*# sourceMappingURL=alert-bar.css.map */

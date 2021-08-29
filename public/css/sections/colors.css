@@ -6,6 +6,7 @@
   padding: 1vh;
   text-align: center;
   margin: 0.5vh;
+  cursor: pointer;
 }
 
 .color-muted {

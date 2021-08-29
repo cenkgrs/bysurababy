@@ -6,9 +6,9 @@
 
     <script type="text/javascript" src="{{ URL::asset('/js/product.js') }}"></script>
 
-    <div class="product-index">
+    <div class="product-index mt5 mt0-m">
         <div class="row mt2">
-            <div class="col-lg-5">
+            <div class="col-lg-5 mt2">
                 @include('products.product.partials.photo')
             </div>
             <div class="col-lg-7">

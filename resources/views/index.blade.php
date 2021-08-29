@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <title>Coming Soon</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -18,6 +20,11 @@
 </head>
 <body>
         @include('partials.navbar')
+
+        <div class="alert-bar">
+            <i class="fa fa-bell-o"></i>
+            <span></span>
+        </div>
 
         <div class="content">
 

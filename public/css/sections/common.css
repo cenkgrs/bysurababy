@@ -2,6 +2,16 @@ html, body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input:focus {
+  box-shadow: #6a1a21 !important;
 }
 
 .content {
@@ -11,6 +21,14 @@ html, body {
 @font-face {
   font-display: swap;
 }
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
 .mt1 {
   margin-top: 1rem !important;
 }
@@ -21,6 +39,10 @@ html, body {
 
 .mt5 {
   margin-top: 5rem !important;
+}
+
+.mr1 {
+  margin-right: 1rem !important;
 }
 
 .mb2 {
