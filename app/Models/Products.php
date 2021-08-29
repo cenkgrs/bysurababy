@@ -21,9 +21,9 @@ class Products extends Model
         return $this->belongsTo('App\Models\Categories', 'id');
     }
 
-    public function sub_category(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function sub_category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasOne('App\Models\SubCategories', 'id');
+        return $this->belongsTo('App\Models\SubCategories', 'sub_category_id');
     }
 
     public function colors() : \Illuminate\Database\Eloquent\Relations\HasMany

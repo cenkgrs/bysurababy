@@ -114,8 +114,14 @@ class ProductsController extends Controller
 
         $product = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product_id)->first();
 
+        if ($product->parent_id) {
+            $parent = Products::where('id', $product->parent_id)->first();
+            $product->colors = $parent->colors;
+        }
+
         $data = [
             "product" => $product,
+            "parent" => $parent ?? null,
             "breadcrumbs" => [
                 0 => [
                     "title" => "Ana Sayfa",
@@ -139,6 +145,10 @@ class ProductsController extends Controller
     public function cart()
     {
         $cart = session()->get('cart');
+
+        foreach ($cart as $products) {
+
+        }
     }
 
     public function addToCart(Request $request): bool
