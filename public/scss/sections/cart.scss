@@ -1,0 +1,36 @@
+$shadow-color: #d5d5d5;
+$color-black : #000000c9;
+
+.cart-products{
+
+}
+
+.cart-products .cart-product{
+    padding: 8px;
+    box-shadow: 0 0 3px #d5d5d5;
+    font-family: "Nunito";
+    transition: 0.2s;
+    border-radius: 0.5vh;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: inline-flex;
+}
+
+.cart-products .cart-product .cart-product-image img{
+    width: auto;
+    height: 10vh;
+}
+
+.cart-products .cart-product .cart-product-category{
+    font-size: 1.35vh;
+    margin-top: .3rem;
+    color: $color-black;
+}
+
+.cart-products .cart-product .cart-product-price {
+    margin-bottom: 1rem;
+
+}
+
+
+
