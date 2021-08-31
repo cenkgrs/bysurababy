@@ -32,6 +32,67 @@
     vertical-align: middle;
     font-weight: 500;
   }
+
+  .counter .minus-circle, .plus-circle {
+    padding: 0.25rem 0.7rem;
+    background: #fff;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: #cd5b7c;
+    transition: 0.5s;
+  }
+
+  .counter .minus-circle:hover, .plus-circle:hover {
+    color: #fff;
+    background: #cd5b7c;
+    transition: 0.5s;
+  }
+}
+@media screen and (max-width: 900px) {
+  .counter .minus, .plus {
+    padding: 0.375rem 2rem;
+    background: #cd5b7c;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+  }
+
+  .counter input {
+    height: 4vh;
+    width: 5vh;
+    padding: 0.375rem;
+    text-align: center;
+    font-size: 1.6vh;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+
+  .counter .minus-circle, .plus-circle {
+    padding: 0.25rem 0.7rem;
+    background: #fff;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: #cd5b7c;
+    transition: 0.5s;
+  }
+
+  .counter .minus-circle:hover, .plus-circle:hover {
+    color: #fff;
+    background: #cd5b7c;
+    transition: 0.5s;
+  }
 }
 
 /*# sourceMappingURL=counter.css.map */

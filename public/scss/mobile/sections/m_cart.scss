@@ -1,9 +1,7 @@
 $small: 900px;
 
 @media screen and (max-width: $small) {
-
-    .product-index .product-title {
+    .cart-products .cart-product .cart-product-category {
         font-size: 2vh;
     }
-
 }

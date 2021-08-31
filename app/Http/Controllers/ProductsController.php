@@ -153,17 +153,19 @@ class ProductsController extends Controller
     {
         $cart = session()->get('cart');
 
-        foreach ($cart as $id => $cart_product) {
-            $product = Products::where('id', $id)->first();
+        if ($cart) {
+            foreach ($cart as $id => $cart_product) {
+                $product = Products::where('id', $id)->first();
 
-            $products[$id] = [
-                "name" => $product->name,
-                "category" => $product->category->name,
-                "sub_category" => $product->sub_category->name,
-                "price" => $product->price->sale_price,
-            ];
+                $products[$id] = [
+                    "name" => $product->name,
+                    "category" => $product->category->name,
+                    "sub_category" => $product->sub_category->name,
+                    "price" => $product->price->sale_price,
+                ];
 
-            isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
+                isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
+            }
         }
 
         $data = [

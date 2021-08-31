@@ -6,7 +6,7 @@
   border-radius: 0.5vh;
   margin-bottom: 1rem;
   width: 100%;
-  display: inline-flex;
+  color: #cd5b7c;
 }
 
 .cart-products .cart-product .cart-product-image img {
@@ -21,7 +21,14 @@
 }
 
 .cart-products .cart-product .cart-product-price {
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  color: #cd5b7c;
+}
+
+.cart-products .cart-product .cart-product-count {
+  float: right;
+  margin-top: 1.5vh;
 }
 
 /*# sourceMappingURL=cart.css.map */
