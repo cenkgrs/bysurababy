@@ -10,7 +10,9 @@
                 <div class="col-lg-4 col-9">
                     <div class="cart-product-details">
                         <div class="cart-product-title">
-                            {{ $product["name"] }}
+                            <a href="/products/{{ $id }}">
+                                {{ $product["name"] }}
+                            </a>
                         </div>
                         <div class="cart-product-category">
                             {{ $product["category"] }}

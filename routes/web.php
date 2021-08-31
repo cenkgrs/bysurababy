@@ -26,6 +26,9 @@ Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\Pr
 Route::get('/cart', [ProductsController::class, "cart"])->name('cart');
 Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('addToCart');
 
+// Booking
+Route::match(['get', 'post'], '/booking', 'App\Http\Controllers\BookingController@booking')->name('booking');
+
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
 
 Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard');

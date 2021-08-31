@@ -1,6 +1,7 @@
 $primary-color: #cd5b7c;
 $shadow-color: #d5d5d5;
 $color-black : #000000c9;
+$color-muted: #6a6a6a;
 
 .cart-products{
 
@@ -16,6 +17,11 @@ $color-black : #000000c9;
     width: 100%;
     //display: inline-flex;
     color: $primary-color;
+}
+
+.cart-products .cart-product-title a{
+    color: $primary-color;
+    text-decoration: none;
 }
 
 .cart-products .cart-product .cart-product-image img{
@@ -38,4 +44,54 @@ $color-black : #000000c9;
 .cart-products .cart-product .cart-product-count {
     float: right;
     margin-top: 1.5vh;
+}
+
+.cart-payment{
+    box-shadow: 0 0 3px #d5d5d5;
+    padding: 1.5rem 0;
+}
+
+.cart-payment .cart-payment-header{
+    padding: 0 1.5rem;
+}
+
+.cart-payment h5 {
+    color: $color-black;
+    font-weight: 500;
+    font-size: 1.8vh;
+}
+
+.cart-payment h4 {
+    color: $primary-color;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.cart-payment .cart-payment-details{
+    border-top: 1px solid $shadow-color;
+    padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.cart-payment .cart-payment-details ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.4vh;
+    color: $color-muted;
+}
+
+.cart-payment .cart-payment-details ul li {
+    font-weight: 500;
+}
+.cart-payment .cart-payment-details ul li span {
+    float: right;
+}
+
+.cart-payment .cart-payment-footer{
+    padding: 0 1.5rem;
+}
+.cart-payment .cart-payment-footer a{
+    text-decoration: none;
+    color: $primary-color;
+    width: 100%;
 }

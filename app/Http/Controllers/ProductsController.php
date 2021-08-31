@@ -168,10 +168,15 @@ class ProductsController extends Controller
             }
         }
 
+        if (isset($total_price) && $total_price > 100) {
+            $free_cargo = true;
+        }
+
         $data = [
             "products" => $products ?? null,
             "total_price" => $total_price ?? null,
             "title" => __("Sepetim"),
+            "free_cargo" => $free_cargo ?? false,
             "breadcrumbs" => [
                 0 => [
                     "title" => __("Ana Sayfa"),
