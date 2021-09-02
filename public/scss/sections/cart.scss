@@ -51,6 +51,11 @@ $color-muted: #6a6a6a;
     padding: 1.5rem 0;
 }
 
+.cart-payment-sticky{
+    position: sticky;
+    top: 10%;
+}
+
 .cart-payment .cart-payment-header{
     padding: 0 1.5rem;
 }

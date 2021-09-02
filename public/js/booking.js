@@ -2,7 +2,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 } catch (e) {}
 
-let Product = function ()
+let Booking = function ()
 {
     init();
 
@@ -56,58 +56,26 @@ let Product = function ()
 
             });
 
+            // Check scroll height
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+
+                if(scroll > 50){
+                    $(".nav-bar .nav").addClass("fixed-navigation");
+                    $(".alert-bar").addClass("alert-bar-scrolled");
+                }
+                else if(scroll < 50){
+                    $(".nav-bar .nav").removeClass("fixed-navigation");
+                    $(".alert-bar").removeClass("alert-bar-scrolled");
+                }
+                else if(scroll > 100){
+                    alert("a");
+                }
+
+            });
         })
     }
 
 }
 
-let Cart = function ()
-{
-    initCart();
-
-    function initCart() {
-
-        $(document).ready(function () {
-
-            // Sale Button
-            $(".add-product-button").on("click", function () {
-
-                $(".alert-bar").addClass("alert-bar-fade");
-                $(".alert-bar span").html("Ürün Sepetinize Eklendi");
-
-                setTimeout(function () {
-                    $(".alert-bar").removeClass("alert-bar-fade");
-                }, 3000);
-
-                var id = $(this).data("id");
-
-                let quantity = 1;
-
-                if ($("#product_count")) {
-                    quantity = $("#product_count").val();
-                }
-
-                $.ajax({
-                    url: '/add-to-cart',
-                    type: "POST",
-                    data: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                        'id': id,
-                        'quantity': quantity
-                    },
-                    success: function (response) {
-                        //window.location.reload();
-                    }
-                });
-            });
-
-        });
-
-
-    }
-}
-
-
-
-Product();
-Cart();
+Booking();

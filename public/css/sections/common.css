@@ -16,6 +16,8 @@ input:focus {
 
 .content {
   flex: 1;
+  background-color: #fafafa73;
+  margin-bottom: 5rem;
 }
 
 @font-face {
@@ -49,8 +51,12 @@ input:focus {
   margin-right: 1rem !important;
 }
 
+.mb1 {
+  margin-bottom: 1rem !important;
+}
+
 .mb2 {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .title-main {
@@ -72,6 +78,14 @@ input:focus {
   outline: none;
 }
 
+textarea:focus {
+  box-shadow: 0 0 3px #d5d5d5 !important;
+}
+
+textarea {
+  padding: 1vh 2vh !important;
+}
+
 .primary-button {
   background-color: #cd5b7c !important;
   color: white !important;
@@ -90,6 +104,15 @@ input:focus {
 
 .bolded {
   font-weight: bold;
+}
+
+.form-control {
+  border: none !important;
+  box-shadow: 0 0 3px #d5d5d5 !important;
+}
+
+.form-group .form-control {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=common.css.map */

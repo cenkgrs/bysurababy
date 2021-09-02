@@ -1,9 +1,9 @@
 <div class="col-lg-12">
 
     <div class="payment-address">
-        <h6>{{ __("Lütfen açık adresinizi giriniz") }}</h6>
+        <h5 class="mb1">{{ __("Teslimat Adresi") }}</h5>
 
-        <textarea clas="mt2 form-control"></textarea>
+        <textarea clas="form-control" placeholder="{{ __("Lütfen açık adresinizi giriniz...") }}"></textarea>
 
     </div>
 </div>

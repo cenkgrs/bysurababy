@@ -1,6 +1,7 @@
 /* a36879 */
 .nav-bar {
   color: #cd5b7c;
+  box-shadow: 0 0 3px 1px #d5d5d5;
 }
 
 .fixed-navigation {
