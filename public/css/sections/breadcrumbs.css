@@ -1,26 +1,24 @@
 .breadcrumbs {
-    margin-top: 1rem;
-    padding-left: 0;
-    font-size: 1.7vh;
+  margin-top: 1rem;
+  padding-left: 0;
+  font-size: 1.7vh;
 }
 
 .breadcrumbs li {
-    display: inline;
-    font-weight: 500;
-    font-size: 1.4vh;
-    letter-spacing: .05vh
+  display: inline;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .breadcrumbs li a {
-    text-decoration: none;
-    color: #000000c9;
+  text-decoration: none;
+  color: #000000c9;
 }
 
 .breadcrumbs li i {
-    font-size: 0.5rem;
-    color: #444;
-    margin: 0 0.5rem;
-    font-size: 1vh;
+  font-size: 0.5rem;
+  color: #444;
+  margin: 0 0.5rem;
 }
 
 /*# sourceMappingURL=breadcrumbs.css.map */

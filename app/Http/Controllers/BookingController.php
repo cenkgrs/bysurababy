@@ -11,5 +11,20 @@ class BookingController extends Controller
         if ($request->isMethod('get')) {
             return view('booking.payment.index');
         }
+
+        // Validate informations
+
+        // Insert Contact
+
+        // Insert Billing Informatiıns
+
+        // Prepare Booking Data
+
+
+        // Insert Booking data
+
+        // Send booking email
+
+        // Send notification email
     }
 }
