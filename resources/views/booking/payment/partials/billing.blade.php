@@ -17,28 +17,26 @@
 
         <small class="text-muted">{{ __("Fatura için seçilen adres sadece bilgi amaçlıdır. Ürünleriniz “Teslimat adresi” bölümünde seçtiğiniz adrese teslim edilir.") }}</small>
 
-
     </div>
-
 
     <div class="form-panel">
 
-        <div class="row mt2">
+        <div class="row">
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('İsim') }}
-                    <input class="form-control" type="text" name="name">
+                    <input class="form-control" type="text" name="billing[name]" required>
                 </label>
             </div>
 
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Soyisim') }}
-                    <input class="form-control" type="text" name="surname">
+                    <input class="form-control" type="text" name="billing[surname]" required>
                 </label>
             </div>
 
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Şehir') }}
-                    <input class="form-control" type="text" name="city">
+                    <input class="form-control" type="text" name="billing[city]" required>
                 </label>
             </div>
 
@@ -49,19 +47,19 @@
 
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('İlçe') }}
-                    <input class="form-control" type="text" name="district">
+                    <input class="form-control" type="text" name="billing[district]" required>
                 </label>
             </div>
 
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Fatura Adresi') }}
-                    <input class="form-control" type="text" name="address">
+                    <input class="form-control" type="text" name="billing[address]" required>
                 </label>
             </div>
 
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Posta Kodu') }}
-                    <input class="form-control" type="text" name="zip_no">
+                    <input class="form-control" type="text" name="billing[zip_no]" required>
                 </label>
             </div>
         </div>
@@ -69,17 +67,17 @@
         <div class="row mt2 firm-informations d-none">
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Firma İsmi') }}
-                    <input class="form-control" type="text" name="firm_name">
+                    <input class="form-control" type="text" name="billing[firm_name]">
                 </label>
             </div>
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Vergi Dairesi') }}
-                    <input class="form-control" type="text" name="tax_authority">
+                    <input class="form-control" type="text" name="billing[tax_authority]">
                 </label>
             </div>
             <div class="col-lg-4 col-6 form-group">
                 <label for=""> {{ __('Vergi No') }}
-                    <input class="form-control" type="text" name="tax_no">
+                    <input class="form-control" type="text" name="billing[tax_no]">
                 </label>
             </div>
         </div>

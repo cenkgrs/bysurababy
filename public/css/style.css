@@ -740,6 +740,10 @@ input:focus {
   margin-bottom: 5rem;
 }
 
+h4, h5, h6 {
+  color: #cd5b7c;
+}
+
 @font-face {
   font-display: swap;
 }

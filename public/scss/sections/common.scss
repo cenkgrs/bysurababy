@@ -23,6 +23,10 @@ input:focus{
     margin-bottom: 5rem;
 }
 
+h4,h5,h6{
+    color: $primary-color;
+}
+
 @font-face {
     font-display: swap
 }

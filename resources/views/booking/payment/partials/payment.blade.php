@@ -7,7 +7,15 @@
 
     <div class="cart-payment-details">
         <ul>
-            <li>{{ __("Kargo") }}
+
+            @foreach($products as $product)
+            <li>{{ $product["name"] }}
+                <span>{{ $product["price"] }} ₺ X {{ $product["quantity"] }}</span>
+            </li>
+
+            @endforeach
+
+            <li class="mt2">{{ __("Kargo") }}
                 @if ($free_cargo)
                     <span>{{ __("Bedava") }}</span>
                 @else
@@ -18,6 +26,6 @@
     </div>
 
     <div class="cart-payment-footer">
-        <button type="submit" class="btn primary-button w-100">{{ __("Tamamla") }}</button>
+        <button type="submit" class="btn primary-button w-100">{{ __("Siparişi Tamamla") }}</button>
     </div>
 </div>
