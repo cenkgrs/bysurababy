@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookingItems;
 use App\Models\Products;
-
+use App\Models\Bookings;
+use App\Models\BillingInformations;
+use App\Models\Contacts;
 use Illuminate\Http\Request;
 
 use Validator;
+use DateTime;
 
 class BookingController extends Controller
 {
+
+    private $request_id;
+
     public function booking(Request $request)
     {
         if ($request->isMethod('get')) {
@@ -56,7 +63,7 @@ class BookingController extends Controller
 
         $input = $request->all();
 
-        dd($input);
+        $input["is_company"] = false;
 
         // Validate billing informations
         $validator = Validator::make($input, [
@@ -73,6 +80,7 @@ class BookingController extends Controller
             return redirect('booking')->withErrors($validator)->withInput();
         }
 
+        // Check company informations if selected
         if (isset($input["is_company"]) && $input["is_company"]) {
             $validator = Validator::make($input, [
                 'billing.firm_name' => 'required|string',
@@ -100,19 +108,90 @@ class BookingController extends Controller
             return redirect('booking')->withErrors($validator)->withInput();
         }
 
-        dd("input");
+        $this->request_id = $this->generateRandomString();
 
         // Insert Contact
+        Contacts::updateOrInsert(["request_id" => $this->request_id], [
+            "request_id" => $this->request_id,
+            "name" => $input["contact"]["name"],
+            "surname" => $input["contact"]["surname"],
+            "email" => $input["contact"]["email"],
+            "phone" => $input["contact"]["phone"],
+            "created_at" => new DateTime,
+            "updated_at" => new DateTime,
+        ]);
 
         // Insert Billing Informatiıns
+        BillingInformations::updateOrInsert(["request_id" => $this->request_id], [
+            "request_id" => $this->request_id,
+            "name" => $input["billing"]["name"],
+            "surname" => $input["billing"]["surname"],
+            "phone" => $input["contact"]["phone"],
+            "city" => $input["billing"]["city"],
+            "district" => $input["billing"]["district"],
+            "address" => $input["billing"]["address"],
+            "type" => $input["is_company"] ? "company" : "personal",
+            "firm_name" => $input["billing"]["firm_name"] ?? null,
+            "tax_authority" => $input["billing"]["tax_authority"] ?? null,
+            "tax_no" => $input["billing"]["tax_no"] ?? null,
+            "created_at" => new DateTime,
+            "updated_at" => new DateTime,
+        ]);
 
-        // Prepare Booking Data
+        $cart = session()->get('cart');
 
+        if (!$cart) {
+            return redirect('booking')->with("error_messages", )->withInput();
+        }
+
+        // Delete previous products
+        BookingItems::where("request_id", $this->request_id)->delete();
+
+        $total_price = 0;
+
+        foreach ($cart as $id => $cart_product) {
+            $product = Products::where('id', $id)->first();
+
+            // Insert booking item
+            BookingItems::insert([
+                "request_id" => $this->request_id,
+                "product_id" => $product->id,
+                "total_price" => $product->price->sale_price * $cart_product["quantity"],
+                "created_at" => new DateTime,
+                "updated_at" => new DateTime,
+            ]);
+
+            $total_price += $product->price->sale_price * $cart_product["quantity"];
+        }
 
         // Insert Booking data
+        Bookings::updateOrInsert(["request_id" => $this->request_id], [
+            "request_id" => $this->request_id,
+            "total_price" => $total_price,
+            "created_at" => new DateTime,
+        ]);
+
+        // Delete session cart
+        session()->forget('cart');
+
 
         // Send booking email
 
         // Send notification email
+
+        // Return to finalize page
+        return redirect('finalize');
+    }
+
+    public function generateRandomString($length = 10): string
+    {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return "B" . $randomString;
     }
 }
