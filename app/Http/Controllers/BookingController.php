@@ -23,18 +23,20 @@ class BookingController extends Controller
 
             $cart = session()->get('cart');
 
-            if ($cart) {
-                foreach ($cart as $id => $cart_product) {
-                    $product = Products::where('id', $id)->first();
+            if (!$cart) {
+                return redirect()->route('cart');
+            }
 
-                    $products[$id] = [
-                        "name" => ucwords(strtolower($product->name)),
-                        "price" => $product->price->sale_price,
-                        "quantity" => $cart_product["quantity"]
-                    ];
+            foreach ($cart as $id => $cart_product) {
+                $product = Products::where('id', $id)->first();
 
-                    isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
-                }
+                $products[$id] = [
+                    "name" => ucwords(strtolower($product->name)),
+                    "price" => $product->price->sale_price,
+                    "quantity" => $cart_product["quantity"]
+                ];
+
+                isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
             }
 
             if (isset($total_price) && $total_price > 100) {
