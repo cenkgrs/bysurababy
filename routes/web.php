@@ -28,6 +28,7 @@ Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('add
 
 // Booking
 Route::match(['get', 'post'], '/booking', 'App\Http\Controllers\BookingController@booking')->name('booking');
+Route::get('/finalize', 'App\Http\Controllers\BookingController@finalize')->name('finalize');
 
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
 

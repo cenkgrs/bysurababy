@@ -112,6 +112,8 @@ class BookingController extends Controller
 
         $this->request_id = $this->generateRandomString();
 
+        session()->put('request_id', $this->request_id);
+
         // Insert Contact
         Contacts::updateOrInsert(["request_id" => $this->request_id], [
             "request_id" => $this->request_id,
@@ -158,6 +160,7 @@ class BookingController extends Controller
             BookingItems::insert([
                 "request_id" => $this->request_id,
                 "product_id" => $product->id,
+                "quantity" => $cart_product["quantity"],
                 "total_price" => $product->price->sale_price * $cart_product["quantity"],
                 "created_at" => new DateTime,
                 "updated_at" => new DateTime,
@@ -176,13 +179,51 @@ class BookingController extends Controller
         // Delete session cart
         session()->forget('cart');
 
-
         // Send booking email
 
         // Send notification email
 
         // Return to finalize page
         return redirect('finalize');
+    }
+
+    public function finalize(Request $request)
+    {
+
+        $this->request_id = session()->get('request_id');
+
+        $booking = Bookings::with('booking_items', 'billing')->where('request_id', $this->request_id)->first();
+
+        $items = [];
+
+        foreach ($booking->booking_items as $item) {
+
+            $product = Products::where('id', $item->product_id)->first();
+
+            $items[$product->id] = [
+                "name" => ucwords(strtolower($product->name)),
+                "price" => $product->price->sale_price,
+                "quantity" => $item["quantity"]
+            ];
+
+        }
+
+        $data = [
+            "booking" => [
+                "total_price" => $booking->total_price,
+                "items" => $items,
+                "billing" => [
+                    "address" => $booking->billing->address,
+                    "name" => $booking->billing->address,
+                    "surname" => $booking->billing->address,
+
+                ]
+            ]
+        ];
+
+        dd($data);
+
+        return view();
     }
 
     public function generateRandomString($length = 10): string
