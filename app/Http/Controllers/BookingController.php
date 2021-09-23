@@ -192,7 +192,13 @@ class BookingController extends Controller
 
         $this->request_id = session()->get('request_id');
 
-        $booking = Bookings::with('booking_items', 'billing')->where('request_id', $this->request_id)->first();
+        $this->request_id = "B8E2FJI5SFD";
+
+        if (!$this->request_id) {
+            return redirect()->route('cart');
+        }
+
+        $booking = Bookings::with(['booking_items', 'billing'])->where('request_id', $this->request_id)->first();
 
         $items = [];
 
@@ -213,15 +219,12 @@ class BookingController extends Controller
                 "total_price" => $booking->total_price,
                 "items" => $items,
                 "billing" => [
+                    "name" => $booking->billing->name,
+                    "surname" => $booking->billing->surname,
                     "address" => $booking->billing->address,
-                    "name" => $booking->billing->address,
-                    "surname" => $booking->billing->address,
-
                 ]
             ]
         ];
-
-        dd($data);
 
         return view();
     }

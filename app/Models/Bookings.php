@@ -13,11 +13,11 @@ class Bookings extends Model
 
     public function booking_items() : \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany('App\Models\BookingItems', 'request_id');
+        return $this->hasMany('App\Models\BookingItems', 'request_id', 'request_id');
     }
 
     public function billing() : \Illuminate\Database\Eloquent\Relations\hasOne
     {
-        return $this->hasOne('App\Models\BillingInformations', 'request_id');
+        return $this->hasOne('App\Models\BillingInformations', 'request_id', 'request_id');
     }
 }
