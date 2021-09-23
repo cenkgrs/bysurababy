@@ -134,6 +134,7 @@ class BookingController extends Controller
             "city" => $input["billing"]["city"],
             "district" => $input["billing"]["district"],
             "address" => $input["billing"]["address"],
+            "zip_noe" => $input["billing"]["zip_noe"],
             "type" => $input["is_company"] ? "company" : "personal",
             "firm_name" => $input["billing"]["firm_name"] ?? null,
             "tax_authority" => $input["billing"]["tax_authority"] ?? null,
@@ -208,10 +209,11 @@ class BookingController extends Controller
 
             $items[$product->id] = [
                 "name" => ucwords(strtolower($product->name)),
+                "category" => $product->category->name,
+                "sub_category" => $product->sub_category->name,
                 "price" => $product->price->sale_price,
                 "quantity" => $item["quantity"]
             ];
-
         }
 
         $data = [
@@ -222,11 +224,19 @@ class BookingController extends Controller
                     "name" => $booking->billing->name,
                     "surname" => $booking->billing->surname,
                     "address" => $booking->billing->address,
+                    "phone" => $booking->billing->phone,
+                    "city" => $booking->billing->city,
+                    "district" => $booking->billing->district,
+                    "zip_no" => $booking->billing->zip_no,
+                    "type" => $booking->billing->type,
+                    "firm_name" => $booking->billing->firm_name,
+                    "tax_authority" => $booking->billing->tax_authority,
+                    "tax_no" => $booking->billing->tax_no,
                 ]
             ]
         ];
 
-        return view();
+        return view('booking.finalize.index', $data);
     }
 
     public function generateRandomString($length = 10): string
