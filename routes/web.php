@@ -22,6 +22,9 @@ Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('index')
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
+// Orders
+Route::get('/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
+
 // Cart
 Route::get('/cart', [ProductsController::class, "cart"])->name('cart');
 Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('addToCart');

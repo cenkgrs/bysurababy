@@ -218,6 +218,7 @@ class BookingController extends Controller
 
         $data = [
             "booking" => [
+                "request_id" => $this->request_id,
                 "total_price" => $booking->total_price,
                 "items" => $items,
                 "billing" => [

@@ -4,7 +4,12 @@
 
     <div class="row mt2">
         <div class="col-lg-12">
-            Siparişiniz Tamamlanmıştır. Siparişinizi <a class="color-primary" href="">buraya</a> tıklayarak takip edebilirsiniz.
+            <p>
+                Siparişiniz Tamamlanmıştır. Siparişinizi <a class="color-primary" href=""><b>buraya</b></a> tıklayarak takip edebilirsiniz.
+            </p>
+            <p>
+                Sipariş Numaranız: <b class="color-primary">{{ $booking['request_id'] }}</b>
+            </p>
         </div>
     </div>
 
@@ -20,13 +25,13 @@
                         <th>{{ __('Telefon') }}</th>
                         <th>{{ __('Şehir') }}</th>
                         <th>{{ __('İlçe') }}</th>
-                        <th>{{ __('Adres') }}</th>
                         <th>{{ __('Posta Kodu') }}</th>
                         @if ($booking['billing']["type"] == "company")
                             <th>{{ __('Firma İsmi') }}</th>
                             <th>{{ __('Vergi Dairesi') }}</th>
                             <th>{{ __('Vergi No') }}</th>
                         @endif
+                        <th>{{ __('Adres') }}</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -35,13 +40,13 @@
                             <td>{{ $booking['billing']['phone'] }}</td>
                             <td>{{ $booking['billing']['city'] }}</td>
                             <td>{{ $booking['billing']['district'] }}</td>
-                            <td>{{ $booking['billing']['address'] }}</td>
                             <td>{{ $booking['billing']['zip_no'] }}</td>
                             @if ($booking['billing']["type"] == "company")
                                 <td>{{ $booking['billing']['firm_name'] }}</td>
                                 <td>{{ $booking['billing']['tax_authority'] }}</td>
                                 <td>{{ $booking['billing']['tax_no'] }}</td>
                             @endif
+                            <td>{{ $booking['billing']['address'] }}</td>
                         </tr>
                     </tbody>
                 </table>
