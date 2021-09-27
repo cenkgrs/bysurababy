@@ -1,0 +1,36 @@
+.orders .order{
+    border: 1px solid #e2e2e2;
+}
+
+.orders .order .order-header{
+    background: #fafafa;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.orders .order .order-header button{
+    margin-top: .4rem;
+    float: right;
+}
+
+.orders .order .order-body{
+    padding: 1rem 2rem;
+    height: fit-content;
+}
+
+.orders .order .order-body .order-product{
+    border: 1px solid #e2e2e2;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.orders .order .order-body .order-product img{
+    height: 100%;
+    width: 7vh;
+    border: 1px solid #e2e2e2;
+    padding: .1rem;
+}
+
+.orders .order .order-body .order-product .secondary-button{
+    float: right;
+}

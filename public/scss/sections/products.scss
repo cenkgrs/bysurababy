@@ -123,3 +123,11 @@ body{
     float: left;
     margin-top: .3rem;
 }
+
+.filter .side-link{
+    font-weight: 500;
+}
+
+.filter .side-link a{
+    color: $primary-color;
+}

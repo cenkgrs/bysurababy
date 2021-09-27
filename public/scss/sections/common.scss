@@ -23,6 +23,10 @@ input:focus{
     margin-bottom: 5rem;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 h4,h5,h6{
     color: $primary-color;
 }
@@ -49,6 +53,8 @@ h4,h5,h6{
 }
 
 .mr1{margin-right: 1rem !important;}
+
+.ml1{margin-left: 1rem !important;}
 
 .mb1{margin-bottom: 1rem !important;}
 .mb2{margin-bottom: 2rem !important;}
@@ -82,6 +88,15 @@ textarea{
 .primary-button{
     background-color: $primary-color !important;
     color: white !important;;
+    font-weight: 500 !important;
+    font-size: 1.6vh !important;
+    font-size: 1rem !important;
+}
+
+.secondary-button{
+    background-color: white !important;
+    color: $primary-color !important;
+    border: 1px solid $primary-color !important;
     font-weight: 500 !important;
     font-size: 1.6vh !important;
     font-size: 1rem !important;

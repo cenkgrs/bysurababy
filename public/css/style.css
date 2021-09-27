@@ -306,6 +306,14 @@
   margin-top: 0.3rem;
 }
 
+.filter .side-link {
+  font-weight: 500;
+}
+
+.filter .side-link a {
+  color: #cd5b7c;
+}
+
 @media screen and (max-width: 900px) {
   .product {
     margin-top: 1rem;
@@ -740,6 +748,10 @@ input:focus {
   margin-bottom: 5rem;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 h4, h5, h6 {
   color: #cd5b7c;
 }
@@ -773,6 +785,10 @@ h4, h5, h6 {
 
 .mr1 {
   margin-right: 1rem !important;
+}
+
+.ml1 {
+  margin-left: 1rem !important;
 }
 
 .mb1 {
@@ -813,6 +829,15 @@ textarea {
 .primary-button {
   background-color: #cd5b7c !important;
   color: white !important;
+  font-weight: 500 !important;
+  font-size: 1.6vh !important;
+  font-size: 1rem !important;
+}
+
+.secondary-button {
+  background-color: white !important;
+  color: #cd5b7c !important;
+  border: 1px solid #cd5b7c !important;
   font-weight: 500 !important;
   font-size: 1.6vh !important;
   font-size: 1rem !important;
@@ -894,6 +919,43 @@ textarea {
     box-shadow: none;
   }
 }
+.orders .order {
+  border: 1px solid #e2e2e2;
+}
+
+.orders .order .order-header {
+  background: #fafafa;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.orders .order .order-header button {
+  margin-top: 0.4rem;
+  float: right;
+}
+
+.orders .order .order-body {
+  padding: 1rem 2rem;
+  height: fit-content;
+}
+
+.orders .order .order-body .order-product {
+  border: 1px solid #e2e2e2;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.orders .order .order-body .order-product img {
+  height: 100%;
+  width: 7vh;
+  border: 1px solid #e2e2e2;
+  padding: 0.1rem;
+}
+
+.orders .order .order-body .order-product .secondary-button {
+  float: right;
+}
+
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

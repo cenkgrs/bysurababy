@@ -134,7 +134,7 @@ class BookingController extends Controller
             "city" => $input["billing"]["city"],
             "district" => $input["billing"]["district"],
             "address" => $input["billing"]["address"],
-            "zip_noe" => $input["billing"]["zip_noe"],
+            "zip_no" => $input["billing"]["zip_no"],
             "type" => $input["is_company"] ? "company" : "personal",
             "firm_name" => $input["billing"]["firm_name"] ?? null,
             "tax_authority" => $input["billing"]["tax_authority"] ?? null,

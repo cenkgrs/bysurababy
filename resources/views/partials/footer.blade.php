@@ -25,7 +25,10 @@
                         <li><a href="#">{{ __("Siparişlerim") }}</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-12 item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+                <div class="col-lg-3 col-12 item social">
+                    <a href="https://www.facebook.com/bySurababy"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/bySurababy"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/bySurababy"><i class="fa fa-twitter"></i></a>
                     <p class="copyright">bySuraBaby © 2021</p>
                 </div>
             </div>

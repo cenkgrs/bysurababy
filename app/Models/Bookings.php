@@ -20,4 +20,8 @@ class Bookings extends Model
     {
         return $this->hasOne('App\Models\BillingInformations', 'request_id', 'request_id');
     }
+
+    public function contact() {
+        return $this->hasOne('App\Models\Contacts', 'request_id', 'request_id');
+    }
 }

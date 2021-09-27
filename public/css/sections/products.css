@@ -116,4 +116,12 @@
   margin-top: 0.3rem;
 }
 
+.filter .side-link {
+  font-weight: 500;
+}
+
+.filter .side-link a {
+  color: #cd5b7c;
+}
+
 /*# sourceMappingURL=products.css.map */

@@ -155,7 +155,7 @@ class ProductsController extends Controller
 
         if ($cart) {
             foreach ($cart as $id => $cart_product) {
-                $product = Products::where('id', $id)->first();
+                $product = Products::with('category', 'sub_category')->where('id', $id)->first();
 
                 $products[$id] = [
                     "name" => ucwords(strtolower($product->name)),

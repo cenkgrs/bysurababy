@@ -26,6 +26,8 @@
 @use 'sections/login';
 @use 'mobile/sections/m_login';
 
+@use 'sections/orders';
+
 @use '../../node_modules/bootstrap/dist/css/bootstrap.css';
 @use '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
 
