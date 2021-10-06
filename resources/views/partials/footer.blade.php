@@ -14,7 +14,7 @@
                     <h3>{{ __("Hakkımızda") }}</h3>
                     <ul>
                         <li><a href="#">{{ __("Blog") }}</a></li>
-                        <li><a href="#">{{ __("Vizyon") }}</a></li>
+                        <li><a href="{{ route('vision') }}">{{ __("Vizyon") }}</a></li>
                         <li><a href="#">{{ __("Sıkça Sorulan Sorular") }}</a></li>
                     </ul>
                 </div>
@@ -22,7 +22,7 @@
                     <h3>{{ __("Üyelik") }}</h3>
                     <ul>
                         <li><a href="#">{{ __("Hesabım") }}</a></li>
-                        <li><a href="#">{{ __("Siparişlerim") }}</a></li>
+                        <li><a href="{{ route('orders') }}">{{ __("Siparişlerim") }}</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-12 item social">
