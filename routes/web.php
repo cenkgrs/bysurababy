@@ -42,3 +42,7 @@ Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthContro
 
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('logout');
 
+// Pages
+Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('vision');
+
+
