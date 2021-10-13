@@ -4,4 +4,6 @@
 
     @include('home.partials.popular')
 
+    @include('home.partials.blogs')
+
 @endsection

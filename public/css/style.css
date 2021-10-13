@@ -956,6 +956,25 @@ textarea {
   float: right;
 }
 
+.blog {
+  border: 1px solid #eeeeee;
+  padding: 1rem 0;
+}
+
+.blog .blog-header {
+  padding: 0 2rem 1rem 2rem;
+}
+
+.blog .blog-header h5 {
+  margin: 0;
+}
+
+.blog .blog-body {
+  border-top: 1px solid #eeee;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+}
+
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

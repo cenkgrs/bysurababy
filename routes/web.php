@@ -15,10 +15,11 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
+// Home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('index');
 Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('index');
 
-
+// Products
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
@@ -37,12 +38,14 @@ Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name
 
 Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard');
 
+// Auth
 Route::match(['get', 'post'], '/login', 'App\Http\Controllers\Auth\AuthController@login')->name('login');
 Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthController@register')->name('register');
 
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('logout');
 
 // Pages
+Route::get('/blog', 'App\Http\Controllers\PagesController@blog')->name('blog');
 Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('vision');
 Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mission');
 
