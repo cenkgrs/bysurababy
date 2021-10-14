@@ -33,7 +33,6 @@
                                         <h6>{{ __('Tutar') }}</h6>
                                         <small>{{ $order['total_price'] }} TL</small>
                                     </div>
-
                                     <div class="col-lg-2">
                                         <button class="btn primary-button">{{ __('Sipariş Detayı') }}</button>
                                     </div>
@@ -44,8 +43,20 @@
                                     <div class="order-product">
                                         <div class="row">
                                             <div class="col-lg-4">
-                                                <h6>{{ $order['status'] }}</h6>
-                                                <small>24 Eylül Tarihinde sipariş verilmiştir.</small>
+                                                <h6>{{ $order['order_status'] }}</h6>
+
+                                                @if ($order['status'] == 1)
+                                                    <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
+                                                @elseif ($order['status'] == 2)
+                                                    <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
+                                                @elseif ($order['status'] == 3)
+                                                    <small>{{ $order['cargo']['created_at'] }} Tarihinde kargoya verilmiştir.</small>
+                                                @elseif ($order['status'] == 4)
+                                                    <small>{{ $order['cargo']['delivery_date'] }} Tarihinde teslim edilmiştir.</small>
+                                                @elseif ($order['status'] == 5)
+                                                    <small>{{ $order['cancel_date'] }} Tarihinde iptal edilmiştir.</small>
+                                                @endif
+
                                             </div>
                                             <div class="col-lg-4">
                                                 <span>{{ $product['name'] }}</span>

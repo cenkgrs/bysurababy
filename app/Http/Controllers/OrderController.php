@@ -38,9 +38,12 @@ class OrderController extends Controller
                 "total_price" => $booking->total_price,
                 "owner" => $booking->contact->name . ' ' . $booking->contact->surname,
                 "product_count" => $product_count,
-                "status" => Helper::getBookingStatus($booking->status),
+                "order_status" => Helper::getBookingStatus($booking->status),
                 "operation" => Helper::getBookingOperation($booking->status),
+                "humanized_date" => Helper::getHumanizedDate($booking->created_at),
+                "cancel_date" => Helper::getHumanizedDate($booking->cancel_date),
                 "created_at" => $booking->created_at,
+                "status_code" => $booking->status
             ];
         }
 

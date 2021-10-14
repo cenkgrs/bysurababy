@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use IntlDateFormatter;
+use App;
 class Helper
 {
     public static function getBookingStatus($status) 
@@ -27,5 +29,19 @@ class Helper
         ];
 
         return $operations[$status];
+    }
+
+    public static function getHumanizedDate($date)
+    {
+        $date_lang = 'tr_TR';
+
+        if (App::getLocale() === 'en') {
+            $date_lang = 'en_EN';
+        }
+        
+        $dateFormatLong = new IntlDateFormatter($date_lang, IntlDateFormatter::FULL, IntlDateFormatter::FULL);
+        $dateFormatLong->setPattern('dd LLLL yyyy eeee');
+
+        return $dateFormatLong->format($date);
     }
 }
