@@ -45,8 +45,9 @@ Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthContro
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('logout');
 
 // Pages
-Route::get('/blog', 'App\Http\Controllers\PagesController@blog')->name('blog');
 Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('vision');
 Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mission');
 
-
+// Blogs
+Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blogs');
+Route::get('/blog/{$slug}', 'App\Http\Controllers\BlogController@blog')->name('blog');
