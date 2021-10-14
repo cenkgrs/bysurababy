@@ -5,7 +5,7 @@
         </div>
         <div class="blog-body">
             <div class="blog-description">{{ $blog->description }}</div>
-            <a href="{{ route('blog', ['slug' => $blog->slug]) }}">Devamı...</a>
+            <a href="{{ route('blog', ['slug' => $blog->slug]) }}">{{ __('Devamı Oku') }}</a>
         </div>
     </div>
 @endforeach

@@ -6,7 +6,7 @@
                     <h3>bySura baby</h3>
                     <ul>
                         <li><a href="{{ route('products') }}"><span>{{ __("Ürünler") }}</span></a></li>
-                        <li><a href="{{ route('categories') }}"><span>{{ __("Kategoriler") }}</span></a></li
+                        <li><a href="{{ route('categories') }}"><span>{{ __("Kategoriler") }}</span></a></li>
                         <li><a href="#"><span>{{ __("İletişim") }}</span></a></li>
                     </ul>
                 </div>
