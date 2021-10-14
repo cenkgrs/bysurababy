@@ -25,6 +25,7 @@ Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\Pr
 
 // Orders
 Route::get('/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
+Route::get('/siparislerim/{{$request_id}}', 'App\Http\Controllers\OrderController@order')->name('order');
 
 // Cart
 Route::get('/cart', [ProductsController::class, "cart"])->name('cart');

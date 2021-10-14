@@ -49,21 +49,42 @@ class OrderController extends Controller
 
         $data = [
             "orders" => $orders,
-            /*
-            "title" => __("Siparişlerim"),
-            "breadcrumbs" => [
-                0 => [
-                    "title" => __("A"na Sayfa"),
-                    "route" => "/index"
-                ],
-                1 => [
-                    "title" => __("Siparişlerim"),
-                    "route" => "/orders",
-                ]
-            ]
-            */
         ];
 
         return view('user.orders.index', $data);
+    }
+
+    public function order($request_id)
+    {
+        $booking = Bookings::with('booking_items', 'billing')->where('request_id', $request_id)->first();
+
+        $items = [];
+        $product_count = 0;
+
+        foreach ($booking->booking_items as $item) {
+            $product_count += $item->quantity;
+
+            $product = Products::where('id', $item->id)->first();
+
+            $items[] = [
+                "name" => $product->name,
+                "quantity" => $product->quantity,
+                "photo" => $product->id . ".jpg",
+            ];
+        }
+
+        $orders[] = [
+            "products" => $items,
+            "total_price" => $booking->total_price,
+            "owner" => $booking->contact->name . ' ' . $booking->contact->surname,
+            "product_count" => $product_count,
+            "order_status" => Helper::getBookingStatus($booking->status),
+            "operation" => Helper::getBookingOperation($booking->status),
+            "humanized_date" => Helper::getHumanizedDate($booking->created_at),
+            "cancel_date" => Helper::getHumanizedDate($booking->cancel_date),
+            "created_at" => $booking->created_at,
+            "request_id" => $booking->request_id,
+            "status_code" => $booking->status
+        ];
     }
 }
