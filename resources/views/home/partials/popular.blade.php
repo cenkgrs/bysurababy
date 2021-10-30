@@ -1,4 +1,6 @@
 <div class="popular-products">
+
+    <h5>{{ __('En Çok Satan Ürünler') }}</h5>
     <div class="row">
         @foreach ($popular_products as $product)
             <div class="col-lg-4">

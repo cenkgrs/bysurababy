@@ -33,4 +33,36 @@
   background-color: white;
 }
 
+.background-turqouise {
+  background-color: #1ef7de;
+}
+
+.background-dark-turqouise {
+  background-color: #0bd3bc;
+}
+
+.color-turqouise {
+  color: #1ef7de;
+}
+
+.background-black {
+  background-color: black;
+}
+
+.color-black {
+  color: black;
+}
+
+.background-primary {
+  background-color: #cd5b7c;
+}
+
+.color-black {
+  color: black;
+}
+
+.color-white {
+  color: white;
+}
+
 /*# sourceMappingURL=colors.css.map */

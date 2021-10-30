@@ -1,3 +1,5 @@
+<h5>{{ __('Blog Yazıları') }}</h5>
+
 @foreach ($blogs as $blog)
     <div class="blog mt2">
         <div class="blog-header">
@@ -5,7 +7,7 @@
         </div>
         <div class="blog-body">
             <div class="blog-description">{{ $blog->description }}</div>
-            <a class="color-primary" href="{{ route('blog', ['slug' => $blog->slug]) }}">{{ __('Devamı Oku') }}</a>
+            <a class="color-primary" href="{{ route('blog', $blog->slug) }}">{{ __('Devamı Oku') }}</a>
         </div>
     </div>
 @endforeach

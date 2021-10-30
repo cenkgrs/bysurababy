@@ -136,4 +136,30 @@ textarea {
   margin-top: 10px;
 }
 
+.sticker {
+  height: auto;
+  border-radius: 15px;
+}
+
+.sticker .sticker-text {
+  text-align: center;
+  margin-top: 2vh;
+  font-weight: 500;
+  color: #1c1c1c;
+}
+
+.sticker .sticker-icon {
+  font-size: 3rem;
+  background: #ffff;
+  border-radius: 50px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.category-sticker {
+  border-radius: 5vh;
+  border: 1px solid #cd5b7c;
+  padding: 3px;
+}
+
 /*# sourceMappingURL=common.css.map */

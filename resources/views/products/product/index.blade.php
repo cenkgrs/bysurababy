@@ -16,6 +16,12 @@
             </div>
         </div>
 
+        <div class="row mtw2">
+            <div class="col-lg-12">
+                @include('products.product.partials.description')
+            </div>
+        </div>
+
         <div class="row mt2">
             <div class="col-lg-12">
                 @include('products.product.partials.similar_products')

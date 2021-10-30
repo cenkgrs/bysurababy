@@ -3,6 +3,10 @@ $beige: beige;
 $orange: #e39a71;
 $gray: gray;
 $white: white;
+$turqouise: #1ef7de;
+$dark-turqouise: #0bd3bc;
+$black: black;
+$primary-color: #cd5b7c;
 
 .color-circle{
     height: 2vh;
@@ -24,3 +28,16 @@ $white: white;
 .orange{background-color: $orange}
 .gray{background-color: $gray}
 .white{background-color: $white}
+
+.background-turqouise{background-color: $turqouise}
+.background-dark-turqouise{background-color: $dark-turqouise}
+.color-turqouise{color: $turqouise}
+
+.background-black{background-color: $black}
+.color-black{color: $black}
+
+.background-primary{background-color: $primary-color}
+
+.color-black{color: $black}
+
+.color-white{color: $white}
