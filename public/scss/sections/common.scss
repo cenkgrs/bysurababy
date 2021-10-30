@@ -141,8 +141,25 @@ textarea{
     margin: 5px;
 }
 
+.category-stickers{
+    border: solid #d5d5d5;
+    border-width: 0px 0 1px 0;
+    margin: 0 auto 2rem auto;
+    padding: 0 10rem 1rem 10rem;
+}
 .category-sticker{
-    border-radius: 5vh;
-    border: 1px solid $primary-color;
-    padding: 3px;
+    border-radius: 3vh;
+    border: 2px solid $primary-color;
+    padding: 10px;
+}
+
+.category-sticker img{
+    height: 3.5vh;
+    width: 100%;
+}
+
+.category-stickers span{
+    -webkit-text-stroke: thin;
+    text-align: center;
+    display: block;
 }

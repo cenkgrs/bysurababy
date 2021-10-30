@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-lg-2">
                         <button class="btn primary-button">
-                            <a href="{{ route('order', ['request_id' => $order['request_id']]) }}">{{ __('Sipariş Detayı') }}</a>
+                            <a href="{{ route('order', $order['request_id']) }}">{{ __('Sipariş Detayı') }}</a>
                         </button>
                     </div>
                 </div>
@@ -33,15 +33,15 @@
                             <div class="col-lg-4">
                                 <h6>{{ $order['order_status'] }}</h6>
 
-                                @if ($order['status'] == 1)
+                                @if ($order['status_code'] == 1)
                                     <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
-                                @elseif ($order['status'] == 2)
+                                @elseif ($order['status_code'] == 2)
                                     <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
-                                @elseif ($order['status'] == 3)
+                                @elseif ($order['status_code'] == 3)
                                     <small>{{ $order['cargo']['created_at'] }} Tarihinde kargoya verilmiştir.</small>
-                                @elseif ($order['status'] == 4)
+                                @elseif ($order['status_code'] == 4)
                                     <small>{{ $order['cargo']['delivery_date'] }} Tarihinde teslim edilmiştir.</small>
-                                @elseif ($order['status'] == 5)
+                                @elseif ($order['status_code'] == 5)
                                     <small>{{ $order['cancel_date'] }} Tarihinde iptal edilmiştir.</small>
                                 @endif
 

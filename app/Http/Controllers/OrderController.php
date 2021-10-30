@@ -34,6 +34,7 @@ class OrderController extends Controller
             }
 
             $orders[] = [
+                "request_id" => $booking->request_id,
                 "products" => $items,
                 "total_price" => $booking->total_price,
                 "owner" => $booking->contact->name . ' ' . $booking->contact->surname,

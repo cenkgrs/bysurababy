@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Banners;
 use App\Models\Blogs;
 use App\Models\BookingItems;
 use App\Models\Categories;
@@ -33,6 +34,7 @@ class HomeController extends Controller
 
         $data = [
             "popular_products" => $products,
+            "banners" => $this->getBanners(),
             "blogs" => Blogs::get()->take(3),
             "stickers" => $this->getStickers(),
             "category_stickers" => $categoryStickers["categories"],
@@ -84,5 +86,10 @@ class HomeController extends Controller
             "categories" => $categories,
             "products" => $products,
         ];
+    }
+
+    public function getBanners()
+    {
+        return Banners::where('slug', 'index')->get();
     }
 }

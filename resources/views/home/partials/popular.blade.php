@@ -3,7 +3,7 @@
     <h5>{{ __('En Çok Satan Ürünler') }}</h5>
     <div class="row">
         @foreach ($popular_products as $product)
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="product" data-href="{{ route('product', $product->id) }}">
                     <div class="product-image">
                         <img src="{{ asset('/images/products/'.$product->id.'.jpg') }}" alt="{{ $product->name }}">
