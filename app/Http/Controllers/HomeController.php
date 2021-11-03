@@ -30,10 +30,13 @@ class HomeController extends Controller
             $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product->id)->first();
         }
 
+        $last_products = Products::with('price', 'category', 'sub_category', 'colors')->orderBy('id', 'desc')->where('parent_id', null)->take(4)->get();
+
         $categoryStickers = $this->getCategoryStickers();
 
         $data = [
             "popular_products" => $products,
+            "last_products" => $last_products,
             "banners" => $this->getBanners(),
             "blogs" => Blogs::get()->take(3),
             "stickers" => $this->getStickers(),
@@ -74,7 +77,7 @@ class HomeController extends Controller
 
     public function getCategoryStickers()
     {
-        $categories = Categories::all()->random(2);
+        $categories = Categories::all()->random(3);
 
         $products = [];
 
@@ -92,4 +95,6 @@ class HomeController extends Controller
     {
         return Banners::where('slug', 'index')->get();
     }
+
+    
 }

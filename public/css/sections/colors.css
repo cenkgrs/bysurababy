@@ -33,6 +33,22 @@
   background-color: white;
 }
 
+.red {
+  background-color: #e91414;
+}
+
+.green {
+  background-color: green;
+}
+
+.indigo {
+  background-color: indigo;
+}
+
+.blue {
+  background-color: #00beffcf;
+}
+
 .background-turqouise {
   background-color: #1ef7de;
 }
@@ -62,7 +78,7 @@
 }
 
 .color-white {
-  color: white;
+  color: white !important;
 }
 
 /*# sourceMappingURL=colors.css.map */

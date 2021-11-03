@@ -1,8 +1,8 @@
-<div class="popular-products mt2 text-center">
+<div class="popular-products mt2 mb2 text-center">
 
-    <h5 class="mb2">{{ __('En Çok Satan Ürünler') }}</h5>
+    <h5 class="mb2">{{ __('En Son Eklenen Ürünler') }}</h5>
     <div class="row">
-        @foreach ($popular_products as $product)
+        @foreach ($last_products as $product)
             <div class="col-lg-3">
                 <div class="product" data-href="{{ route('product', $product->id) }}">
                     <div class="product-image">

@@ -18445,6 +18445,22 @@ readers do not read off random characters that represent icons */
   background-color: white;
 }
 
+.red {
+  background-color: #e91414;
+}
+
+.green {
+  background-color: green;
+}
+
+.indigo {
+  background-color: indigo;
+}
+
+.blue {
+  background-color: #00beffcf;
+}
+
 .background-turqouise {
   background-color: #1ef7de;
 }
@@ -18474,7 +18490,7 @@ readers do not read off random characters that represent icons */
 }
 
 .color-white {
-  color: white;
+  color: white !important;
 }
 
 .dropdown {

@@ -1,4 +1,4 @@
-<h5>{{ __('Blog Yazıları') }}</h5>
+<h5 class="text-center mb2">{{ __('Blog Yazıları') }}</h5>
 
 @foreach ($blogs as $blog)
     <div class="blog mt2">

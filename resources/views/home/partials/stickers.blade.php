@@ -1,4 +1,4 @@
-<div class="row mb-5">
+<div class="row mb-5 mt-5">
     @foreach ($stickers as $sticker)
         <div class="col-lg-4">
             <div class="sticker background-{{ $sticker['background'] }}">

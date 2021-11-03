@@ -3,7 +3,7 @@
         
         @foreach ($banners as $key => $banner)
             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                <img src="{{ asset('/images/banners/'.$banner->photo . '') }}">
+                <img src="{{ asset('/images/banners/'. $banner->photo . '') }}">
             </div>
         @endforeach
     </div>
