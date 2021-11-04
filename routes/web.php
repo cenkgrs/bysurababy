@@ -52,3 +52,7 @@ Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mis
 // Blogs
 Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blogs');
 Route::get('/blog/{$slug}', 'App\Http\Controllers\BlogController@blog')->name('blog');
+
+// Partner
+Route::get('/partner', 'App\Http\Controllers\PagesController@partner')->name('partner');
+Route::post('/partner-application', 'App\Http\Controllers\PagesController@partnerApply')->name('partner-application');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\MailController;
+
 class PagesController extends Controller
 {
     public function vision()
@@ -42,5 +44,19 @@ class PagesController extends Controller
         ];
 
         return view('pages.mission.index', $data);
+    }
+
+    public function partner()
+    {
+        return view('pages.partner.form');
+    }
+
+    public function partnerApply(Request $request)
+    {
+        $input = $request->all();
+
+        MailController::basic_email($input);
+
+        return view('pages.partner.form');
     }
 }
