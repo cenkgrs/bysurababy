@@ -56,3 +56,14 @@ Route::get('/blog/{$slug}', 'App\Http\Controllers\BlogController@blog')->name('b
 // Partner
 Route::get('/partner', 'App\Http\Controllers\PagesController@partner')->name('partner');
 Route::post('/partner-application', 'App\Http\Controllers\PagesController@partnerApply')->name('partner-application');
+
+
+/* ADMIN */
+Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('index');
+Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('index');
+
+// Admin - Products
+Route::get('/panel/products', 'App\Http\Controllers\Admin\DashboardController@products')->name('admin.products');
+Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\DashboardController@addProduct')->name('admin.addProduct');
+
+Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
