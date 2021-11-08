@@ -12,10 +12,6 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        // Remove when publishing - for testing
-        if (!Auth::check()) {
-            return redirect()->route('index');
-        }
 
         $input = $request->all();
 

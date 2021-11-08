@@ -1,3 +1,7 @@
+.footer-fixed {
+  position: fixed !important;
+}
+
 .footer-clean {
   padding: 25px 0 35px 0;
   background-color: #fff;
@@ -44,10 +48,6 @@
 
 .footer-clean ul a:hover {
   opacity: 1;
-}
-
-.footer-clean .item.social {
-  text-align: right;
 }
 
 @media (max-width: 767px) {

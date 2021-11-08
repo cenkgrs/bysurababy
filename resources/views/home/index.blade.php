@@ -4,15 +4,11 @@
 
     @include('home.partials.category_stickers')
 
-    @include('home.partials.banners')
-
-    @include('home.partials.stickers')
-
-    @include('home.partials.popular')
-
     @include('home.partials.last_products')
 
-    @include('home.partials.blogs')
+    @include('home.partials.popular')
+    
+    @include('home.partials.stickers')
 
     <a href="/partner">
         <div class="row mt2">
@@ -23,5 +19,11 @@
             </div>
         </div>
     </a>
+
+    <!--@include('home.partials.banners')-->
+
+    @include('home.partials.blogs')
+
+   
 
 @endsection

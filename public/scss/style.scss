@@ -30,6 +30,8 @@
 
 @use 'sections/blogs';
 
+@use 'mobile/sections/m_user_management.scss';
+
 @use '../../node_modules/bootstrap/dist/css/bootstrap.css';
 @use '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
 

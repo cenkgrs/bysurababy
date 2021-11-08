@@ -1,0 +1,7 @@
+$small: 900px;
+
+@media screen and (max-width: $small) {
+    .user-management-filter{
+        display: none;
+    }
+}

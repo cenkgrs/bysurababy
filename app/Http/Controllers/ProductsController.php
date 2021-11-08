@@ -158,7 +158,7 @@ class ProductsController extends Controller
                 $product = Products::with('category', 'sub_category')->where('id', $id)->first();
 
                 $products[$id] = [
-                    "name" => ucwords(strtolower($product->name)),
+                    "name" => $product->name,//ucwords(strtolower($product->name)),
                     "category" => $product->category->name,
                     "sub_category" => $product->sub_category->name,
                     "price" => $product->price->sale_price,

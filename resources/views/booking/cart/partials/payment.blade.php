@@ -4,7 +4,6 @@
         <h4>{{ number_format((float)$total_price, 2, '.', '') }} ₺</h4>
     </div>
 
-
     <div class="cart-payment-details">
         <ul>
             <li>{{ __("Kargo") }}

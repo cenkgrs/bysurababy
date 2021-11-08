@@ -1,6 +1,10 @@
 $primary-color: #cd5b7c;
 $shadow-color: #d5d5d5;
 
+.footer-fixed {
+    position: fixed !important;
+}
+
 .footer-clean {
     padding: 25px 0 35px 0;
     background-color: #fff;
@@ -49,7 +53,7 @@ $shadow-color: #d5d5d5;
 }
 
 .footer-clean .item.social {
-    text-align:right;
+    //text-align:right;
 }
 
 @media (max-width:767px) {

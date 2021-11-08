@@ -8,6 +8,7 @@ use App\Models\Bookings;
 use App\Models\BillingInformations;
 use App\Models\Contacts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Validator;
 use DateTime;
@@ -31,7 +32,7 @@ class BookingController extends Controller
                 $product = Products::where('id', $id)->first();
 
                 $products[$id] = [
-                    "name" => ucwords(strtolower($product->name)),
+                    "name" => $product->name,//ucwords(strtolower($product->name)),
                     "price" => $product->price->sale_price,
                     "quantity" => $cart_product["quantity"]
                 ];
@@ -39,7 +40,7 @@ class BookingController extends Controller
                 isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
             }
 
-            if (isset($total_price) && $total_price > 100) {
+            if (isset($total_price) && $total_price > 150) {
                 $free_cargo = true;
             }
 
@@ -153,6 +154,7 @@ class BookingController extends Controller
         BookingItems::where("request_id", $this->request_id)->delete();
 
         $total_price = 0;
+        $total_earning = 0;
 
         foreach ($cart as $id => $cart_product) {
             $product = Products::where('id', $id)->first();
@@ -168,11 +170,14 @@ class BookingController extends Controller
             ]);
 
             $total_price += $product->price->sale_price * $cart_product["quantity"];
+            $total_earning += $product->price->purchase_price * $cart_product["quantity"];
         }
 
         // Insert Booking data
         Bookings::updateOrInsert(["request_id" => $this->request_id], [
             "request_id" => $this->request_id,
+            "user_id" => Auth::id(),
+            "total_earning" => $total_earning,
             "total_price" => $total_price,
             "created_at" => new DateTime,
         ]);

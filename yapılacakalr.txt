@@ -1,0 +1,21 @@
+sepetim  -> öneriler 3 adet
+finalize sayfası -> öneriler 3 adet | ürünler -> col-lg-6 öneriler -> col-lg-6
+
+ürün açıklama kısa ve uzun açıklama paneli
+yorumlar onaylı şekilde
+siparişler ürün durumu 
+
+üye olurken bebek doğum tarihi - zamanlı sms - email
+
+
+ana sayfası
+resimler - popüler ürünler - kategori ürünleri - bloglar özeti 3 tane
+
+ilk 10 müşterimize patik ayakkabı
+
+bizimle çalışmak ister misiniz reklamıve formu -> mail göndericek
+
+
+
+ -------------------------
+dergi@abonetsepeti.com

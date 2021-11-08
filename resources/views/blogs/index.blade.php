@@ -2,6 +2,6 @@
 
 @section('content')
 
-    @include('blog.partials.list')
+    @include('blogs.partials.list')
 
 @endsection

@@ -24,4 +24,8 @@ class Bookings extends Model
     public function contact() {
         return $this->hasOne('App\Models\Contacts', 'request_id', 'request_id');
     }
+
+    public function address() {
+        return $this->hasOne('App\Models\Addresses', 'id', 'address_id');
+    }
 }

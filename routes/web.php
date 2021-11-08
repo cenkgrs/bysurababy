@@ -25,7 +25,7 @@ Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\Pr
 
 // Orders
 Route::get('/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
-Route::get('/siparislerim/{{$request_id}}', 'App\Http\Controllers\OrderController@order')->name('order');
+Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
 
 // Cart
 Route::get('/cart', [ProductsController::class, "cart"])->name('cart');
@@ -59,11 +59,14 @@ Route::post('/partner-application', 'App\Http\Controllers\PagesController@partne
 
 
 /* ADMIN */
-Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('index');
-Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('index');
+Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
+Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
 
 // Admin - Products
 Route::get('/panel/products', 'App\Http\Controllers\Admin\DashboardController@products')->name('admin.products');
 Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\DashboardController@addProduct')->name('admin.addProduct');
 
+Route::get('/panel/categories', 'App\Http\Controllers\Admin\DashboardController@categories')->name('admin.categories');
+
 Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
+Route::get('/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');

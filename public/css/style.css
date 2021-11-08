@@ -535,6 +535,10 @@
   border: none !important;
 }
 
+.footer-fixed {
+  position: fixed !important;
+}
+
 .footer-clean {
   padding: 25px 0 35px 0;
   background-color: #fff;
@@ -581,10 +585,6 @@
 
 .footer-clean ul a:hover {
   opacity: 1;
-}
-
-.footer-clean .item.social {
-  text-align: right;
 }
 
 @media (max-width: 767px) {
@@ -1000,6 +1000,39 @@ textarea {
   float: right;
 }
 
+.order-body .payment-details ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.4vh;
+  color: #6a6a6a;
+}
+
+.order-body .payment-details ul li {
+  border-bottom: 1px solid #d5d5d5;
+  padding: 0.5rem 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.order-body .payment-details ul li span {
+  float: right;
+}
+
+.order-body .payment-result {
+  padding: 0rem 0 1.5rem 0;
+}
+
+.order-body .payment-result span:first-of-type {
+  font-weight: 500;
+  color: #6a6a6a;
+  float: left;
+}
+
+.order-body .payment-result span:nth-child(2) {
+  font-weight: 500;
+  color: #cd5b7c;
+  float: right;
+}
+
 .blog {
   border: 1px solid #eeeeee;
   padding: 1rem 0;
@@ -1019,6 +1052,11 @@ textarea {
   font-size: 0.9rem;
 }
 
+@media screen and (max-width: 900px) {
+  .user-management-filter {
+    display: none;
+  }
+}
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -18491,6 +18529,10 @@ readers do not read off random characters that represent icons */
 
 .color-white {
   color: white !important;
+}
+
+.color-dark-turqouise {
+  color: #0bd3bc;
 }
 
 .dropdown {

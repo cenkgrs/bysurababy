@@ -15,6 +15,7 @@
                     <ul>
                         <li><a href="#">{{ __("Blog") }}</a></li>
                         <li><a href="{{ route('vision') }}">{{ __("Vizyon") }}</a></li>
+                        <li><a href="{{ route('mission') }}">{{ __("Misyon") }}</a></li>
                         <li><a href="#">{{ __("Sıkça Sorulan Sorular") }}</a></li>
                     </ul>
                 </div>

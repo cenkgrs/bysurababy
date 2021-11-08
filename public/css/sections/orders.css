@@ -35,4 +35,37 @@
   float: right;
 }
 
+.order-body .payment-details ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.4vh;
+  color: #6a6a6a;
+}
+
+.order-body .payment-details ul li {
+  border-bottom: 1px solid #d5d5d5;
+  padding: 0.5rem 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.order-body .payment-details ul li span {
+  float: right;
+}
+
+.order-body .payment-result {
+  padding: 0rem 0 1.5rem 0;
+}
+
+.order-body .payment-result span:first-of-type {
+  font-weight: 500;
+  color: #6a6a6a;
+  float: left;
+}
+
+.order-body .payment-result span:nth-child(2) {
+  font-weight: 500;
+  color: #cd5b7c;
+  float: right;
+}
+
 /*# sourceMappingURL=orders.css.map */

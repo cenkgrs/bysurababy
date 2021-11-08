@@ -6,10 +6,10 @@
                     <ul>
                         <li><a href="/products"><span>{{ __("Ürünler") }}</span></a></li>
                         <li><a href="/categories"><span>{{ __("Kategoriler") }}</span></a></li>
-                        <li><a href="/contact"><span>{{ __("Blog") }}</span></a></li>
-                        <li><a href="/contact"><span>{{ __("Vizyon") }}</span></a></li>
+                        <li><a href="/blogs"><span>{{ __("Blog") }}</span></a></li>
+                        <li><a href="/vizyon"><span>{{ __("Vizyon") }}</span></a></li>
                         <li><a href="/contact"><span>{{ __("İletişim") }}</span></a></li>
-                        <li><a href="/contact"><span>{{ __("Siparişlerim") }}</span></a></li>
+                        <li><a href="/siparislerim"><span>{{ __("Siparişlerim") }}</span></a></li>
                     </ul>
                 </div>
 

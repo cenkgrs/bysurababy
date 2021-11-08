@@ -33,6 +33,16 @@ let Common = function ()
                 }
 
             });
+
+            if (window.location.pathname.split('/')[1] == "categories") {
+                $(".footer-clean").addClass("footer-fixed");
+            }
+
+            // Go to product page when clicked on it
+            $(".product").on("click", function() {
+                window.location.href = $(this).data("href");
+            })
+           
         })
     }
 

@@ -1,3 +1,7 @@
+$shadow-color: #d5d5d5;
+$color-muted: #6a6a6a;
+$primary-color: #cd5b7c;
+
 .orders .order{
     border: 1px solid #e2e2e2;
 }
@@ -32,5 +36,41 @@
 }
 
 .orders .order .order-body .order-product .secondary-button{
+    float: right;
+}
+
+.order-body .payment-details{
+
+}
+
+.order-body .payment-details ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.4vh;
+    color: $color-muted;
+}
+
+.order-body .payment-details ul li {
+    border-bottom: 1px solid $shadow-color;
+    padding: .5rem 0 .5rem 0;
+    font-weight: 500;
+}
+.order-body .payment-details ul li span {
+    float: right;
+}
+
+.order-body .payment-result {
+    padding: 0rem 0 1.5rem 0;
+}
+
+.order-body .payment-result span:first-of-type{
+    font-weight: 500;
+    color: $color-muted;
+    float: left;
+}
+
+.order-body .payment-result span:nth-child(2){
+    font-weight: 500;
+    color: $primary-color;
     float: right;
 }

@@ -31,16 +31,22 @@ class Helper
         return $operations[$status];
     }
 
-    public static function getHumanizedDate($date)
+    public static function getHumanizedDate($date, $hour = false)
     {
         $date_lang = 'tr_TR';
 
         if (App::getLocale() === 'en') {
             $date_lang = 'en_EN';
         }
+
+        $pattern = "dd LLLL yyyy eeee";
+
+        if ($hour) {
+            $pattern = "dd LLLL yyyy eeee hh:mm";
+        } 
         
         $dateFormatLong = new IntlDateFormatter($date_lang, IntlDateFormatter::FULL, IntlDateFormatter::FULL);
-        $dateFormatLong->setPattern('dd LLLL yyyy eeee');
+        $dateFormatLong->setPattern($pattern);
 
         return $dateFormatLong->format($date);
     }

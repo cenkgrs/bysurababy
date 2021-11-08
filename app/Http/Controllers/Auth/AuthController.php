@@ -29,9 +29,9 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('products')
-                        ->withSuccess('Signed in');
+            return redirect()->intended('products')->withSuccess('Signed in');
         }
 
         return redirect("login")->withSuccess('Kullanıcı adı veya şifre hatalı');
@@ -40,19 +40,23 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         if ($request->isMethod('get')) {
-            return view('auth.registration');
+            return view('auth.register');
         }
 
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+        ],[
+            'password.min' => __('Şifreniz en az 6 haneli olmalıdır'),
+            'email.unique' => __('Bu e-posta adresi kullanılmaktadır')
         ]);
 
         $data = $request->all();
+
         $check = $this->create($data);
 
-        return redirect("products")->withSuccess('You have signed-in');
+        return redirect("index")->withSuccess('Başarılı bir şekilde üye oldunuz');
     }
 
     public function create(array $data)
@@ -79,6 +83,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        return Redirect('index');
     }
 }

@@ -1,10 +1,15 @@
-<div class="filter ">
-    <div class="row">
+<div class="row mb1">
+    <div class="col-lg-12">
         <h5 class="color-primary">{{ __('Hesabım') }}</h5>
+    </div>
+</div>
+
+<div class="filter user-management-filter">
+    <div class="row">
 
         <div class="col-lg-12">
 
-            <div class="row mt1">
+            <div class="row mt1 mb1">
                 <div class="col-lg-12 side-link">
                     <i class="fa fa-bell-o mr1"></i>
                     <a href="{{ route('orders') }}">{{ __('Siparişlerim') }}</a>
