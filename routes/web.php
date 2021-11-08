@@ -76,4 +76,8 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     
     Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
     Route::match(['get', 'post'], '/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');
+
+    // Users
+    Route::get('/panel/users', 'App\Http\Controllers\Admin\UserController@users')->name('admin.users');
+    Route::get('/panel/panel-users', 'App\Http\Controllers\Admin\UserController@panelUsers')->name('admin.panelUsers');
 });
