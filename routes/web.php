@@ -59,14 +59,21 @@ Route::post('/partner-application', 'App\Http\Controllers\PagesController@partne
 
 
 /* ADMIN */
-Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
-Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
 
-// Admin - Products
-Route::get('/panel/products', 'App\Http\Controllers\Admin\DashboardController@products')->name('admin.products');
-Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\DashboardController@addProduct')->name('admin.addProduct');
+// Auth
+Route::match(['get', 'post'], '/panel/login', 'App\Http\Controllers\Admin\AuthController@login')->name('admin.login');
+Route::get('/panel/logout', 'App\Http\Controllers\Admin\AuthController@signOut')->name('logout');
 
-Route::get('/panel/categories', 'App\Http\Controllers\Admin\DashboardController@categories')->name('admin.categories');
-
-Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
-Route::get('/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');
+Route::group(['middleware' => 'checkAdmin'], function () {
+    Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
+    Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
+    
+    // Admin - Products
+    Route::get('/panel/products', 'App\Http\Controllers\Admin\DashboardController@products')->name('admin.products');
+    Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\DashboardController@addProduct')->name('admin.addProduct');
+    
+    Route::get('/panel/categories', 'App\Http\Controllers\Admin\DashboardController@categories')->name('admin.categories');
+    
+    Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
+    Route::match(['get', 'post'], '/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');
+});

@@ -10,4 +10,6 @@
 
     @include('admin.reports.sale.partials.billing')
 
+    @include('admin.reports.sale.partials.operations')
+
 @endsection

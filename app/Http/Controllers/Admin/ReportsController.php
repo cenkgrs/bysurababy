@@ -21,9 +21,30 @@ class ReportsController extends Controller
         return view('admin.reports.sales.index', $data);
     }
 
-    public function sale($request_id)
+    public function sale(Request $request, $request_id)
     {
         $booking = Bookings::with('booking_items', 'billing', 'contact')->where('request_id', $request_id)->first();
+
+        if ($request->isMethod('post')) {
+            $input = $request->all();
+
+            if (isset($input['cargo'])) {
+                $booking->status = 3;
+                $booking->save();
+            } elseif (isset($input['sale'])) {
+                $booking->status = 1;
+                $booking->save();
+            } elseif (isset($input['cancel'])) {
+                $booking->status = 5;
+                $booking->save();
+            } elseif (isset($input['prepare'])) {
+                $booking->status = 2;
+                $booking->save();
+            } else if(isset($input['delivered'])) {
+                $booking->status = 4;
+                $booking->save();
+            }
+        }
         
         $data['booking'] = [
             "request_id" => $booking->request_id,
