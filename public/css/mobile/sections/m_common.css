@@ -6,6 +6,19 @@
   .mt0-m {
     margin-top: 0 !important;
   }
+
+  .category-stickers {
+    border: solid #d5d5d5;
+    border-width: 0px 0 1px 0;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .category-sticker {
+    border-radius: 3vh;
+    border: 2px solid #cd5b7c;
+    padding: 5px;
+  }
 }
 
 /*# sourceMappingURL=m_common.css.map */
