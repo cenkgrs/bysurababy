@@ -48,11 +48,20 @@
                                 <span>{{ $product['name'] }}</span>
                             </div>
                             <div class="col-lg-4 col-12">
-                                @if ($order['operation'] == "Cancel")
-                                    <div class="btn secondary-button">{{ __('İptal Et') }}</div>
-                                @elseif ($order['operation'] == 'Refund')
-                                    <div class="btn secondary-button">{{ __('İade Et') }}</div>
-                                @endif
+                                <form method="POST" action="{{ route('orders') }}">
+                                    @csrf
+                                    <input type="hidden" name="operation" value="1">
+                                    <input type="hidden" name="request_id" value="{{ $order['request_id'] }}">
+                                    @if ($order['operation'] == "Cancel")
+                                        <button type="submit" name="cancel" value="1" class="btn secondary-button">{{ __('İptal Et') }}</button>
+                                    @elseif ($order['operation'] == 'Refund')
+                                        <button type="submit" name="refund" value="1" class="btn secondary-button">{{ __('İade Et') }}</button>
+                                    @elseif ($order['status_code'] == '5')
+                                        <span class="float-end color-primary">
+                                            {{ $order['order_status'] }}
+                                        </span>
+                                    @endif
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -12,9 +12,23 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bookings = Bookings::with('booking_items', 'billing')->where('user_id', Auth::id())->get();
+        $bookings = Bookings::with('booking_items', 'billing', 'cargo')->where('user_id', Auth::id())->get();
+
+        if ($request->isMethod('post')) {
+            $input = $request->all();
+
+            $booking = Bookings::where('request_id', $input['request_id'])->first();
+            
+            if (isset($input['cancel'])) {
+                $booking->status = 5;
+                $booking->save();
+            } elseif (isset($input['refund'])) {
+                $booking->status = 6;
+                $booking->save();
+            }
+        }
 
         foreach ($bookings as $booking) {
             
@@ -42,12 +56,12 @@ class OrderController extends Controller
                 "order_status" => Helper::getBookingStatus($booking->status),
                 "operation" => Helper::getBookingOperation($booking->status),
                 "humanized_date" => Helper::getHumanizedDate($booking->created_at),
-                "cancel_date" => Helper::getHumanizedDate($booking->cancel_date),
+                "cancel_date" => $booking->cancel_date,
                 "created_at" => Helper::getHumanizedDate($booking->created_at, true),
                 "status_code" => $booking->status,
                 "cargo" => [
-                    "created_at" => Helper::getHumanizedDate($booking->created_at),
-                    "delivery_date" => Helper::getHumanizedDate($booking->created_at)
+                    "created_at" => !$booking->cargo ? null : $booking->cargo->cargo_date,
+                    "delivery_date" => !$booking->cargo ? null : $booking->cargo->delivery_date,
                 ]
             ];
         }

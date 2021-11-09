@@ -22,6 +22,7 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="col-lg-6 col-12">
                     <div class="cart-product-count">
                         <div class="counter">
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     @endforeach

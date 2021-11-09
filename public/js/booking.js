@@ -57,7 +57,7 @@ let Booking = function ()
             });
 
             $("#indiviual_checkbox").change(function() {
-                console.log($(this).is(':checked'));
+
                 if ($(this).is(':checked')) {
                     $(".firm-informations").addClass('d-none');
 
@@ -69,7 +69,7 @@ let Booking = function ()
 
 
             $("#firm_checkbox").change(function() {
-                console.log($(this).is(':checked'));
+
                 if ($(this).is(':checked')) {
                     $(".firm-informations").removeClass('d-none');
 

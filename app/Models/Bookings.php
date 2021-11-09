@@ -28,4 +28,8 @@ class Bookings extends Model
     public function address() {
         return $this->hasOne('App\Models\Addresses', 'id', 'address_id');
     }
+
+    public function cargo() {
+        return $this->hasOne('App\Models\CargoInformations', 'request_id', 'request_id');
+    }
 }

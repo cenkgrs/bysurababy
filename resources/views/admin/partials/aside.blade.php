@@ -35,26 +35,6 @@
                   <span class="menu-item-label">Satışlar</span>
               </a>
             </li>
-
-            <li class="">
-              <a class="dropdown">
-                <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                <span class="menu-item-label">Ürünler</span>
-                <span class="icon"><i class="mdi mdi-plus"></i></span>
-              </a>
-              <ul>
-                <li>
-                  <a href="#void">
-                    <span>Sub-item One</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#void">
-                    <span>Sub-item Two</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
         </ul>
 
         <p class="menu-label">Kullanıcılar</p>
