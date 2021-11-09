@@ -62,7 +62,7 @@ Route::post('/partner-application', 'App\Http\Controllers\PagesController@partne
 
 // Auth
 Route::match(['get', 'post'], '/panel/login', 'App\Http\Controllers\Admin\AuthController@login')->name('admin.login');
-Route::get('/panel/logout', 'App\Http\Controllers\Admin\AuthController@signOut')->name('logout');
+Route::get('/panel/logout', 'App\Http\Controllers\Admin\AuthController@signOut')->name('admin.logout');
 
 Route::group(['middleware' => 'checkAdmin'], function () {
     Route::get('/panel', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');

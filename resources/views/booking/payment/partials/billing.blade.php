@@ -1,4 +1,4 @@
-<div class="col-lg-12 mt2">
+<div class="col-lg-12 mt2 mb2">
 
     <div class="row">
         <div class="col-lg-6 col-12">
@@ -6,12 +6,12 @@
         </div>
         <div class="col-lg-3 col-3 form-group">
             <label for="" style="float:right"> {{ __('Bireysel') }}
-                <input type="radio" name="is_company" id="is_company" value="1" checked="checked">
+                <input type="radio" name="is_company" id="indiviual_checkbox" value="individual" checked="checked">
             </label>
         </div>
-        <div class="col-lg-3 col-3 form-group">
+        <div class="col-lg-3 col-4 form-group">
             <label for="" style="float:right"> {{ __('Kurumsal') }}
-                <input type="radio" name="is_company" id="is_company" value="0">
+                <input type="radio" name="is_company" id="firm_checkbox" value="firm">
             </label>
         </div>
 
@@ -39,7 +39,6 @@
                     <input class="form-control" type="text" name="billing[city]" required>
                 </label>
             </div>
-
 
         </div>
 
@@ -82,6 +81,5 @@
             </div>
         </div>
     </div>
-
 
 </div>

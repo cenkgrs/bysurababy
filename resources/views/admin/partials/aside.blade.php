@@ -71,6 +71,12 @@
                   <span class="menu-item-label">Panel Kullanıcıları</span>
               </a>
             </li>
+            <li class="--set-active-tables-html">
+              <a href="{{ route('admin.logout') }}">
+                  <span class="icon"><i class="mdi mdi-account"></i></span>
+                  <span class="menu-item-label">Çıkış Yap</span>
+              </a>
+            </li>
         </ul>
     </div>
 </aside>

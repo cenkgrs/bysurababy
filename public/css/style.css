@@ -505,7 +505,7 @@
 
 @media screen and (max-width: 900px) {
   .cart-products .cart-product .cart-product-category {
-    font-size: 2vh;
+    font-size: 1.75vh;
   }
 }
 .form-panel {

@@ -56,6 +56,29 @@ let Booking = function ()
 
             });
 
+            $("#indiviual_checkbox").change(function() {
+                console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(".firm-informations").addClass('d-none');
+
+                    $("input[name='billing[firm_name]']").prop('required', false);
+                    $("input[name='billing[tax_authority]']").prop('required', false);
+                    $("input[name='billing[tax_no]']").prop('required', false);
+                }
+            })
+
+
+            $("#firm_checkbox").change(function() {
+                console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(".firm-informations").removeClass('d-none');
+
+                    $("input[name='billing[firm_name]']").prop('required', true);
+                    $("input[name='billing[tax_authority]']").prop('required', true);
+                    $("input[name='billing[tax_no]']").prop('required', true);
+                }
+            })
+
             // Check scroll height
             $(window).scroll(function() {
                 var scroll = $(window).scrollTop();

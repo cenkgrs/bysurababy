@@ -64,6 +64,8 @@ class OrderController extends Controller
         $booking = Bookings::with('booking_items', 'billing', 'address')->where('request_id', $request_id)->first();
 
         $items = [];
+        $products = [];
+
         $product_count = 0;
 
         foreach ($booking->booking_items as $item) {
@@ -76,11 +78,20 @@ class OrderController extends Controller
                 "quantity" => $product->quantity,
                 "photo" => $product->id . ".jpg",
             ];
+
+            $products[] = [
+                "id" => $product->id,
+                "name" => $product->name,//ucwords(strtolower($product->name)),
+                "category" => $product->category->name,
+                "sub_category" => $product->sub_category->name,
+                "price" => $product->price->sale_price,
+                "quantity" => $product_count
+            ];
         }
 
         $order = [
             "request_id" => $booking->request_id,
-            "products" => $items,
+            "products" => $products,
             "total_price" => $booking->total_price,
             "owner" => $booking->contact->name . ' ' . $booking->contact->surname,
             "product_count" => $product_count,

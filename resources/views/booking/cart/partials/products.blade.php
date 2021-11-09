@@ -2,12 +2,12 @@
     @foreach ($products as $id => $product)
         <div class="cart-product">
             <div class="row">
-                <div class="col-lg-2 col-3">
+                <div class="col-lg-2 col-4">
                     <div class="cart-product-image">
                         <img src="/images/products/{{ $id }}.jpg" alt="">
                     </div>
                 </div>
-                <div class="col-lg-4 col-9">
+                <div class="col-lg-4 col-8">
                     <div class="cart-product-details">
                         <div class="cart-product-title">
                             <a href="/products/{{ $id }}">
