@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $products = Products::where("parent_id", null)->paginate(5);
+        $products = Products::where("parent_id", null)->paginate(10);
 
         $categories = Categories::get();
         $sub_categories = SubCategories::get();
