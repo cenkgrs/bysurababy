@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="--set-active-forms-html">
-                <a href="{{ route('admin.addProduct') }}">
+                <a href="{{ route('admin.products.addProduct') }}">
                     <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
                     <span class="menu-item-label">Ürün Ekle</span>
                 </a>

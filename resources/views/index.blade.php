@@ -6,7 +6,15 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Coming Soon</title>
+    <title>Bebeğiniz İçin En İyisi Burada</title>
+    
+    <link rel="icon" href="/favicon-32x32.png" type="image/x-icon">
+    
+    <meta property="og:site_name" content="bySurababy">
+    <meta property="og:title" content="Bebeğiniz İçin En İyisi Burada" />
+    <meta property="og:description" content="bySurababy" />
+    <meta property="og:image" itemprop="image" content="/images/logo.jpg">
+    <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"
@@ -19,6 +27,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9728SGCV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FG9728SGCV');
+    </script>
 
 </head>
 <body>
