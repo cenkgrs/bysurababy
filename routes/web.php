@@ -69,7 +69,7 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     Route::get('/panel/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('admin.index');
     
     // Admin - Products
-    Route::get('/panel/products', 'App\Http\Controllers\Admin\ProductController@products')->name('admin.products');
+    Route::match(['get', 'post'], 'panel/products', 'App\Http\Controllers\Admin\ProductController@products')->name('admin.products');
     Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\ProductController@addProduct')->name('admin.products.addProduct');
     Route::match(['get', 'post'], '/panel/update-product', 'App\Http\Controllers\Admin\ProductController@updateProduct')->name('admin.products.updateProduct');
     
