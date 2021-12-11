@@ -71,7 +71,8 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     // Admin - Products
     Route::match(['get', 'post'], 'panel/products', 'App\Http\Controllers\Admin\ProductController@products')->name('admin.products');
     Route::match(['get', 'post'], '/panel/add-product', 'App\Http\Controllers\Admin\ProductController@addProduct')->name('admin.products.addProduct');
-    Route::match(['get', 'post'], '/panel/update-product', 'App\Http\Controllers\Admin\ProductController@updateProduct')->name('admin.products.updateProduct');
+    Route::get('/panel/update-product/{product_id}', 'App\Http\Controllers\Admin\ProductController@updateProductGet')->name('admin.products.updateProductGet');
+    Route::post('/panel/update-product', 'App\Http\Controllers\Admin\ProductController@updateProductPost')->name('admin.products.updateProductPost');
     
     Route::get('/panel/categories', 'App\Http\Controllers\Admin\DashboardController@categories')->name('admin.categories');
     

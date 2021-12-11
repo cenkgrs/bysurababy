@@ -101,8 +101,44 @@ class ProductController extends Controller
         return view('admin.products.add_product.index', $data);
     }
 
-    public function updateProduct()
+    public function updateProductGet(Request $request, $product_id)
     {
+        $product = Products::where('id', $product_id)->first();
+
+        $sub_products = Products::where('parent_id', $product_id)->get();
+
+        $data = [
+            "product" => $product,
+            "sub_products" => $sub_products,
+            "categories" => Categories::get(),
+            "sub_categories" => SubCategories::get(),
+        ];
+
+        return view('admin.products.update_product.index', $data);
+    }
+    
+    public function updateProductPost(Request $request)
+    {
+        $input = $request->all();
+
+        // Update Product
+        Products::where('id', $input["product_id"])->update([
+            "code" => $input["code"],
+            "name" => $input["name"],
+            "category_id" => $input["category"],
+            "sub_category_id" => $input["sub_category"],
+            "color" => $input["color"],
+            "gender" => $input["gender"],
+            "age" => $input["age"] 
+        ]);
+
+        // Update Price
+        Prices::where('product_id', $input["product_id"])->update([
+            "purchase_price" => $input["purchase_price"],
+            "sale_price" => $input["sale_price"],
+        ]);
+
+        return redirect()->back()->with('success_message', "Ürün Güncellendi");
 
     }
 }

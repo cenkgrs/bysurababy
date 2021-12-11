@@ -38,7 +38,7 @@
                                 <td>{{ $product->gender }}</td>
                                 <td>{{ $product->age }}</td>
                                 <td>
-                                    <a target="_blank" style="font-weight: 500" href="{{ route('admin.products.updateProduct', $product->id)}}">Düzenle</a>
+                                    <a target="_blank" style="font-weight: 500" href="{{ route('admin.products.updateProductGet', $product->id)}}">Düzenle</a>
                                 </td>
                             </tr>
                         @endforeach
