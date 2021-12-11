@@ -121,6 +121,39 @@ class ProductController extends Controller
     {
         $input = $request->all();
 
+        if (isset($input["updateColor"]) && $input["updateColor"]) {
+            Products::where('id', $input["sub_product_id"])->update([
+                "color" => $input["color"],
+            ]);
+
+            return redirect()->back()->with('success_message', "Renk Güncellendi");
+        }
+
+        if (isset($input["deleteColor"]) && $input["deleteColor"]) {
+            Products::where('id', $input["sub_product_id"])->delete();
+
+            return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Silindi");
+        }
+
+        // Add new sub product
+        if (isset($input["addColor"]) && $input["addColor"]) {
+            $parent = Products::where('id', $input["product_id"])->first();
+
+            Products::insert([
+                "parent_id" => $parent->id,
+                "code" => $parent->code,
+                "name" => $parent->name,
+                "category_id" => $parent->category_id,
+                "sub_category_id" => $parent->sub_category_id,
+                "price_id" => $parent->price_id,
+                "color" => $input["color"],
+                "gender" => $parent->gender,
+                "age" => $parent->age 
+            ]);
+
+            return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Eklendi");
+        }
+
         // Update Product
         Products::where('id', $input["product_id"])->update([
             "code" => $input["code"],

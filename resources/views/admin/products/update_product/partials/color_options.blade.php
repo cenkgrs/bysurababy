@@ -7,24 +7,27 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-success">
-                        @foreach ($sub_products as $product)
+                        @foreach ($sub_products as $sub_product)
                             <form action="{{ route('admin.products.updateProductPost') }}" method="post">
-                                <input type="hidden" name="sub_product_id" value={{ $product->id }}>
+                                @csrf
+
+                                <input type="hidden" name="sub_product_id" value={{ $sub_product->id }}>
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="">Renk</label>
-                                            <input type="text" name="color" class="form-control" placeholder="42.30" value="{{ $product->color }}">
+                                            <input type="text" name="color" class="form-control" placeholder="red" value="{{ $sub_product->color }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-1">
                                         <div class="form-group">
-                                            <input type="text" name="updateColor" class="btn btn-primary" style="margin-top: 32px" value="Güncelle">
+                                            <input type="submit" name="updateColor" class="btn btn-primary" style="margin-top: 32px" value="Güncelle">
                                         </div>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-1">
                                         <div class="form-group">
-                                            <input type="text" name="updateColor" class="btn btn-danger" style="margin-top: 32px" value="Sil">
+                                            <input type="submit" name="deleteColor" class="btn btn-danger" style="margin-top: 32px" value="Sil">
                                         </div>
                                     </div>
                                 </div>
@@ -32,6 +35,10 @@
                         @endforeach
 
                         <form action="{{ route('admin.products.updateProductPost') }}" method="post">
+                            @csrf
+
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="form-group">
@@ -41,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <input type="text" name="updateColor" class="btn btn-success" style="margin-top: 32px" value="Yeni Renk Ekle">
+                                        <input type="submit" name="addColor" class="btn btn-success" style="margin-top: 32px" value="Yeni Renk Ekle">
                                     </div>
                                 </div>
                             </div>
