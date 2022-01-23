@@ -20,11 +20,17 @@
                 </a>
             </li>
             <li class="--set-active-forms-html">
-              <a href="{{ route('admin.categories') }}">
+              <a href="{{ route('admin.mainCategories') }}">
                   <span class="icon"><i class="mdi mdi-table"></i></span>
                   <span class="menu-item-label">Kategoriler</span>
               </a>
-          </li>
+            </li>
+            <li class="--set-active-forms-html">
+              <a href="{{ route('admin.subCategories') }}">
+                  <span class="icon"><i class="mdi mdi-table"></i></span>
+                  <span class="menu-item-label">Alt Kategoriler</span>
+              </a>
+            </li>
         </ul>
 
         <p class="menu-label">Raporlar</p>

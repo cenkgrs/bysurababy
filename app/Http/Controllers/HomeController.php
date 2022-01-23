@@ -77,7 +77,7 @@ class HomeController extends Controller
 
     public function getCategoryStickers()
     {
-        $categories = Categories::all()->random(3);
+        $categories = Categories::all();
 
         $products = [];
 

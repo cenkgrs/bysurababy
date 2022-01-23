@@ -74,7 +74,8 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     Route::get('/panel/update-product/{product_id}', 'App\Http\Controllers\Admin\ProductController@updateProductGet')->name('admin.products.updateProductGet');
     Route::post('/panel/update-product', 'App\Http\Controllers\Admin\ProductController@updateProductPost')->name('admin.products.updateProductPost');
     
-    Route::get('/panel/categories', 'App\Http\Controllers\Admin\DashboardController@categories')->name('admin.categories');
+    Route::match(['get', 'post'], '/panel/categories', 'App\Http\Controllers\Admin\CategoriesController@mainCategories')->name('admin.mainCategories');
+    Route::match(['get', 'post'], '/panel/sub-categories', 'App\Http\Controllers\Admin\CategoriesController@subCategories')->name('admin.subCategories');
     
     Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
     Route::match(['get', 'post'], '/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');
