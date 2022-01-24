@@ -8,7 +8,7 @@
 
     <title>Bebeğiniz İçin En İyisi Burada</title>
     
-    <link rel="icon" href="/favicon-32x32.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon-32x32.png" type="image/x-icon">
     
     <meta property="og:site_name" content="bySurababy">
     <meta property="og:title" content="Bebeğiniz İçin En İyisi Burada" />

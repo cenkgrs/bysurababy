@@ -34,6 +34,13 @@
                                 <button type="submit" class="btn primary-button">{{ __('Giriş yap') }}</button>
                             </div>
 
+                            <div class="d-grid mx-auto">
+                                <a href="{{ route('register') }}">
+                                    <button type="button" class="btn secondary-button w-100">{{ __('Üye Ol') }}</button>
+                                </a>
+
+                            </div>
+
                             <div class="form-group mt2 mb-3">
                                 <div class="checkbox">
                                     <label>

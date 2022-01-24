@@ -56,6 +56,12 @@ class AuthController extends Controller
 
         $check = $this->create($data);
 
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('products')->withSuccess('Başarılı bir şekilde üye oldunuz');
+        }
+
         return redirect("index")->withSuccess('Başarılı bir şekilde üye oldunuz');
     }
 

@@ -43,7 +43,8 @@
 .nav-bar .nav-bar-search input {
   width: 100%;
   padding-left: 30px;
-  font-size: 1.6vh;
+  font-size: 1.4vh;
+  border-radius: 1rem;
 }
 
 .nav-bar .nav-bar-search i {
@@ -58,6 +59,11 @@
   right: 0px;
   background-color: #cd5b7c;
   color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: -webkit-fill-available;
+  border-radius: 1rem;
 }
 
 .nav-bar .auth {
@@ -70,6 +76,13 @@
 
 .nav-bar .shopping-cart i {
   margin-right: 1rem;
+}
+
+.nav-bar .shopping-cart a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
 }
 
 .upper-navbar {
