@@ -25,9 +25,16 @@
         </div>
 
         <div class="account-form">
-
+        
             <div class="account-form-header">
                 <h3 class="text-center">{{ __('Admin Girişi') }}</h3>
+
+                @if(@isset($error_message) && $error_message)
+                    <div class="color-primary">
+                        {{ $error_message }}
+                    </div>
+                @endif
+
                 <div class="account-form-body">
                     <form method="POST" action="{{ route('admin.login') }}">
                         @csrf

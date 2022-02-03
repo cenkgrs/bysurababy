@@ -33,7 +33,7 @@ class AuthController extends Controller
             return redirect()->intended('panel')->withSuccess('Signed in');
         }
 
-        return redirect("admin.auth.login")->withSuccess('Kullanıcı adı veya şifre hatalı');
+        return view('admin.auth.login')->with('error_message', 'Kullanıcı adı veya şifre hatalı');
     }
 
     public function signOut() {
