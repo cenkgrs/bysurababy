@@ -32,7 +32,7 @@
 }
 
 .cart-products .cart-product .cart-product-count {
-  float: right;
+  /*float: right;*/
   margin-top: 1.5vh;
 }
 

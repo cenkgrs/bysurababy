@@ -116,7 +116,7 @@ textarea {
 }
 
 .color-primary {
-  color: #cd5b7c;
+  color: #cd5b7c !important;
 }
 
 ::-webkit-scrollbar {

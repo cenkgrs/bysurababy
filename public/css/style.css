@@ -455,7 +455,7 @@
 }
 
 .cart-products .cart-product .cart-product-count {
-  float: right;
+  /*float: right;*/
   margin-top: 1.5vh;
 }
 
@@ -857,7 +857,7 @@ textarea {
 }
 
 .color-primary {
-  color: #cd5b7c;
+  color: #cd5b7c !important;
 }
 
 ::-webkit-scrollbar {

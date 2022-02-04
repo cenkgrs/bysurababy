@@ -103,7 +103,7 @@ textarea{
 }
 
 .color-primary{
-    color: $primary-color;
+    color: $primary-color !important;
 }
 
 ::-webkit-scrollbar {
