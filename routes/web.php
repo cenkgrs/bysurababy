@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductsController;
@@ -28,8 +29,8 @@ Route::match(['get', 'post'], '/siparislerim', 'App\Http\Controllers\OrderContro
 Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
 
 // Cart
-Route::get('/cart', [ProductsController::class, "cart"])->name('cart');
-Route::post('/add-to-cart', [ProductsController::class, "addToCart"])->name('addToCart');
+Route::get('/cart', [CartController::class, "cart"])->name('cart');
+Route::post('/add-to-cart', [CartController::class, "addToCart"])->name('addToCart');
 
 // Booking
 Route::match(['get', 'post'], '/booking', 'App\Http\Controllers\BookingController@booking')->name('booking');
