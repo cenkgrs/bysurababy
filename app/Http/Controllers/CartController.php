@@ -84,7 +84,7 @@ class CartController extends Controller
         return true;
     }
 
-    public function removeFromCart(Request $request): bool
+    public function removeFromCart(Request $request)
     {
         $input = $request->all();
 
@@ -104,6 +104,6 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return true;
+        return ["status" => true, "quantity" => count($cart)];
     }
 }

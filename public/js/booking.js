@@ -44,6 +44,7 @@ let Booking = function ()
                 input.change();
                 return false;
             });
+            
             $(".plus").click(function () {
                 let input = $("#product_count");
                 input.val(parseInt(input.val()) + 1);

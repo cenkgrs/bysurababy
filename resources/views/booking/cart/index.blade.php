@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('content')
-    <div class="row mt2">
+    <div class="row mt2" id="cart-section">
 
         <script type="text/javascript" src="{{ URL::asset('/js/cart.js') }}"></script>
 

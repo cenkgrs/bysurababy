@@ -36,6 +36,15 @@ let Cart = function () {
                     success: function (response) {
 
                         $(".removeProduct[data-product-id='"+ productId +"']").parents(".cart-product").remove()
+
+                        if (response["quantity"] == 0) {
+                            $(".cart-products").remove();
+                            $(".cart-payment").remove();
+                            
+                            var div = '<div class="col-lg-12 col-12"><h4 class="color-primary">'+ 'Sepetinizde herhangi bir ürün bulunmamaktadır' +'</h4></div>';
+
+                            $("#cart-section").html(div);
+                        }
                     }
                 });
             })
