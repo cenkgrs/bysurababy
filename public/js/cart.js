@@ -44,6 +44,14 @@ let Cart = function () {
                             var div = '<div class="col-lg-12 col-12"><h4 class="color-primary">'+ 'Sepetinizde herhangi bir ürün bulunmamaktadır' +'</h4></div>';
 
                             $("#cart-section").html(div);
+
+                            $(".alert-bar").addClass("alert-bar-fade");
+                            $(".alert-bar span").html("Sepetinizdeki Bütün Ürünler Kaldırıldı");
+
+                            setTimeout(function () {
+                                $(".alert-bar").removeClass("alert-bar-fade");
+                            }, 3000);
+
                         }
                     }
                 });
