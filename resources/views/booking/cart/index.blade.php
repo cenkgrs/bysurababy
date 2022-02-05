@@ -3,6 +3,8 @@
 @section('content')
     <div class="row mt2">
 
+        <script type="text/javascript" src="{{ URL::asset('/js/cart.js') }}"></script>
+
         @if (!$products)
             <div class="col-lg-12 col-12">
                 <h4 class="color-primary">{{ __('Sepetinizde herhangi bir ürün bulunmamaktadır') }}</h4>

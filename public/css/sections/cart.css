@@ -12,6 +12,7 @@
 .cart-products .cart-product-title a {
   color: #cd5b7c;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .cart-products .cart-product .cart-product-image img {

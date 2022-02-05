@@ -27,12 +27,12 @@
                         <div class="col-lg-12">
                             <div class="cart-product-count">
                                 <div class="counter">
-                                    <span class="minus-circle">-</span>
-                                    <input id="product_count" type="text" value="1"/>
-                                    <span class="plus-circle">+</span>
+                                    <span class="cart-counter-button" data-type="minus" data-product-id="{{ $id }}">-</span>
+                                    <input class="product_count" data-product-id="{{ $id }}" type="text" value="{{ $product['quantity'] }}" readonly/>
+                                    <span class="cart-counter-button" data-type="plus" data-product-id="{{ $id }}">+</span>
                                 </div>
 
-                                <button class="btn btn-sm color-primary p-0 mt-3">Ürün Kaldır</button>
+                                <button class="btn btn-sm color-primary p-0 mt-3 bolded removeProduct" data-product-id="{{ $id }}">Ürün Kaldır</button>
                             </div>
                         </div>
 

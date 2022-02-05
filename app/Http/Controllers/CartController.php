@@ -21,6 +21,7 @@ class CartController extends Controller
                     "category" => $product->category->name,
                     "sub_category" => $product->sub_category->name,
                     "price" => $product->price->sale_price,
+                    "quantity" => $cart_product["quantity"],
                 ];
 
                 isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
@@ -78,7 +79,12 @@ class CartController extends Controller
         return true;
     }
 
-    public function removeFromCart(Request $request)
+    public function changeProductQuantity(Request $request): bool
+    {
+        return true;
+    }
+
+    public function removeFromCart(Request $request): bool
     {
         $input = $request->all();
 
@@ -90,11 +96,14 @@ class CartController extends Controller
 
         $cart = session()->get('cart', []);
 
-        if (!isset($cart['id'])) {
+        if (!isset($cart[$input["id"]])) {
             return false;
         }
 
+        unset($cart[$input["id"]]);
 
+        session()->put('cart', $cart);
 
+        return true;
     }
 }

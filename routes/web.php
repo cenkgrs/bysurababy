@@ -31,6 +31,7 @@ Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@o
 // Cart
 Route::get('/cart', [CartController::class, "cart"])->name('cart');
 Route::post('/add-to-cart', [CartController::class, "addToCart"])->name('addToCart');
+Route::post('/remove-from-cart', [CartController::class, "removeFromCart"])->name('removeFromCart');
 
 // Booking
 Route::match(['get', 'post'], '/booking', 'App\Http\Controllers\BookingController@booking')->name('booking');
