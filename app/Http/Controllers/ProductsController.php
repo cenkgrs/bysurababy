@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,7 +73,7 @@ class ProductsController extends Controller
 
         $data = [
             "products" => $products,
-            "categories" => $categories,
+            "categories" => Helper::getCategories(),
             "sub_categories" => $sub_categories,
             "category" => $category ?? null,
             "sub_category" => $sub_category ?? null,

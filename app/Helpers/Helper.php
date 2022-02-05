@@ -4,6 +4,9 @@ namespace App\Helpers;
 
 use IntlDateFormatter;
 use App;
+use App\Models\Categories;
+use App\Models\Products;
+
 class Helper
 {
     public static function getBookingStatus($status) 
@@ -51,5 +54,22 @@ class Helper
         $dateFormatLong->setPattern($pattern);
 
         return $dateFormatLong->format($date);
+    }
+
+    public static function getCategories()
+    {
+        $categories = Categories::all();
+
+        $products = [];
+
+        foreach ($categories as $key => $category) {
+            $product = Products::where('category_id', $category->id)->first();
+
+            if (!$product) {
+                unset($categories[$key]);
+            }
+        }
+
+        return $categories;
     }
 }

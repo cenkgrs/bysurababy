@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,23 +13,10 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-
         $input = $request->all();
 
-        $categories = Categories::get();
-
-       
-
-        $categories = Categories::all();
-
-        $products = [];
-
-        foreach ($categories as $category) {
-            $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('category_id', $category->id)->first();
-        }
-
         $data = [
-            "categories" => $categories,
+            "categories" => Helper::getCategories(),
             "title" => "Kategoriler",
             "breadcrumbs" => [
                 0 => [
@@ -40,8 +28,6 @@ class CategoryController extends Controller
                     "route" => "categories",
                 ]
             ],
-            "category_stickers" => $categories,
-            "sticker_products" => $products,
         ];
 
 
