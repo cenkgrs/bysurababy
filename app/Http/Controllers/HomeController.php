@@ -27,10 +27,10 @@ class HomeController extends Controller
         $products = [];
 
         foreach ($popular_products as $product) {
-            $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product->id)->first();
+            $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product->id)->where('status', 1)->first();
         }
 
-        $last_products = Products::with('price', 'category', 'sub_category', 'colors')->orderBy('id', 'desc')->where('parent_id', null)->take(4)->get();
+        $last_products = Products::with('price', 'category', 'sub_category', 'colors')->orderBy('id', 'desc')->where('parent_id', null)->where('status', 1)->take(4)->get();
 
         $categoryStickers = $this->getCategoryStickers();
 

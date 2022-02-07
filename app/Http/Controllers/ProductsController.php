@@ -47,7 +47,7 @@ class ProductsController extends Controller
                 });
             }
 
-            })->whereNull('parent_id')->paginate(30);
+            })->whereNull('parent_id')->where('status', 1)->paginate(30);
 
         if (isset($input["category"]) && $input["category"]) {
             $category = Categories::with('subCategories')->where('id', $input["category"])->first();
