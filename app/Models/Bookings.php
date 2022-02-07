@@ -32,4 +32,8 @@ class Bookings extends Model
     public function cargo() {
         return $this->hasOne('App\Models\CargoInformations', 'request_id', 'request_id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }

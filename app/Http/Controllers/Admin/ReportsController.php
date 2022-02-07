@@ -12,7 +12,7 @@ class ReportsController extends Controller
 {
     public function sales(Request $request)
     {
-        $data['sales'] = Bookings::with('contact')->selectRaw("bookings.*, quantity, bi.request_id, bi.created_at, bi.updated_at")
+        $data['sales'] = Bookings::with('contact', 'user')->selectRaw("bookings.*, quantity, bi.request_id, bi.created_at, bi.updated_at")
         ->join('booking_items as bi', 'bi.request_id', '=', 'bookings.request_id')
         ->join('products as p', 'p.id', '=', 'bi.product_id')
         ->join('prices as pr', 'pr.id', '=', 'p.price_id')
