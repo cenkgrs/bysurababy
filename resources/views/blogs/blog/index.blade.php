@@ -4,6 +4,6 @@
 
     @include('blogs.blog.partials.content')
 
-    $include('blogs.blog.partials.blogs')
+    @include('blogs.blog.partials.blogs')
 
 @endsection

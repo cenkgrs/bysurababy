@@ -39,7 +39,7 @@ class BlogController extends Controller
                     "route" => "/blog",
                 ],
                 2 => [
-                    "title" => $blog->title,
+                    "title" => ucwords(strtolower($blog->title)),
                     "route" => "/blog/" . $blog->slug,
                 ]
             ]

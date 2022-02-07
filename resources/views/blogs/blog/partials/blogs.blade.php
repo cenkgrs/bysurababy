@@ -1,4 +1,6 @@
-<div class="row">
+<div class="row mt2">
+
+    <h5 class="mb-4">Diğer Bloglar</h5>
 
     @foreach ($blogs as $blog)
 
