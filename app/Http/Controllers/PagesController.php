@@ -47,6 +47,25 @@ class PagesController extends Controller
         return view('pages.mission.index', $data);
     }
 
+    public function contact()
+    {
+        $data = [
+            "title" => __("İletişim"),
+            "breadcrumbs" => [
+                0 => [
+                    "title" => __("Ana Sayfa"),
+                    "route" => "/index"
+                ],
+                1 => [
+                    "title" => __("İletişim"),
+                    "route" => "/contact",
+                ]
+            ]
+        ];
+
+        return view('pages.contact.index', $data);
+    }
+
     public function partner()
     {
         return view('pages.partner.form');

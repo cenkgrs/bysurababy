@@ -7,13 +7,13 @@
                     <ul>
                         <li><a href="{{ route('products') }}"><span>{{ __("Ürünler") }}</span></a></li>
                         <li><a href="{{ route('categories') }}"><span>{{ __("Kategoriler") }}</span></a></li>
-                        <li><a href="#"><span>{{ __("İletişim") }}</span></a></li>
+                        <li><a href="{{ route('contact') }}"><span>{{ __("İletişim") }}</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-6 item">
                     <h3>{{ __("Hakkımızda") }}</h3>
                     <ul>
-                        <li><a href="#">{{ __("Blog") }}</a></li>
+                        <li><a href="{{ route('blogs') }}">{{ __("Blog") }}</a></li>
                         <li><a href="{{ route('vision') }}">{{ __("Vizyon") }}</a></li>
                         <li><a href="{{ route('mission') }}">{{ __("Misyon") }}</a></li>
                         <li><a href="#">{{ __("Sıkça Sorulan Sorular") }}</a></li>

@@ -50,6 +50,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name(
 // Pages
 Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('vision');
 Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mission');
+Route::get('/iletisim', 'App\Http\Controllers\PagesController@contact')->name('contact');
 
 // Blogs
 Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blogs');
