@@ -81,6 +81,28 @@ class CartController extends Controller
 
     public function changeProductQuantity(Request $request): bool
     {
+        $input = $request->all();
+
+        $product = Products::where("id", $input["id"])->first();
+        
+        if (!$product) {
+            return false;
+        }
+
+        if ($input["quantity"] == 0 ) {
+            return false;
+        }
+
+        $cart = session()->get('cart', []);
+
+        if (!isset($cart[$input["id"]])) {
+            return false;
+        }
+
+        $cart[$input["id"]]["quantity"] = $input["quantity"];
+
+        session()->put('cart', $cart);
+
         return true;
     }
 

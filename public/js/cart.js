@@ -11,15 +11,36 @@ let Cart = function () {
             $(".cart-counter-button").on("click", function () {
 
                 var type = $(this).data("type");
-                var product_id = $(this).data("product-id");
+                var productId = $(this).data("product-id");
 
-                var counter = $(".product_count [data-product-id='"+ product_id +"']");
+                var counter = $(".product_count[data-product-id='"+ productId +"']");
 
                 if (type == "plus") {
-                    counter.val(parseInt(counter.val() + 1))
+                    counter.val(parseInt(parseInt(counter.val()) + 1))
                 } else {
-                    counter.val(parseInt(counter.val() - 1))
+
+                    if (parseInt(counter.val()) == 1) {
+                        // Run remove product function
+                        $(".removeProduct[data-product-id='"+ productId +"']").click();
+
+                        return false;
+                    }
+
+                    counter.val(parseInt(parseInt(counter.val()) - 1))
                 }
+
+                $.ajax({
+                    url: '/change-cart',
+                    type: "POST",
+                    data: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        'id': productId,
+                        "quantity": counter.val()
+                    },
+                    success: function (response) {
+
+                    }
+                });
             })
 
             $(".removeProduct").on("click", function () {
