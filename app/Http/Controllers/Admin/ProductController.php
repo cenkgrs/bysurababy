@@ -148,7 +148,8 @@ class ProductController extends Controller
                 "price_id" => $parent->price_id,
                 "color" => $input["color"],
                 "gender" => $parent->gender,
-                "age" => $parent->age 
+                "age" => $parent->age,
+                "status" => true,
             ]);
 
             return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Eklendi");
@@ -162,7 +163,8 @@ class ProductController extends Controller
             "sub_category_id" => $input["sub_category"],
             "color" => $input["color"],
             "gender" => $input["gender"],
-            "age" => $input["age"] 
+            "age" => $input["age"],
+            "status" => $input["status"],
         ]);
 
         // Update Price

@@ -38,6 +38,13 @@
                                 <td>{{ $product->gender }}</td>
                                 <td>{{ $product->age }}</td>
                                 <td>
+                                    @if($product->status)
+                                        <div class="badge badge-success">Aktif</div>
+                                    @else
+                                        <div class="badge badge-danger">Pasif</div>
+                                    @endif
+                                </td>
+                                <td>
                                     <a target="_blank" style="font-weight: 500" href="{{ route('admin.products.updateProductGet', $product->id)}}">Düzenle</a>
                                 </td>
                             </tr>
