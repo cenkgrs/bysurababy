@@ -1,12 +1,13 @@
 <div class="cart-payment">
     <div class="cart-payment-header">
         <h5>{{ __('Ödenecek Tutar') }}</h5>
-        <h4>{{ number_format( (float) $total_price, 2, '.', '' ) }} ₺</h4>
+        <h4><span id="cart-total-payment">{{ number_format( (float) $total_price, 2, '.', '' ) }}</span> ₺</h4>
     </div>
 
     <div class="cart-payment-details">
         <ul>
-            <li>{{ __("Kargo") }}
+            <li id="cart-cargo-price-line">
+                {{ __("Kargo") }}
                 @if ($free_cargo)
                     <span>{{ __("Bedava") }}</span>
                 @else

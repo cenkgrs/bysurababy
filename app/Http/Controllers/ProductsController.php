@@ -122,7 +122,7 @@ class ProductsController extends Controller
 
         $categories = Categories::with('subCategories')->get();
 
-        $similar_products = Products::where('category_id', $product->category_id)->whereNull('parent_id')->where('id', '!=', $product->id)->where('id', '!=', $product->parent_id)->get();
+        $similar_products = Products::where('category_id', $product->category_id)->whereNull('parent_id')->where('id', '!=', $product->id)->where('id', '!=', $product->parent_id)->where('status', 1)->get();
 
         $data = [
             "product" => $product,

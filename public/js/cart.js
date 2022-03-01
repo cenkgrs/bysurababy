@@ -4,8 +4,6 @@ let Cart = function () {
     
     function init() {
 
-        console.log("init cart")
-
         $(document).ready(function () {
 
             $(".cart-counter-button").on("click", function () {
@@ -39,6 +37,18 @@ let Cart = function () {
                     },
                     success: function (response) {
 
+                        if (response["status"] == true) {
+                            $("#cart-total-payment").html(response["result"]["total_price"]);
+
+                            // If cargo is free remove cargo price line
+                            if (response["result"]["free_cargo"]) {
+                                var line = "Kargo <span>Bedava</span>";
+                            } else {
+                                var line = "Kargo <span>10 TL</span>";
+                            }
+
+                            $("#cart-cargo-price-line").html(line);
+                         }
                     }
                 });
             })

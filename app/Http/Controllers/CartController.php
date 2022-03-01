@@ -79,7 +79,7 @@ class CartController extends Controller
         return true;
     }
 
-    public function changeProductQuantity(Request $request): bool
+    public function changeProductQuantity(Request $request)
     {
         $input = $request->all();
 
@@ -103,7 +103,23 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return true;
+        // Calculate new price
+        foreach ($cart as $id => $cart_product) {
+            $product = Products::where('id', $id)->first();
+
+            isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
+        }
+
+        if (isset($total_price) && $total_price > 150) {
+            $free_cargo = true;
+        }
+
+        $result = [
+            "total_price" => number_format( (float) $total_price, 2, '.', '' ),
+            "free_cargo" => $free_cargo ?? false,
+        ];
+
+        return ["status" => true, "result" => $result];
     }
 
     public function removeFromCart(Request $request)
