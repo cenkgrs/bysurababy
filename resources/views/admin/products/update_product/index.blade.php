@@ -14,6 +14,13 @@
     </div>
 @endif
 
+@if(session()->has('error_message'))
+    <div class="alert alert-danger">
+        {{ session()->get('error_message') }}
+    </div>
+@endif
+
+
 <form action="{{ route('admin.products.updateProductPost') }}" method="post">
 
     @csrf

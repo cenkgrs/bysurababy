@@ -125,9 +125,13 @@ class ProductController extends Controller
 
             $image = $request->file('image');
 
+            if (!$image) {
+                return redirect()->back()->with('error_message', "Lütfen ürün resmini seçiniz");
+            }
+
             $input['imagename'] = $input["sub_product_id"] . '.' . $image->getClientOriginalExtension();
         
-            $destinationPath = public_path('images\products');
+            $destinationPath = public_path('images/products');
 
             $image->move($destinationPath, $input['imagename']);
 
