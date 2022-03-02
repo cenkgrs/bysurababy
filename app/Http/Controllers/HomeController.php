@@ -34,6 +34,8 @@ class HomeController extends Controller
 
         $categoryStickers = $this->getCategoryStickers();
 
+        //$instagramPosts = $this->getInstagramPosts();
+
         $data = [
             "popular_products" => $products,
             "last_products" => $last_products,
@@ -42,6 +44,7 @@ class HomeController extends Controller
             "stickers" => $this->getStickers(),
             "category_stickers" => $categoryStickers["categories"],
             "sticker_products" => $categoryStickers["products"],
+            //"instagram_posts" => $instagramPosts,
         ];
 
         return view('home.index', $data);
@@ -94,6 +97,22 @@ class HomeController extends Controller
     public function getBanners()
     {
         return Banners::where('slug', 'index')->get();
+    }
+
+    public function getInstagramPosts()
+    {
+        $items = [];
+ 
+        $client = new \GuzzleHttp\Client;
+        $url = sprintf('https://api.instagram.com/v1/users/%s/media/recent/?client_id=%s', 'bysurababy', 'bysurababy');
+        $response = $client->get($url);
+
+        dd($response);
+        $items = json_decode((string) $response->getBody(), true)['items'];
+
+        dd($items);
+ 
+        return view('instagram',compact('items'));
     }
 
     

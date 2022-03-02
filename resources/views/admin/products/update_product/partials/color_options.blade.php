@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-success">
                         @foreach ($sub_products as $sub_product)
-                            <form action="{{ route('admin.products.updateProductPost') }}" method="post">
+                            <form action="{{ route('admin.products.updateProductPost') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <input type="hidden" name="sub_product_id" value={{ $sub_product->id }}>
@@ -18,6 +18,13 @@
                                         <div class="form-group">
                                             <label for="">Renk</label>
                                             <input type="text" name="color" class="form-control" placeholder="red" value="{{ $sub_product->color }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="">Resim</label>
+                                            <input type="file" name="image" class="form-control" accept="image/*">
                                         </div>
                                     </div>
                                     <div class="col-lg-1">

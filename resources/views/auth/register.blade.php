@@ -13,6 +13,14 @@
 
                 <div class="account-form-header">
                     <h3 class="text-center">{{ __('Üye Ol') }}</h3>
+
+                    @if(session()->has('error_message'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error_message') }}
+                        </div>
+                    @endif
+
+
                     <div class="account-form-body">
 
                         @if ($errors->any())

@@ -14,6 +14,10 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route("products");
+        }
+
         $bookings = Bookings::with('booking_items', 'billing', 'cargo')->where('user_id', Auth::id())->get();
 
         if ($request->isMethod('post')) {
@@ -75,6 +79,10 @@ class OrderController extends Controller
 
     public function order($request_id)
     {
+        if (!Auth::check()) {
+            return redirect()->route("products");
+        }
+
         $booking = Bookings::with('booking_items', 'billing', 'address')->where('request_id', $request_id)->first();
 
         $items = [];

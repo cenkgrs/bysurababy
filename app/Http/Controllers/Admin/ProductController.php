@@ -122,8 +122,18 @@ class ProductController extends Controller
         $input = $request->all();
 
         if (isset($input["updateColor"]) && $input["updateColor"]) {
+
+            $image = $request->file('image');
+
+            $input['imagename'] = $input["sub_product_id"] . '.' . $image->getClientOriginalExtension();
+        
+            $destinationPath = public_path('images\products');
+
+            $image->move($destinationPath, $input['imagename']);
+
             Products::where('id', $input["sub_product_id"])->update([
                 "color" => $input["color"],
+                "photo" => $input["imagename"],
             ]);
 
             return redirect()->back()->with('success_message', "Renk Güncellendi");

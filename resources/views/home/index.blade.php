@@ -22,7 +22,9 @@
 
     <!--@include('home.partials.banners')-->
 
-    @include('home.partials.blogs')
+    <!--@include('home.partials.blogs')-->
+
+    @include('home.partials.instagram')
 
    
 

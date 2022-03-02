@@ -31,14 +31,18 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('products')->withSuccess('Signed in');
+            return redirect()->intended('products')->with('success_message', 'Giriş Yapıldı');
         }
 
-        return redirect("login")->withSuccess('Kullanıcı adı veya şifre hatalı');
+        return redirect("login")->with('error_message', 'Kullanıcı adı veya şifre hatalı');
     }
 
     public function register(Request $request)
     {
+        if (Auth::check()) {
+            return redirect()->route("products");
+        }
+
         if ($request->isMethod('get')) {
             return view('auth.register');
         }
@@ -59,10 +63,10 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('products')->withSuccess('Başarılı bir şekilde üye oldunuz');
+            return redirect()->intended('products')->with('success_message', 'Başarılı bir şekilde üye oldunuz');
         }
 
-        return redirect("index")->withSuccess('Başarılı bir şekilde üye oldunuz');
+        return redirect("register")->with('error_message', 'Lütfen tekrar deneyiniz');
     }
 
     public function create(array $data)
