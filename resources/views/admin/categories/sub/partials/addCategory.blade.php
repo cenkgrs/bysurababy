@@ -21,6 +21,16 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="form-group">
+                                        <label for="">Ana Kategori</label>
+                                        <select name="main_category" class="form-control">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
                                         <label for="">Alt Kategori İsmi</label>
                                         <input type="text" name="name" class="form-control" placeholder="Alt Kategori">
                                     </div>

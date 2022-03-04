@@ -2,8 +2,8 @@
 
 @section('content')
 
-    @include('admin.categories.main.partials.addCategory')
+    @include('admin.categories.sub.partials.addCategory')
 
-    @include('admin.categories.main.partials.list')
+    @include('admin.categories.sub.partials.list')
 
 @endsection

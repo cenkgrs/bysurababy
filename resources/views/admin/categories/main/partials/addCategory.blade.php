@@ -4,7 +4,7 @@
   </div>
 @endif
 
-<form action="{{ route('admin.subCategories') }}" method="post">
+<form action="{{ route('admin.mainCategories') }}" method="post">
 
     @csrf
 

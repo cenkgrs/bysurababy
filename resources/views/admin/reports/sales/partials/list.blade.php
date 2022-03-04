@@ -30,7 +30,11 @@
                             <tr>
                                 <td><a target="_blank" style="font-weight: 500" href="{{ route('admin.reports.sale', $booking->request_id)}}">{{ $booking->request_id }}</a></td>
                                 <td class="text-gray-500">{{ $booking->contact->name }} {{ $booking->contact->surname }}</td>
-                                <td class="text-gray-500">{{ $booking->user->email }} {{ $booking->user->name }}</td>
+                                <td class="text-gray-500">
+                                    @if ($booking->user)
+                                        {{ $booking->user->email }} {{ $booking->user->name }}
+                                    @endif
+                                </td>
                                 <td class="text-gray-500">{{ $booking->contact->email }} <br> {{ $booking->contact->phone }}</td>
                                 <td class="text-gray-500">{{ $booking->quantity }}</td>
                                 <td class="text-gray-500">{{ number_format($booking->total_price, 2) }} TRY <br> {{ number_format($booking->total_earning, 2) }} TRY</td>
