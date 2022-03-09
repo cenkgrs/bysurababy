@@ -107,7 +107,6 @@ class BookingController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd("error3", $validator->errors()->all());
             return redirect('booking')->withErrors($validator)->withInput();
         }
 
@@ -164,6 +163,7 @@ class BookingController extends Controller
                 "request_id" => $this->request_id,
                 "product_id" => $product->id,
                 "quantity" => $cart_product["quantity"],
+                "total_earning" => ($product->price->sale_price - $product->price->purchase_price) * $cart_product["quantity"],  
                 "total_price" => $product->price->sale_price * $cart_product["quantity"],
                 "created_at" => new DateTime,
                 "updated_at" => new DateTime,
@@ -173,12 +173,16 @@ class BookingController extends Controller
             $total_earning += $product->price->purchase_price * $cart_product["quantity"];
         }
 
+        $order_no = $this->generateOrderNo();
+
         // Insert Booking data
         Bookings::updateOrInsert(["request_id" => $this->request_id], [
             "request_id" => $this->request_id,
+            "order_no" => $order_no,
             "user_id" => Auth::id(),
             "total_earning" => $total_earning,
             "total_price" => $total_price,
+            "status" => 
             "created_at" => new DateTime,
         ]);
 
@@ -246,6 +250,18 @@ class BookingController extends Controller
     }
 
     public function generateRandomString($length = 10): string
+    {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return "B" . $randomString;
+    }
+
+    public function generateOrderNo($length = 6): string
     {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);

@@ -78,13 +78,24 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     Route::get('/panel/update-product/{product_id}', 'App\Http\Controllers\Admin\ProductController@updateProductGet')->name('admin.products.updateProductGet');
     Route::post('/panel/update-product', 'App\Http\Controllers\Admin\ProductController@updateProductPost')->name('admin.products.updateProductPost');
     
+    // Categories
     Route::match(['get', 'post'], '/panel/categories', 'App\Http\Controllers\Admin\CategoriesController@mainCategories')->name('admin.mainCategories');
     Route::match(['get', 'post'], '/panel/sub-categories', 'App\Http\Controllers\Admin\CategoriesController@subCategories')->name('admin.subCategories');
     
+    // Reports
     Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');
     Route::match(['get', 'post'], '/panel/reports/sale/{request_id}', 'App\Http\Controllers\Admin\ReportsController@sale')->name('admin.reports.sale');
 
     // Users
     Route::get('/panel/users', 'App\Http\Controllers\Admin\UserController@users')->name('admin.users');
     Route::get('/panel/panel-users', 'App\Http\Controllers\Admin\UserController@panelUsers')->name('admin.panelUsers');
+
+    // Blogs
+    Route::get('/panel/blogs', 'App\Http\Controllers\Admin\BlogController@index')->name('admin.blogs');
+    Route::get('/panel/blogs/update-blog/{blog_id}', 'App\Http\Controllers\Admin\BlogController@updateBlogGet')->name('admin.blogs.updateBlogGet');
+    Route::post('/panel/blogs/update-blog', 'App\Http\Controllers\Admin\BlogController@updateBlogPost')->name('admin.blogs.updateBlogPost');
+    Route::get('/panel/blogs/add-blog', 'App\Http\Controllers\Admin\BlogController@addBlogGet')->name('admin.blogs.addBlogGet');
+    Route::post('/panel/blogs/add-blog', 'App\Http\Controllers\Admin\BlogController@addBlogPost')->name('admin.blogs.addBlogPost');
+
+
 });
