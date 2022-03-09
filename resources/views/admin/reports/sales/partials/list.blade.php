@@ -36,7 +36,16 @@
                                     @endif
                                 </td>
                                 <td class="text-gray-500">{{ $booking->contact->email }} <br> {{ $booking->contact->phone }}</td>
-                                <td class="text-gray-500">{{ $booking->quantity }}</td>
+                                <?php 
+                                $quantity = 0;
+
+                                foreach($booking->booking_items as $item) {
+                                    $quantity += $item->quantity;
+                                }
+
+                                ?>
+
+                                <td class="text-gray-500">{{ $quantity }}</td>
                                 <td class="text-gray-500">{{ number_format($booking->total_price, 2) }} TRY <br> {{ number_format($booking->total_earning, 2) }} TRY</td>
                                 <td>
                                     <button>
