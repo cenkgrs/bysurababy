@@ -146,7 +146,7 @@ class BookingController extends Controller
         $cart = session()->get('cart');
 
         if (!$cart) {
-            return redirect('booking')->with("error_messages", )->withInput();
+            return redirect('booking')->with("error_messages")->withInput();
         }
 
         // Delete previous products
@@ -182,8 +182,9 @@ class BookingController extends Controller
             "user_id" => Auth::id(),
             "total_earning" => $total_earning,
             "total_price" => $total_price,
-            "status" => 
+            "status" => 1,
             "created_at" => new DateTime,
+            "updated_at" => new DateTime,
         ]);
 
         // Delete session cart

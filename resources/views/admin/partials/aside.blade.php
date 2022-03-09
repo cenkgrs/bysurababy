@@ -43,7 +43,7 @@
             </li>
         </ul>
 
-        <p class="menu-label">Bloglar</p>
+        <p class="menu-label">Blog</p>
         <ul class="menu-list">
             <li class="--set-active-tables-html">
               <a href="{{ route('admin.blogs') }}">
@@ -51,7 +51,7 @@
                   <span class="menu-item-label">Liste</span>
               </a>
               <a href="{{ route('admin.blogs.addBlogGet') }}">
-                <span class="icon"><i class="mdi mdi-text-box-multiple"></i></span>
+                <span class="icon"><i class="mdi mdi-text-box-plus"></i></span>
                 <span class="menu-item-label">Blog Ekle</span>
             </a>
             </li>

@@ -63,7 +63,7 @@
                                         @endif
                                     </button>
                                 </td>
-                                <td>{{ $booking->created_at }} <br> {{ $booking->updated_at }}</td>
+                                <td>{{ date('d-m-Y H:i:s', strtotime($booking->created_at)) }} <br> {{ date('d-m-Y H:i:s', strtotime($booking->updated_at)) }}</td>
                                 <td>
                                     <a target="_blank" style="font-weight: 500" href="{{ route('admin.reports.sale', $booking->request_id)}}">Satış Detayı</a>
                                 </td>

@@ -29,7 +29,7 @@
                                 <td>{{ $blog->title }}</td>
                                 <td>{{ $blog->slug }}</td>
                                 <td>{{ $blog->status }}</td>
-                                <td>{{ $blog->created_at }}</td>
+                                <td>{{ date('d-m-Y', strtotime($blog->created_at)) }}</td>
                                 <td><a href="{{ route('admin.blogs.updateBlogGet', $blog->id) }}">Düzenle</a></td>
                             </tr>
                         @endforeach
