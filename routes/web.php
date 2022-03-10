@@ -89,6 +89,8 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     // Users
     Route::get('/panel/users', 'App\Http\Controllers\Admin\UserController@users')->name('admin.users');
     Route::get('/panel/panel-users', 'App\Http\Controllers\Admin\UserController@panelUsers')->name('admin.panelUsers');
+    Route::get('/panel/panel-users/{user_id}', 'App\Http\Controllers\Admin\UserController@deletePanelUser')->name('admin.panelUsers.delete');
+    Route::post('/panel/panel-users/add', 'App\Http\Controllers\Admin\UserController@addPanelUser')->name('admin.panelUsers.add');
 
     // Blogs
     Route::get('/panel/blogs', 'App\Http\Controllers\Admin\BlogController@index')->name('admin.blogs');
