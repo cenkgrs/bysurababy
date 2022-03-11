@@ -85,7 +85,7 @@ class HomeController extends Controller
         $products = [];
 
         foreach ($categories as $category) {
-            $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('category_id', $category->id)->first();
+            $products[] = Products::with('price', 'category', 'sub_category', 'colors')->where('category_id', $category->id)->where('status', 1)->first();
         }
 
         return [

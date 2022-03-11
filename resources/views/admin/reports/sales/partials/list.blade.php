@@ -32,7 +32,9 @@
                                 <td class="text-gray-500">{{ $booking->contact->name }} {{ $booking->contact->surname }}</td>
                                 <td class="text-gray-500">
                                     @if ($booking->user)
-                                        {{ $booking->user->email }} {{ $booking->user->name }}
+                                        {{ $booking->user->email }}
+                                        <br>
+                                        {{ $booking->user->name }}
                                     @endif
                                 </td>
                                 <td class="text-gray-500">{{ $booking->contact->email }} <br> {{ $booking->contact->phone }}</td>
