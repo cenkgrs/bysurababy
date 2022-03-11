@@ -186,8 +186,8 @@ class ProductController extends Controller
             return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Eklendi");
         }
 
-        // Update Product
-        Products::where('id', $input["product_id"])->update([
+        // Update data
+        $product = [
             "code" => $input["code"],
             "name" => $input["name"],
             "category_id" => $input["category"],
@@ -196,7 +196,23 @@ class ProductController extends Controller
             "gender" => $input["gender"],
             "age" => $input["age"],
             "status" => $input["status"],
-        ]);
+        ];
+
+        $image = $request->file('image');
+
+        if ($image) {
+
+            $input['imagename'] = $input["product_id"] . '.' . $image->getClientOriginalExtension();
+    
+            $destinationPath = public_path('images/products');
+    
+            $image->move($destinationPath, $input['imagename']);
+
+            $product["photo"] = $input["imagename"];
+        }
+
+        // Update Product
+        Products::where('id', $input["product_id"])->update($product);
 
         // Update Price
         Prices::where('product_id', $input["product_id"])->update([

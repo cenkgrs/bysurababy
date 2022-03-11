@@ -68,6 +68,13 @@
 
                             <div class="col-lg-3">
                                 <div class="form-group">
+                                    <label for="">Resim</label>
+                                    <input type="file" name="image" class="form-control" accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
                                     <label for="">Durum</label>
                                     <select name="status" id="status" class="form-control">
                                         <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Aktif</option>

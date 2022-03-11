@@ -15,7 +15,7 @@
 @endif
 
 
-<form action="{{ route('admin.products.updateProductPost') }}" method="post">
+<form action="{{ route('admin.products.updateProductPost') }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
