@@ -18,6 +18,7 @@
                             <th>Code</th>
                             <th>İsim</th>
                             <th>Kategori <br> Alt Kategori</th>
+                            <th>Renk Seçeneği</th>
                             <th>Alım Fiyatı</th>
                             <th>Satış Fiyatı</th>
                             <th>Kazanç</th>
@@ -32,10 +33,19 @@
                                 <td>{{ $product->code }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name }} <br> {{ $product->sub_category->name }}</td>
+                                <td>
+                                    <?php
+                                        $color_quantity = 1;
+                                        foreach ($product->colors as $color) {
+                                            $color_quantity++;   
+                                        }
+                                    ?>
+                                    {{ $color_quantity }}
+                                </td>
                                 <td>{{ $product->price->purchase_price }} ₺</td>
                                 <td>{{ $product->price->sale_price }} ₺</td>
                                 <td>{{ $product->price->sale_price - $product->price->purchase_price }} ₺</td>
-                                <td>{{ $product->gender }}</td>
+                                <td>{{ $product->gender == "unisex" ? "Unisex" : ($product->gender == "male" ? "Erkek" : "Kız") }}</td>
                                 <td>{{ $product->age }}</td>
                                 <td>
                                     @if($product->status)

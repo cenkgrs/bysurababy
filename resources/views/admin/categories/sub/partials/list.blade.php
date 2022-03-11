@@ -15,7 +15,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Kategori</th>
+                            <th>Alt Kategori</th>
+                            <th>Ana Kategori</th>
                             <th>Sıralama</th>
                         </tr>
                     </thead>
@@ -24,6 +25,7 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->category->name }}</td>
                                 <td>{{ $category->rating }}</td>
                             </tr>
                         @endforeach

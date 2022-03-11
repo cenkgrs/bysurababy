@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         $input = $request->all();
 
-        $products = Products::where(function ($q) use ($input) {
+        $products = Products::with('colors')->where(function ($q) use ($input) {
 
             if (isset($input["code"]) && $input["code"]) {
                 $q->where('code', $input["code"]);

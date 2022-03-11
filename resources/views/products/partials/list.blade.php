@@ -22,7 +22,7 @@
                             <div class="color-circle {{ $product->color }}"></div>
                             @foreach ($product->colors as $color)
                                 <div class="color-circle {{ $color->color }}"></div>
-                            @endforeach()
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-6 col-6">

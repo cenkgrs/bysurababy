@@ -33,7 +33,7 @@ class CategoriesController extends Controller
     public function subCategories(Request $request)
     {
         $data["categories"] = Categories::orderBy('id', 'asc')->get();
-        $data["sub_categories"] = SubCategories::orderBy('id', 'asc')->get();
+        $data["sub_categories"] = SubCategories::with('category')->orderBy('id', 'asc')->get();
 
         if ($request->isMethod('post')) {
 
