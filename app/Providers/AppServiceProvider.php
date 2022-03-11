@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
             $this->app->bind('path.public', function() {
-                return realpath(base_path().'/../../public_html');
+                return realpath('/home/ruf254evfebs/public_html');
             });
         }
        

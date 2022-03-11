@@ -153,7 +153,13 @@ class ProductController extends Controller
         if (isset($input["addColor"]) && $input["addColor"]) {
             $parent = Products::where('id', $input["product_id"])->first();
 
-            Products::insert([
+            $image = $request->file('image');
+
+            if (!$image) {
+                return redirect()->back()->with('error_message', "Lütfen ürün resmini seçiniz");
+            }
+
+            $sub_product_id = Products::insertGetId([
                 "parent_id" => $parent->id,
                 "code" => $parent->code,
                 "name" => $parent->name,
@@ -161,9 +167,20 @@ class ProductController extends Controller
                 "sub_category_id" => $parent->sub_category_id,
                 "price_id" => $parent->price_id,
                 "color" => $input["color"],
+                "photo" => null,
                 "gender" => $parent->gender,
                 "age" => $parent->age,
                 "status" => true,
+            ]);
+
+            $input['imagename'] = $sub_product_id . '.' . $image->getClientOriginalExtension();
+        
+            $destinationPath = public_path('images/products');
+
+            $image->move($destinationPath, $input['imagename']);
+
+            Products::where('id', $sub_product_id)->update([
+                "photo" => $input["imagename"],
             ]);
 
             return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Eklendi");

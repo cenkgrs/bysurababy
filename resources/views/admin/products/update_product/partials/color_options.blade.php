@@ -41,7 +41,7 @@
                             </form>
                         @endforeach
 
-                        <form action="{{ route('admin.products.updateProductPost') }}" method="post">
+                        <form action="{{ route('admin.products.updateProductPost') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -51,6 +51,12 @@
                                     <div class="form-group">
                                         <label for="">Renk</label>
                                         <input type="text" name="color" class="form-control" placeholder="red">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="">Resim</label>
+                                        <input type="file" name="image" class="form-control" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
