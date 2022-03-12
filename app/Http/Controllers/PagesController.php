@@ -89,7 +89,7 @@ class PagesController extends Controller
             ]
         ];
 
-        $data["seo_text"] = $this->getSeoText('vision');
+        $data["seo_text"] = $this->getSeoText('sss');
 
         return view('pages.sss.index', $data);
     }
