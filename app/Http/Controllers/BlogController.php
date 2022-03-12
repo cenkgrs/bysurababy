@@ -14,6 +14,16 @@ class BlogController extends Controller
     {
         $data = [
             "blogs" => Blogs::get(),
+            "breadcrumbs" => [
+                0 => [
+                    "title" => __("Ana Sayfa"),
+                    "route" => "/index"
+                ],
+                1 => [
+                    "title" => __("Blog"),
+                    "route" => "/blog",
+                ]
+            ]
         ];
 
         return view('blogs.index', $data);

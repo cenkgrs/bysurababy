@@ -78,5 +78,22 @@
               </a>
             </li>
         </ul>
+
+        <p class="menu-label">SEO</p>
+        <ul class="menu-list">
+            <li class="--set-active-tables-html">
+              <a href="{{ route('admin.seo.texts') }}">
+                  <span class="icon"><i class="mdi mdi-text-box-multiple"></i></span>
+                  <span class="menu-item-label">Seo Yazıları</span>
+              </a>
+            </li>
+            <li class="--set-active-tables-html">
+              <a href="{{ route('admin.seo.addSeoText') }}">
+                  <span class="icon"><i class="mdi mdi-text-box-multiple"></i></span>
+                  <span class="menu-item-label">Seo Yazısı Ekle</span>
+              </a>
+            </li>
+        </ul>
+
     </div>
 </aside>
