@@ -26,6 +26,8 @@ class PagesController extends Controller
             ]
         ];
 
+        $data["seo_text"] = $this->getSeoText('vision');
+
         return view('pages.vision.index', $data);
     }
 
@@ -44,6 +46,8 @@ class PagesController extends Controller
                 ]
             ]
         ];
+
+        $data["seo_text"] = $this->getSeoText('mission');
 
         return view('pages.mission.index', $data);
     }
@@ -64,11 +68,30 @@ class PagesController extends Controller
             ]
         ];
 
-        $seo = SeoPages::where('slug', 'contact')->first();
-
-        $data["seo_text"] = $seo->text;
+        $data["seo_text"] = $this->getSeoText('contact');
 
         return view('pages.contact.index', $data);
+    }
+
+    public function sss()
+    {
+        $data = [
+            "title" => __("Sıkça Sorulan Sorular"),
+            "breadcrumbs" => [
+                0 => [
+                    "title" => __("Ana Sayfa"),
+                    "route" => "/index"
+                ],
+                1 => [
+                    "title" => __("Sıkça Sorulan Sorular"),
+                    "route" => "/sss",
+                ]
+            ]
+        ];
+
+        $data["seo_text"] = $this->getSeoText('vision');
+
+        return view('pages.sss.index', $data);
     }
 
     public function partner()
@@ -83,5 +106,17 @@ class PagesController extends Controller
         MailController::basic_email($input);
 
         return view('pages.partner.form');
+    }
+
+    public function getSeoText($slug)
+    {
+        $seo = SeoPages::where('slug', $slug)->first();
+
+        if ($seo) {
+            return $seo->text;
+        } else {
+            return null;
+        }
+
     }
 }

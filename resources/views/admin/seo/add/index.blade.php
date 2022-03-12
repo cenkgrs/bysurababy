@@ -35,6 +35,8 @@
                                         <select name="slug" id="slug" class="form-control">
                                             <option value="contact">İletişim</option>
                                             <option value="sss">SSS</option>
+                                            <option value="vision">Vizyon</option>
+                                            <option value="mission">Misyon</option>
                                         </select>
                                     </div>
                                 </div>

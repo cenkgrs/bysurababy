@@ -16,7 +16,7 @@
                         <li><a href="{{ route('blogs') }}">{{ __("Blog") }}</a></li>
                         <li><a href="{{ route('vision') }}">{{ __("Vizyon") }}</a></li>
                         <li><a href="{{ route('mission') }}">{{ __("Misyon") }}</a></li>
-                        <li><a href="#">{{ __("Sıkça Sorulan Sorular") }}</a></li>
+                        <li><a href="{{ route('sss') }}">{{ __("Sıkça Sorulan Sorular") }}</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-6 item">

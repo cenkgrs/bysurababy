@@ -2,8 +2,8 @@
 
 @section('content')
 
-<p>
-    Anne ve babaların bebekleriyle yaşadığı ilk deneyimlere yanında olup nesiller boyu bu heyecanlarına ortak olmak 
-</p>
-    
+    @if (isset($seo_text) && $seo_text)
+        {!! $seo_text !!}
+    @endif
+
 @endsection
