@@ -68,6 +68,12 @@ class ProductController extends Controller
                 $parent_id = $parent->id;
             }
 
+            $image = $request->file('image');
+
+            if (!$image) {
+                return redirect()->back()->with('error_message', "Lütfen ürün resmini seçiniz");
+            }
+
             $product_id = Products::insertGetId([
                 "parent_id" => $parent_id ?? null,
                 "code" => $input["code"],
@@ -77,9 +83,21 @@ class ProductController extends Controller
                 "price_id" => null,
                 "color" => $input["color"],
                 "gender" => $input["gender"],
-                "age" => $input["age"] 
+                "age" => $input["age"],
+                "status" => $input["status"],
             ]);
 
+            $input['imagename'] = $product_id . '.' . $image->getClientOriginalExtension();
+    
+            $destinationPath = public_path('images/products');
+    
+            $image->move($destinationPath, $input['imagename']);
+
+            // Fill photo field
+            Products::where('id', $product_id)->update([
+                "photo" => $input["imagename"],
+            ]);
+          
             // If there is parent then price already inserted
             if ($parent) {
                 $price = Prices::where('product_id', $parent_id)->first();

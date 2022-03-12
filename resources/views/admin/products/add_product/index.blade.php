@@ -2,13 +2,19 @@
 
 @section('content')
 
-@if(@isset($success_message) && $success_message)
+@if(session()->has('success_message'))
     <div class="alert alert-success">
-        {{ $success_message }}
+        {{ session()->get('success_message') }}
     </div>
 @endif
 
-<form action="{{ route('admin.products.addProduct') }}" method="post">
+@if(session()->has('error_message'))
+    <div class="alert alert-danger">
+        {{ session()->get('error_message') }}
+    </div>
+@endif
+
+<form action="{{ route('admin.products.addProduct') }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
