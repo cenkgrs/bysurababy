@@ -103,5 +103,7 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     Route::get('/panel/seo/texts', 'App\Http\Controllers\Admin\SeoController@seoTexts')->name('admin.seo.texts');
     Route::match(['get', 'post'], '/panel/seo/add', 'App\Http\Controllers\Admin\SeoController@addSeoText')->name('admin.seo.addSeoText');
     Route::match(['get', 'post'], '/panel/seo/update/{seo_id}', 'App\Http\Controllers\Admin\SeoController@updateSeoText')->name('admin.seo.updateSeoText');
+    Route::get('/panel/seo/delete/{seo_id}', 'App\Http\Controllers\Admin\SeoController@deleteSeoText')->name('admin.seo.deleteSeoText');
+
     
 });

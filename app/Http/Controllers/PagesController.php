@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\MailController;
+use App\Models\SeoPages;
 
 class PagesController extends Controller
 {
@@ -62,6 +63,10 @@ class PagesController extends Controller
                 ]
             ]
         ];
+
+        $seo = SeoPages::where('slug', 'contact')->first();
+
+        $data["seo_text"] = $seo->text;
 
         return view('pages.contact.index', $data);
     }

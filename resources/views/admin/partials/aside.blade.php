@@ -89,7 +89,7 @@
             </li>
             <li class="--set-active-tables-html">
               <a href="{{ route('admin.seo.addSeoText') }}">
-                  <span class="icon"><i class="mdi mdi-text-box-multiple"></i></span>
+                  <span class="icon"><i class="mdi mdi-text-box-plus"></i></span>
                   <span class="menu-item-label">Seo Yazısı Ekle</span>
               </a>
             </li>

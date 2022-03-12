@@ -24,9 +24,12 @@
                             <tr>
                                 <td>{{ $page->id }}</td>
                                 <td>{{ $page->slug }}</td>
-                                <td>{{ $page->created_at }} <br> {{ $page->updated_at }}</td>
+                                <td>{{ date('d.m.Y H:i:s', strtotime($page->created_at)) }} <br> {{ date('d.m.Y H:i:s', strtotime($page->updated_at)) }}</td>
                                 <td>
-                                    <a target="_blank" style="font-weight: 500" href="{{ route('admin.seo.updateSeoText', $page->id)}}">Düzenle</a>
+                                    <a class="btn btn-primary" target="_blank" style="font-weight: 500" href="{{ route('admin.seo.updateSeoText', $page->id)}}">Düzenle</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" target="_blank" style="font-weight: 500" href="{{ route('admin.seo.deleteSeoText', $page->id)}}">Sil</a>
                                 </td>
                             </tr>
                         @endforeach

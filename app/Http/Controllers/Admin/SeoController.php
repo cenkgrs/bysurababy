@@ -58,7 +58,14 @@ class SeoController extends Controller
 
         $data["page"] = SeoPages::where('id', $seo_id)->first();
 
-        return view('admin.seo.add.index', $data);
+        return view('admin.seo.update.index', $data);
 
+    }
+
+    public function deleteSeoText($seo_id)
+    {
+        SeoPages::where('id', $seo_id)->delete();
+
+        return redirect()->back()->with('success_message', "Seo metni silindi");
     }
 }
