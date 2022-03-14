@@ -124,10 +124,10 @@ class OrderController extends Controller
             "created_at" => Helper::getHumanizedDate($booking->created_at, true),
             "status_code" => $booking->status,
             "delivery" => [
-                "address" => $booking->address->address,
-                "name" => $booking->address->name,
-                "city" => $booking->address->city,
-                "district" => $booking->address->district,
+                "address" => $booking->address ? $booking->address->address : null,
+                "name" => $booking->address ? $booking->address->name : null,
+                "city" => $booking->address ? $booking->address->city : null,
+                "district" => $booking->address ? $booking->address->district : null,
             ],
             "payment" => [
                 "total_price" => $booking->total_price,

@@ -24,10 +24,6 @@ Route::get('/index', 'App\Http\Controllers\HomeController@index')->name('index')
 Route::match(['get', 'post'], '/products', 'App\Http\Controllers\ProductsController@index')->name('products');
 Route::match(['get', 'post'], '/products/{product_id}', 'App\Http\Controllers\ProductsController@product')->name('product');
 
-// Orders
-Route::match(['get', 'post'], '/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
-Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
-
 // Cart
 Route::get('/cart', [CartController::class, "cart"])->name('cart');
 Route::post('/add-to-cart', [CartController::class, "addToCart"])->name('addToCart');
@@ -62,6 +58,15 @@ Route::get('/blog/{slug}', 'App\Http\Controllers\BlogController@blog')->name('bl
 Route::get('/partner', 'App\Http\Controllers\PagesController@partner')->name('partner');
 Route::post('/partner-application', 'App\Http\Controllers\PagesController@partnerApply')->name('partner-application');
 
+/* USER MANAGEMENT */
+
+// Orders
+Route::match(['get', 'post'], '/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
+Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
+
+// Addresses
+Route::get('/adres-bilgilerim', 'App\Http\Controllers\UserManagementController@addresses')->name('addresses');
+Route::post('/adres-bilgilerim/adres-ekle', 'App\Http\Controllers\UserManagementController@addAddress')->name('addAddress');
 
 /* ADMIN */
 

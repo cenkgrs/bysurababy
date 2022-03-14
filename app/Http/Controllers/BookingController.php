@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Addresses;
 use App\Models\BookingItems;
 use App\Models\Products;
 use App\Models\Bookings;
@@ -143,6 +144,19 @@ class BookingController extends Controller
             "updated_at" => new DateTime,
         ]);
 
+        /*
+        //Insert Address Informations
+        Addresses::updateOrInsert(["request_id" => $this->request_id], [
+            "user_id" => Auth::id(),
+            "name" => "",
+            "city" => "",
+            "district" => "",
+            "address" => "",
+            "created_at" => new DateTime,
+            "updated_at" => new DateTime,
+        ]);
+        */
+
         $cart = session()->get('cart');
 
         if (!$cart) {
@@ -202,8 +216,6 @@ class BookingController extends Controller
     {
 
         $this->request_id = session()->get('request_id');
-
-        $this->request_id = "B8E2FJI5SFD";
 
         if (!$this->request_id) {
             return redirect()->route('cart');

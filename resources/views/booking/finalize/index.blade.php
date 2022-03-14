@@ -5,7 +5,7 @@
     <div class="row mt2">
         <div class="col-lg-12">
             <p>
-                Siparişiniz Tamamlanmıştır. Siparişinizi <a class="color-primary" href=""><b>buraya</b></a> tıklayarak takip edebilirsiniz.
+                Siparişiniz Tamamlanmıştır. Siparişinizi <a class="color-primary" href="{{ route('order', $booking['request_id']) }}"><b>buraya</b></a> tıklayarak takip edebilirsiniz.
             </p>
             <p>
                 Sipariş Numaranız: <b class="color-primary">{{ $booking['request_id'] }}</b>
