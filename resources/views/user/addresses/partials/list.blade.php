@@ -11,6 +11,8 @@
                     <small class="d-block mt-2">{{ $address->address }}</small>
                     <small class="d-block mt-2">{{ $address->city }} / {{ $address->district }}</small>
                     <small class="d-block mt-2">{{ $address->phone }}</small>
+
+                    <a href="{{ route('deleteAddress', $address->id) }}" class="btn mt-3 p-0"><i class="mdi mdi-trash-can-outline color-primary mr-5"></i>Sil</a>
                 </div>
             </div>
         </div>

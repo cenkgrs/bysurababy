@@ -61,4 +61,15 @@ class UserManagementController extends Controller
         return redirect()->back()->with('success_message', "Adres Eklendi");
     }
 
+    public function deleteAddress($address_id)
+    {
+        $status = Addresses::where('id', $address_id)->delete();
+
+        if (!$status) {
+            return redirect()->back()->with('error_message', "Adres Silinemedi");
+        }
+
+        return redirect()->back()->with('success_message', "Adres Silindi");
+    }
+
 }

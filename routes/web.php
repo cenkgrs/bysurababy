@@ -67,6 +67,7 @@ Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@o
 // Addresses
 Route::get('/adres-bilgilerim', 'App\Http\Controllers\UserManagementController@addresses')->name('addresses');
 Route::post('/adres-bilgilerim/adres-ekle', 'App\Http\Controllers\UserManagementController@addAddress')->name('addAddress');
+Route::get('/adres-bilgilerim/adres-sil/{address_id}', 'App\Http\Controllers\UserManagementController@deleteAddress')->name('deleteAddress');
 
 /* ADMIN */
 
