@@ -33,11 +33,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Button trigger modal -->
-
-  
-
             </div>
 
             @include('user.addresses.partials.add')

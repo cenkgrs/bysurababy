@@ -14,7 +14,7 @@ class UserManagementController extends Controller
     
     public function addresses()
     {
-        $addresses = Addresses::where('id', Auth::id())->get();
+        $addresses = Addresses::where('user_id', Auth::id())->get();
 
         $data = [
             "addresses" => $addresses,
