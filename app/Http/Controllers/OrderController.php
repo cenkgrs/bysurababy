@@ -47,7 +47,7 @@ class OrderController extends Controller
                 $items[] = [
                     "name" => $product->name,
                     "quantity" => $product->quantity,
-                    "photo" => $product->id . ".jpg",
+                    "photo" => $product->photo,
                 ];
             }
 

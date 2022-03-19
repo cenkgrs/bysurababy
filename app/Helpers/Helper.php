@@ -17,7 +17,8 @@ class Helper
             3 => __('Kargoya Verildi'),
             4 => __('Teslim Edildi'),
             5 => __('İptal Edildi'),
-            6 => __('İade Talebi Oluşturuldu')
+            6 => __('İade Talebi Oluşturuldu'),
+            7 => __('İade Edildi'),
         ];
 
         return $statuses[$status];
@@ -31,6 +32,7 @@ class Helper
             3 => "Refund",
             4 => "Refund",
             5 => "",
+            6 => "",
         ];
 
         return $operations[$status];

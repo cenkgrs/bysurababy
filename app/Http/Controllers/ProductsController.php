@@ -108,7 +108,11 @@ class ProductsController extends Controller
     {
         $input = $request->all();
 
-        $product = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product_id)->first();
+        $product = Products::with('price', 'category', 'sub_category', 'colors')->where('id', $product_id)->where('status', 1)->first();
+
+        if (!$product) {
+            return redirect()->route('products')->with('error_message', __('Aradığınız ürün bulunamadı'));
+        }
 
         if ($product->parent_id) {
             $parent = Products::where('id', $product->parent_id)->first();

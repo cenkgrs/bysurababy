@@ -25,47 +25,51 @@
                 </div>
             </div>
             <div class="order-body">
-                @foreach ($order['products'] as $product)
-                    <div class="order-product">
-                        <div class="row">
-                            <div class="col-lg-4 col-12">
-                                <h6>{{ $order['order_status'] }}</h6>
 
-                                @if ($order['status_code'] == 1)
-                                    <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
-                                @elseif ($order['status_code'] == 2)
-                                    <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
-                                @elseif ($order['status_code'] == 3)
-                                    <small>{{ $order['cargo']['created_at'] }} Tarihinde kargoya verilmiştir.</small>
-                                @elseif ($order['status_code'] == 4)
-                                    <small>{{ $order['cargo']['delivery_date'] }} Tarihinde teslim edilmiştir.</small>
-                                @elseif ($order['status_code'] == 5)
-                                    <small>{{ $order['cancel_date'] }} Tarihinde iptal edilmiştir.</small>
+                <div class="order-product">
+                    <div class="row">
+                        <div class="col-lg-5 col-12">
+                            <h6>{{ $order['order_status'] }}</h6>
+
+                            @if ($order['status_code'] == 1)
+                                <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
+                            @elseif ($order['status_code'] == 2)
+                                <small>{{ $order['humanized_date'] }} Tarihinde sipariş verilmiştir.</small>
+                            @elseif ($order['status_code'] == 3)
+                                <small>{{ $order['cargo']['created_at'] }} Tarihinde kargoya verilmiştir.</small>
+                            @elseif ($order['status_code'] == 4)
+                                <small>{{ $order['cargo']['delivery_date'] }} Tarihinde teslim edilmiştir.</small>
+                            @elseif ($order['status_code'] == 5)
+                                <small>{{ $order['cancel_date'] }} Tarihinde iptal edilmiştir.</small>
+                            @endif
+
+                        </div>
+                        <div class="col-lg-3 col-12">
+                            @foreach ($order['products'] as $product)
+                                <img src="{{ asset('images/products/'. $product['photo'] .'') }}" alt="">
+                            @endforeach
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <form method="POST" action="{{ route('orders') }}">
+                                @csrf
+                                <input type="hidden" name="operation" value="1">
+                                <input type="hidden" name="request_id" value="{{ $order['request_id'] }}">
+                                @if ($order['operation'] == "Cancel")
+                                    <button type="submit" name="cancel" value="1" class="btn secondary-button">{{ __('İptal Et') }}</button>
+                                @elseif ($order['operation'] == 'Refund')
+                                    <button type="submit" name="refund" value="1" class="btn secondary-button">{{ __('İade Et') }}</button>
+                                @else
+                                    <span class="float-end color-primary">
+                                        {{ $order['order_status'] }}
+                                    </span>
                                 @endif
-
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <span>{{ $product['name'] }}</span>
-                            </div>
-                            <div class="col-lg-4 col-12">
-                                <form method="POST" action="{{ route('orders') }}">
-                                    @csrf
-                                    <input type="hidden" name="operation" value="1">
-                                    <input type="hidden" name="request_id" value="{{ $order['request_id'] }}">
-                                    @if ($order['operation'] == "Cancel")
-                                        <button type="submit" name="cancel" value="1" class="btn secondary-button">{{ __('İptal Et') }}</button>
-                                    @elseif ($order['operation'] == 'Refund')
-                                        <button type="submit" name="refund" value="1" class="btn secondary-button">{{ __('İade Et') }}</button>
-                                    @elseif ($order['status_code'] == '5')
-                                        <span class="float-end color-primary">
-                                            {{ $order['order_status'] }}
-                                        </span>
-                                    @endif
-                                </form>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                @endforeach
+                </div>
+
+
+                
             </div>
         </div>
     @endforeach

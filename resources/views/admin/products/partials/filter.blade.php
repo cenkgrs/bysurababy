@@ -9,13 +9,13 @@
                     <div class="panel panel-success">
                         <form action="{{ route('admin.products') }}" method="get">
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group">
                                         <label for="">Code</label>
                                         <input type="text" name="code" class="form-control" value="{{ Request::input('code') }}">
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group">
                                         <label for="">Kategori</label>
                                         <select name="category" id="category" class="form-control">
@@ -26,7 +26,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group">
                                         <label for="">Alt Kategori</label>
                                         <select name="sub_category" id="sub_category" class="form-control">
@@ -37,9 +37,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group">
-                                        <label for="">Code</label>
+                                        <label for="">Cinsiyet</label>
                                         <select name="gender" id="gender" class="form-control">
                                             <option value="">Tümü</option>
                                             <option value="male" {{ Request::input('gender') == 'male' ? 'selected' : '' }}>Erkek</option>
