@@ -82,6 +82,13 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="">Stok Sayısı</label>
+                                    <input type="text" name="stock" class="form-control" placeholder="" value="{{ $product->stock }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -32,6 +32,11 @@
                     <a href="https://www.twitter.com/bySurababy"><i class="fa fa-twitter"></i></a>
                     <p class="copyright">bySuraBaby © 2021</p>
                 </div>
+
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                <a href="https://wa.me/15491992021" class="float" target="_blank">
+                    <i class="fa fa-whatsapp my-float"></i>
+                </a>
             </div>
         </div>
     </footer>

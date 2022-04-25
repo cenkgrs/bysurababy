@@ -61,6 +61,26 @@ class ProductController extends Controller
 
             $input = $request->all();
 
+            $rules = [
+                'name' => 'required|max:255',
+                'code' => 'required|numeric',
+                'purchase_price' => 'required|numeric',
+                'sale_price' => 'required|numeric',
+                'color' => 'required',
+                'gender' => 'required',
+                'age' => 'required',
+            ];
+            
+            $messages = [
+                "name.required" => "Ürün ismi zorunlu",
+                "code.required" => "Ürün kodu zorunlu",
+                "purchase_price.required" => "Alış fiyatı giriniz",
+                "sale_price.required" => "Satış fiyatı giriniz",
+                "color.required" => "Renk giriniz",
+            ];
+
+            $this->validate($request, $rules, $messages);
+    
             // First check product code exist
             $parent = Products::where('code', $input['code'])->first();
 

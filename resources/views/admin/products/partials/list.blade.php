@@ -24,6 +24,7 @@
                             <th>Kazanç</th>
                             <th>Cinsiyet</th>
                             <th>Yaş</th>
+                            <th>Stok Adedi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,7 @@
                                 <td>{{ $product->price->sale_price - $product->price->purchase_price }} ₺</td>
                                 <td>{{ $product->gender == "unisex" ? "Unisex" : ($product->gender == "male" ? "Erkek" : "Kız") }}</td>
                                 <td>{{ $product->age }}</td>
+                                <td>{{ $product->stock }}</td>
                                 <td>
                                     @if($product->status)
                                         <div class="badge badge-success">Aktif</div>

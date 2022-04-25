@@ -217,6 +217,10 @@
   display: block;
 }
 
+.product .product-image {
+  height: 28vh;
+}
+
 .product .product-image img {
   width: 100%;
   height: auto;
@@ -950,6 +954,29 @@ textarea {
 .panel-custom .panel-custom-body {
   padding: 10px;
   padding: 1rem 2rem;
+}
+
+.float {
+  position: fixed;
+  width: 60px !important;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.float :hover {
+  color: #fff !important;
+}
+
+.my-float {
+  margin-top: 16px;
 }
 
 @media screen and (max-width: 900px) {
@@ -6186,9 +6213,9 @@ textarea.form-control-lg {
 }
 
 .alert-danger {
-  color: white;
-  background-color: #cd5b7c;
-  border-color: #cd5b7c;
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
 }
 
 .alert-danger .alert-link {
