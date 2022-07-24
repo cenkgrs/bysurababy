@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Validator;
 use DateTime;
+use Illuminate\Support\Facades\Date;
 
 class BookingController extends Controller
 {
@@ -45,9 +46,15 @@ class BookingController extends Controller
                 $free_cargo = true;
             }
 
+            // If user logged in
+            if (Auth::id()) {
+                $addresses = Addresses::where('user_id', Auth::id())->get();
+            }
+
             $data = [
                 "products" => $products,
                 "total_price" => $total_price ?? null,
+                "addresses" => $addresses ?? null,
                 "title" => __("Ödeme"),
                 "free_cargo" => $free_cargo ?? false,
                 "breadcrumbs" => [

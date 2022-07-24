@@ -2,7 +2,7 @@
     @foreach ($orders as $order)
         <div class="order">
             <div class="order-header">
-                <div class="row">
+                <div class="row order-summary">
                     <div class="col-lg-3 col-4">
                         <h6>{{ __('Sipariş Tarihi') }}</h6>
                         <small>{{ $order['created_at'] }}</small>

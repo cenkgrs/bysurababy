@@ -68,4 +68,10 @@
   float: right;
 }
 
+.order-summary small {
+  font-size: 1.3vh;
+  color: #6a6a6a;
+  font-weight: 500;
+}
+
 /*# sourceMappingURL=orders.css.map */

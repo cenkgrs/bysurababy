@@ -224,6 +224,26 @@ class ProductController extends Controller
             return redirect()->route('admin.products.updateProductGet', $input["product_id"])->with('success_message', "Renk Eklendi");
         }
 
+        $rules = [
+            'name' => 'required|max:255',
+            'code' => 'required|numeric',
+            'purchase_price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'color' => 'required',
+            'gender' => 'required',
+            'age' => 'required',
+        ];
+        
+        $messages = [
+            "name.required" => "Ürün ismi zorunlu",
+            "code.required" => "Ürün kodu zorunlu",
+            "purchase_price.required" => "Alış fiyatı giriniz",
+            "sale_price.required" => "Satış fiyatı giriniz",
+            "color.required" => "Renk giriniz",
+        ];
+
+        $this->validate($request, $rules, $messages);
+
         // Update data
         $product = [
             "code" => $input["code"],

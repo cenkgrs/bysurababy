@@ -42,7 +42,7 @@ class OrderController extends Controller
             foreach ($booking->booking_items as $item) {
                 $product_count += $item->quantity;
 
-                $product = Products::where('id', $item->id)->first();
+                $product = Products::where('id', $item->product_id)->first();
 
                 $items[] = [
                     "name" => $product->name,
@@ -68,6 +68,7 @@ class OrderController extends Controller
                     "delivery_date" => !$booking->cargo ? null : $booking->cargo->delivery_date,
                 ]
             ];
+
         }
 
         $data = [
@@ -93,7 +94,7 @@ class OrderController extends Controller
         foreach ($booking->booking_items as $item) {
             $product_count += $item->quantity;
 
-            $product = Products::where('id', $item->id)->first();
+            $product = Products::where('id', $item->product_id)->first();
 
             $items[] = [
                 "name" => $product->name,
@@ -113,6 +114,7 @@ class OrderController extends Controller
 
         $order = [
             "request_id" => $booking->request_id,
+            "order_no" => $booking->order_no,
             "products" => $products,
             "total_price" => $booking->total_price,
             "owner" => $booking->contact->name . ' ' . $booking->contact->surname,
@@ -124,6 +126,7 @@ class OrderController extends Controller
             "created_at" => Helper::getHumanizedDate($booking->created_at, true),
             "status_code" => $booking->status,
             "delivery" => [
+                "address_name" => $booking->address ? $booking->address->address_name : null,
                 "address" => $booking->address ? $booking->address->address : null,
                 "name" => $booking->address ? $booking->address->name : null,
                 "city" => $booking->address ? $booking->address->city : null,

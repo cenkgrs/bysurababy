@@ -63,7 +63,8 @@ class ReportsController extends Controller
         $data['booking_items'] = [];
 
         foreach($booking['booking_items'] as $item) {
-            $product = Products::where('id', $item->id)->first();
+
+            $product = Products::where('id', $item->product_id)->first();
 
             $data['booking_items'][] = [
                 "code"          => $product->code,

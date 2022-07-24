@@ -55,10 +55,10 @@ class UserManagementController extends Controller
         ]);
 
         if (!$id) {
-            return redirect()->back()->with('error_message', "Adres Eklenemedi");
+            return redirect()->back('addresses')->with('error_message', "Adres Eklenemedi");
         }
 
-        return redirect()->back()->with('success_message', "Adres Eklendi");
+        return redirect()->route('addresses')->with('success_message', "Adres Eklendi");
     }
 
     public function deleteAddress($address_id)
@@ -66,10 +66,10 @@ class UserManagementController extends Controller
         $status = Addresses::where('id', $address_id)->delete();
 
         if (!$status) {
-            return redirect()->back()->with('error_message', "Adres Silinemedi");
+            return redirect()->route('addresses')->with('error_message', "Adres Silinemedi");
         }
 
-        return redirect()->back()->with('success_message', "Adres Silindi");
+        return redirect()->route('addresses')->with('success_message', "Adres Silindi");
     }
 
 }

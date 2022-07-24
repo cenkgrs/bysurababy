@@ -1,9 +1,11 @@
 <div class="order">
     <div class="order-header">
-        <div class="row">
+        <div class="row order-summary">
             <div class="col-lg-2 col-12 mb-3">
-                <h5 class="mt-2">{{ __('Sipariş Detayı') }}</h5>
+                <h6>{{ __('Sipariş No') }}</h6>
+                <small>{{ $order['order_no'] }}</small>
             </div>
+          
             <div class="col-lg-3 col-6">
                 <h6>{{ __('Sipariş Tarihi') }}</h6>
                 <small>{{ $order['created_at'] }}</small>

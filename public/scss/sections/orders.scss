@@ -74,3 +74,9 @@ $primary-color: #cd5b7c;
     color: $primary-color;
     float: right;
 }
+
+.order-summary small{
+    font-size: 1.3vh;
+    color: $color-muted;
+    font-weight: 500;
+}

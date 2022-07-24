@@ -7,8 +7,23 @@
         </div>
     </div>
     <div class="order-body">
-        <small>{{ $order['delivery']['name'] }}</small>
-        <small>{{ $order['delivery']['address'] }}</small>
-        <small class="d-block">{{ $order['delivery']['city'] }} / {{ $order['delivery']['district'] }}</small>
+        <div class="payment-details">
+            <ul>
+                <li>
+                    {{ __('Adres İsmi') }}
+                    <span>{{ $order['delivery']['address_name'] }}</span>
+                </li>
+                <li>
+                    {{ __('İl') }}
+                    <span>{{ $order['delivery']['city'] }}</span>
+                </li>
+                <li>
+                    {{ __('İlçe') }}
+                    <span>{{ $order['delivery']['district'] }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <small class="d-block">{{ $order['delivery']['address'] }}</small>
     </div>
 </div>

@@ -49,8 +49,8 @@ class Helper
         $pattern = "dd LLLL yyyy eeee";
 
         if ($hour) {
-            $pattern = "dd LLLL yyyy eeee hh:mm";
-        } 
+            $pattern = "dd LLLL yyyy eeee HH:mm";
+        }
         
         $dateFormatLong = new IntlDateFormatter($date_lang, IntlDateFormatter::FULL, IntlDateFormatter::FULL);
         $dateFormatLong->setPattern($pattern);

@@ -21,6 +21,7 @@
                                 <th>ID</th>
                                 <th>İsim Soyisim</th>
                                 <th>Email</th>
+                                <th>Tel No</th>
                                 <th>Üyelik Tarihi</th>
                             </tr>
                         </thead>
@@ -29,6 +30,7 @@
                                 <tr>
                                     <td class="text-gray-500">{{ $user->id }}</td>
                                     <td class="text-gray-500">{{ $user->name }}</td>
+                                    <td class="text-gray-500">{{ $user->email }}</td>
                                     <td class="text-gray-500">{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                 </tr>

@@ -1001,6 +1001,11 @@ textarea {
     padding: 5px;
   }
 }
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
 .account-container {
   position: relative;
   display: flex;
@@ -1115,6 +1120,12 @@ textarea {
   font-weight: 500;
   color: #cd5b7c;
   float: right;
+}
+
+.order-summary small {
+  font-size: 1.3vh;
+  color: #6a6a6a;
+  font-weight: 500;
 }
 
 .blog {
