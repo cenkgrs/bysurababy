@@ -18684,7 +18684,7 @@ readers do not read off random characters that represent icons */
 @media screen and (min-width: 900px) {
   .counter .minus, .plus {
     width: 5vh;
-    height: 4vh;
+    height: -webkit-fit-content;
     padding: 0.375rem;
     background: #cd5b7c;
     border-radius: 4px;
