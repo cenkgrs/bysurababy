@@ -42,6 +42,14 @@ let Common = function ()
             $(".product").on("click", function() {
                 window.location.href = $(this).data("href");
             })
+
+            if (typeof $("#success-modal") !== "undefined") {
+                $("#success-modal").modal();
+            }
+
+            if (typeof $("#error-modal") !== "undefined") {
+                $("#error-modal").modal();
+            }
            
         })
     }

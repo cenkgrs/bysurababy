@@ -12,7 +12,7 @@
 }
 
 .blog .blog-body {
-  border-top: 1px solid #eeee;
+  border-top: 1px solid rgba(238, 238, 238, 0.9333333333);
   padding: 1rem 2rem;
   font-size: 0.9rem;
 }

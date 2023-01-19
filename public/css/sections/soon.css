@@ -1,5 +1,5 @@
 .coming-soon {
-  background-image: linear-gradient(#a36879, #0000);
+  background-image: linear-gradient(#a36879, rgba(0, 0, 0, 0));
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -61,16 +61,13 @@
   .coming-soon .logo {
     top: 35%;
   }
-
   .coming-soon h1 {
     top: 46%;
     letter-spacing: 10px;
   }
-
   hr {
     top: 53%;
   }
-
   .coming-soon .launch {
     top: 60% !important;
     letter-spacing: 5px;
@@ -80,11 +77,9 @@
   .coming-soon h1 {
     font-size: 25px;
   }
-
   hr {
     top: 51% !important;
   }
-
   .coming-soon .launch {
     top: 55% !important;
     font-size: 20px;

@@ -35,7 +35,7 @@
 }
 
 .footer-clean ul a {
-  color: #000000c9;
+  color: rgba(0, 0, 0, 0.7882352941);
   text-decoration: none;
   opacity: 0.8;
   font-size: 0.75rem;
@@ -43,7 +43,7 @@
 }
 
 .footer-clean ul a span {
-  color: #000000c9;
+  color: rgba(0, 0, 0, 0.7882352941);
 }
 
 .footer-clean ul a:hover {

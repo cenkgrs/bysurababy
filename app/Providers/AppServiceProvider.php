@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
+        if (/* $_SERVER['REMOTE_ADDR'] !== */request()->ip() !== '127.0.0.1') {
             $this->app->bind('path.public', function() {
                 return realpath('/home/ruf254evfebs/public_html');
             });

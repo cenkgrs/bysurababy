@@ -7,8 +7,8 @@
                         <li><a href="/products"><span>{{ __("Ürünler") }}</span></a></li>
                         <li><a href="/categories"><span>{{ __("Kategoriler") }}</span></a></li>
                         @if (!Auth::check())
-                            <li><a href="{{ route('login') }}"><span>{{ __("Üye Ol") }}</span></a></li>
-                            <li><a href="{{ route('register') }}"><span>{{ __("Üye Girişi") }}</span></a></li>
+                            <li><a href="{{ route('register') }}"><span>{{ __("Üye Ol") }}</span></a></li>
+                            <li><a href="{{ route('login') }}"><span>{{ __("Üye Girişi") }}</span></a></li>
                         @endif
                         <li><a href="/siparislerim"><span>{{ __("Siparişlerim") }}</span></a></li>
                     </ul>

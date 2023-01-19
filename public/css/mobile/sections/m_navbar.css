@@ -2,45 +2,35 @@
   #search-column {
     display: none;
   }
-
   .nav-bar .auth {
     float: right;
   }
-
   .nav-bar .shopping-cart {
     float: right;
   }
-
   .nav-bar .auth span {
     display: none;
   }
-
   .nav-bar .shopping-cart span {
     display: none;
   }
-
   .nav-bar .auth i {
     margin-right: 0;
   }
-
   .nav-bar .shopping-cart i {
     margin-right: 0;
   }
-
   .upper-navbar {
     display: none;
   }
-
   .navbar-categories {
     overflow-x: auto;
     white-space: nowrap;
     font-size: 2vh;
   }
-
   .navbar-categories ul li {
     padding: 10px 20px;
   }
-
   .nav-bar .fixed-navigation {
     padding: 5px 15px;
   }

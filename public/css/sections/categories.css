@@ -17,7 +17,7 @@
 
 .categories li a {
   text-decoration: none;
-  color: #000000c9;
+  color: rgba(0, 0, 0, 0.7882352941);
   font-weight: 500;
 }
 

@@ -2,23 +2,18 @@
   .product {
     margin-top: 1rem;
   }
-
   .product .product-image img {
     height: auto;
   }
-
   .product .product-title {
     font-size: 2vh;
   }
-
   .product .product-age {
     font-size: 2vh !important;
   }
-
   .product .product-price {
     font-size: 2.5vh !important;
   }
-
   .filter {
     font-size: 2vh !important;
   }
