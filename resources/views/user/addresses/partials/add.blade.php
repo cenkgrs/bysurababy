@@ -9,11 +9,17 @@
                 </button>
             </div>
             <form action="{{ route('addAddress') }}" method="post">
-                <div class="modal-body">
+                <div class="modal-body p-4">
 
                         @csrf
                         
                         <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <div class="form-group">
+                                    <label class="font-small" for="">{{ __('Adres Başlığı') }}</label>
+                                    <input type="text" name="address_name" class="form-control">
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="font-small" for="">{{ __('Ad') }}</label>
@@ -52,12 +58,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12 mt-3">
-                                <div class="form-group">
-                                    <label class="font-small" for="">{{ __('Adres Başlığı') }}</label>
-                                    <input type="text" name="address_name" class="form-control">
-                                </div>
-                            </div>
                             <div class="col-lg-12 mt-3">
                                 <div class="form-group">
                                     <label class="font-small" for="">{{ __('Adres') }}</label>

@@ -11,7 +11,7 @@ use DateTime;
 
 class UserManagementController extends Controller
 {
-    
+    /* Addresses */
     public function addresses()
     {
         $addresses = Addresses::where('user_id', Auth::id())->get();
@@ -63,7 +63,14 @@ class UserManagementController extends Controller
 
     public function deleteAddress($address_id)
     {
-        $status = Addresses::where('id', $address_id)->delete();
+        $address = Addresses::where('id', $address_id)->first();
+
+        // Address doesn' belong to this user
+        if ($address->user_id !== Auth::id()) {
+            return redirect()->route('addresses')->with('error_message', "Adres Silinemedi");
+        }
+
+        $status = $address->delete();
 
         if (!$status) {
             return redirect()->route('addresses')->with('error_message', "Adres Silinemedi");
