@@ -23,7 +23,7 @@
                     <i class="fa fa-close close" data-dismiss="modal" aria-hidden="true"></i>
 			</div>
 			<div class="modal-body text-center">
-				<p>{{ session()->get('success_message') }}</p>
+				<p class="title-main">{{ session()->get('success_message') }}</p>
 			</div>
 		</div>
 	</div>
@@ -36,12 +36,12 @@
 		<div class="modal-content">
 			<div class="modal-header error justify-content-center">
 				<div class="icon-box">
-					<i class="fa fa-check"></i>
+					<i class="fa fa-exclamation"></i>
 				</div>
                     <i class="fa fa-close close" data-dismiss="modal" aria-hidden="true"></i>
 			</div>
 			<div class="modal-body text-center">
-				<p>{{ session()->get('error_message') }}</p>
+				<p class="title-main">{{ session()->get('error_message') }}</p>
 			</div>
 		</div>
 	</div>

@@ -18897,7 +18897,7 @@ readers do not read off random characters that represent icons */
 }
 
 .modal-confirm .success {
-  background: #47c9a2;
+  background: #cd5b7c !important;
 }
 
 .modal-confirm .error {
