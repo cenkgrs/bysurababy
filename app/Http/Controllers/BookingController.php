@@ -42,7 +42,7 @@ class BookingController extends Controller
                 isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
             }
 
-            if (isset($total_price) && $total_price > 150) {
+            if (isset($total_price) && $total_price > config('price.cargo.limit')) {
                 $free_cargo = true;
             }
 
@@ -194,6 +194,10 @@ class BookingController extends Controller
             $total_earning += $product->price->purchase_price * $cart_product["quantity"];
         }
 
+        if (isset($total_price) && $total_price > config('price.cargo.limit')) {
+            $free_cargo = true;
+        }
+
         $order_no = $this->generateOrderNo();
 
         // Insert Booking data
@@ -201,6 +205,8 @@ class BookingController extends Controller
             "request_id" => $this->request_id,
             "order_no" => $order_no,
             "user_id" => Auth::id(),
+            "address_id" => $input["address"],
+            "cargo_price" => isset($free_cargo) ? 0 : config('price.cargo.price') ,
             "total_earning" => $total_earning,
             "total_price" => $total_price,
             "status" => 1,
@@ -221,7 +227,6 @@ class BookingController extends Controller
 
     public function finalize(Request $request)
     {
-
         $this->request_id = session()->get('request_id');
 
         if (!$this->request_id) {

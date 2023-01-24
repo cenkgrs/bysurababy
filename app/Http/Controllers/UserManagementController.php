@@ -65,7 +65,7 @@ class UserManagementController extends Controller
     {
         $address = Addresses::where('id', $address_id)->first();
 
-        // Address doesn' belong to this user
+        // Address doesn't belong to this user
         if ($address->user_id !== Auth::id()) {
             return redirect()->route('addresses')->with('error_message', "Adres Silinemedi");
         }

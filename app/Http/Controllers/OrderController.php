@@ -135,7 +135,7 @@ class OrderController extends Controller
             "payment" => [
                 "total_price" => $booking->total_price,
                 "cargo_price" => $booking->cargo_price,
-                "free_cargo" => $booking->total_price > 150 ? __('150 TL ve Üzeri Kargo Bedava') : false
+                "free_cargo" => $booking->total_price > config('price.cargo.limit') ? __(config('price.cargo.limit') .' TL ve Üzeri Kargo Bedava') : false
             ]
         ];
 
