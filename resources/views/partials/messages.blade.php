@@ -14,7 +14,7 @@
 
 @if(session()->has('success_message'))
 <div id="success-modal" class="modal fade">
-	<div class="modal-dialog modal-confirm">
+	<div class="modal-dialog modal-confirm width-auto">
 		<div class="modal-content">
 			<div class="modal-header success success justify-content-center">
 				<div class="icon-box">
@@ -32,7 +32,7 @@
 
 @if(session()->has('error_message'))
 <div id="error-modal" class="modal fade">
-	<div class="modal-dialog modal-confirm">
+	<div class="modal-dialog modal-confirm width-auto">
 		<div class="modal-content">
 			<div class="modal-header error justify-content-center">
 				<div class="icon-box">

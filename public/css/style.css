@@ -979,6 +979,10 @@ textarea {
   margin-top: 16px;
 }
 
+.width-auto {
+  width: auto !important;
+}
+
 @media screen and (max-width: 900px) {
   .form-control {
     font-size: 2vh !important;

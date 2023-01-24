@@ -232,4 +232,8 @@ textarea {
   margin-top: 16px;
 }
 
+.width-auto {
+  width: auto !important;
+}
+
 /*# sourceMappingURL=common.css.map */
