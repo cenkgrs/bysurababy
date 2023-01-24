@@ -139,12 +139,12 @@ class OrderController extends Controller
             ],
             "cargo" => [
                 "order_taken" => [
-                    "text" => __("Siparişiniz Hazırlanıyor"),
+                    "text" => __("Siparişiniz Alındı"),
                     "status" => true
                 ],
                 "order_prepared" => [
                     "text" => __("Siparişiniz Hazırlanıyor"),
-                    "status" => true
+                    "status" => $booking->status >= 2 ? true : falses
                 ],
                 "cargo_sent" => [
                     "text" => __("Kargoya Verildi"),

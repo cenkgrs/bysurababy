@@ -3,6 +3,6 @@
 return [
     'cargo' => [
         'price' => 20,
-        'limit' => 100
+        'limit' => 250
     ]
 ];

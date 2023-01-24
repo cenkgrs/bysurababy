@@ -54,7 +54,7 @@ class HomeController extends Controller
     {
         $stickers = [
             "cargo" => [
-                "text" => __("150 TL ve Üzeri Ücretsiz Kargo"),
+                "text" => __(config("price.cargo.limit") . " TL ve Üzeri Ücretsiz Kargo"),
                 "background" => "black",
                 "color" => "color-white",
                 "icon" => "fa fa-truck",
