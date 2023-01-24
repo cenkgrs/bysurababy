@@ -22,6 +22,12 @@
 
             <div class="row">
                 <div class="col-lg-12">
+                    @include('user.order_detail.partials.cargo')
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
                     @include('user.order_detail.partials.products')
                 </div>
             </div>

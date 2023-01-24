@@ -136,6 +136,24 @@ class OrderController extends Controller
                 "total_price" => $booking->total_price,
                 "cargo_price" => $booking->cargo_price,
                 "free_cargo" => $booking->total_price > config('price.cargo.limit') ? __(config('price.cargo.limit') .' TL ve Üzeri Kargo Bedava') : false
+            ],
+            "cargo" => [
+                "order_taken" => [
+                    "text" => __("Siparişiniz Hazırlanıyor"),
+                    "status" => true
+                ],
+                "order_prepared" => [
+                    "text" => __("Siparişiniz Hazırlanıyor"),
+                    "status" => true
+                ],
+                "cargo_sent" => [
+                    "text" => __("Kargoya Verildi"),
+                    "status" => $booking->cargo ? true : false
+                ],
+                "finished" => [
+                    "text" => __("Teslim Edildi"),
+                    "status" => $booking->status == 4 ? true : false
+                ]
             ]
         ];
 
