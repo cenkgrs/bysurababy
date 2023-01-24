@@ -13,9 +13,9 @@
             @foreach ($order["cargo"] as $info)
                 <div class="col-lg-3 col-2">
                     <div class="category-sticker m-auto mt-3" style="width: 4rem">
-                        <img src="" alt="">
+                        <i class="mdi text-center {{ $info['status'] == true ? 'color-primary mdi-thumb-up-outline' : 'mdi-loading' }}" style="display:block"></i>
                     </div>
-                    <p class="text-center">{{ $info["text"] }}</span>
+                    <p class="text-center mt-3 {{ $info['status'] == true ? 'color-primary' : ''}}">{{ $info["text"] }}</span>
                 </div>
             @endforeach
             
