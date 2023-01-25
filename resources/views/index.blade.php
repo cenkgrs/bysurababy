@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Bebeğiniz İçin En İyisi Burada</title>
+    <title>{{ isset($title) ? $title : __('Bebeğiniz İçin En İyisi Burada') }}</title>
     
     <link rel="icon" href="/images/favicon-32x32.png" type="image/x-icon">
     
