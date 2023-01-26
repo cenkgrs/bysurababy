@@ -28,7 +28,7 @@ class CartController extends Controller
             }
         }
 
-        if (isset($total_price) && $total_price > 100) {
+        if (isset($total_price) && $total_price > config('price.cargo.limit')) {
             $free_cargo = true;
         }
 
@@ -37,6 +37,7 @@ class CartController extends Controller
             "total_price" => $total_price ?? null,
             "title" => __("Sepetim"),
             "free_cargo" => $free_cargo ?? false,
+            "cargo_price" => config('price.cargo.price'),
             "breadcrumbs" => [
                 0 => [
                     "title" => __("Ana Sayfa"),

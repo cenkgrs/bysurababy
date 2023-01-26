@@ -32,7 +32,7 @@
                                     <span class="cart-counter-button" data-type="plus" data-product-id="{{ $id }}">+</span>
                                 </div>
 
-                                <button class="btn btn-sm color-primary p-0 mt-3 bolded removeProduct" data-product-id="{{ $id }}">Ürün Kaldır</button>
+                                <button class="btn btn-sm color-primary p-0 mt-3 bolded removeProduct" data-product-id="{{ $id }}">{{ __('Ürün Kaldır') }}</button>
                             </div>
                         </div>
 

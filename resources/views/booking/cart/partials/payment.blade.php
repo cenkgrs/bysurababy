@@ -11,7 +11,7 @@
                 @if ($free_cargo)
                     <span>{{ __("Bedava") }}</span>
                 @else
-                    <span>10 TL</span>
+                    <span>{{ $cargo_price }} TL</span>
                 @endif
             </li>
         </ul>

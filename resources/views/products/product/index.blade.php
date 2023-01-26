@@ -30,6 +30,12 @@
 
         <div class="row mt2">
             <div class="col-lg-12">
+                @include('products.product.partials.reviews')
+            </div>
+        </div>
+
+        <div class="row mt2">
+            <div class="col-lg-12">
                 @include('products.product.partials.comments')
             </div>
         </div>

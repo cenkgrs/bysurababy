@@ -30,4 +30,9 @@ class Products extends Model
     {
         return $this->hasMany('App\Models\Products', 'parent_id');
     }
+
+    public function reviews() : \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\Reviews', 'product_id');
+    }
 }
