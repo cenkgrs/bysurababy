@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Bebeğiniz İçin En İyisi Burada</title>
+    <title>{{ isset($title) ? $title : __('Bebeğiniz İçin En İyisi Burada') }}</title>
     
     <link rel="icon" href="/images/favicon-32x32.png" type="image/x-icon">
     
@@ -31,14 +31,14 @@
     <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG9728SGCV"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1B8GYFL5J"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        gtag('config', 'G-FG9728SGCV');
+    gtag('config', 'G-T1B8GYFL5J');
     </script>
 
 </head>
