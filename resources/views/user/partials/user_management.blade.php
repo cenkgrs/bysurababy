@@ -14,6 +14,10 @@
                     <i class="mdi mdi-cart-outline mr1"></i>
                     <a href="{{ route('orders') }}">{{ __('Siparişlerim') }}</a>
                 </div>
+                <div class="col-lg-12 side-link">
+                    <i class="mdi mdi-comment mr1"></i>
+                    <a href="{{ route('reviews') }}">{{ __('Değerlendirmelerim') }}</a>
+                </div>
                 <div class="col-lg-12 side-link mt1">
                     <i class="mdi mdi-map-marker-outline mr1"></i>
                     <a href="{{ route('addresses') }}">{{ __('Adreslerim') }}</a>
