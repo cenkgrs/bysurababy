@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 col-4">
-                                <div class="shopping-cart">
+                                <div class="auth">
                                     <a href="{{ route('cart') }}" class="btn primary-button"><i class="fa fa-cart-plus"></i>
                                         <span>{{ __("Sepetim") }}</span>
                                     </a>
