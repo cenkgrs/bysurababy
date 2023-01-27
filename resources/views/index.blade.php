@@ -32,6 +32,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Google tag (gtag.js) -->
+    <!--
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1B8GYFL5J"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -40,6 +41,10 @@
 
     gtag('config', 'G-T1B8GYFL5J');
     </script>
+    -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3602909305932991"
+     crossorigin="anonymous"></script>
 
 </head>
 <body>
