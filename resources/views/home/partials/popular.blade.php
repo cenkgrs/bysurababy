@@ -1,9 +1,9 @@
 <div class="popular-products mt2 text-center">
 
     <h5 class="mb2">{{ __('En Çok Satan Ürünler') }}</h5>
-    <div class="row">
+    <div class="row products">
         @foreach ($popular_products as $product)
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                 <div class="product" data-href="{{ route('product', $product->id) }}">
                     <div class="product-image">
                         <img src="{{ asset('/images/products/'.$product->id.'.jpg') }}" alt="{{ $product->name }}">
