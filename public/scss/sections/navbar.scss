@@ -44,23 +44,18 @@ $sub-font-size: 1.7vh;
 
 .nav-bar .nav-bar-search input{
     width: 100%;
-    padding-left: 30px;
     font-size: 1.4vh;
     border-radius: 1rem;
 }
 
 .nav-bar .nav-bar-search i{
-    position: absolute;
-    left: 10px;
-    top: 10px;
 }
 
 .nav-bar .nav-bar-search .search-button{
     position: absolute;
     top: 0px;
     right: 0px;
-    background-color: $primary-color;
-    color: white;
+    color: $primary-color;
     justify-content: center;
     align-items: center;
     display: flex;
