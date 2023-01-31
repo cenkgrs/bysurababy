@@ -13,10 +13,6 @@
   display: block;
 }
 
-.product .product-image {
-  height: 28vh;
-}
-
 .product .product-image img {
   width: 100%;
   height: auto;
