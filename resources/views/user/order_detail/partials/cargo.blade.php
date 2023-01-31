@@ -11,11 +11,11 @@
         <div class="row">
 
             @foreach ($order["cargo"] as $info)
-                <div class="col-lg-3 col-2">
+                <div class="col-lg-3 col-3">
                     <div class="category-sticker m-auto mt-3" style="width: 4rem">
                         <i class="mdi text-center {{ $info['status'] == true ? 'color-primary mdi-thumb-up-outline' : 'mdi-loading' }}" style="display:block"></i>
                     </div>
-                    <p class="text-center mt-3 {{ $info['status'] == true ? 'color-primary' : ''}}">{{ $info["text"] }}</span>
+                    <p class="cargo-status-text text-center mt-3 {{ $info['status'] == true ? 'color-primary' : ''}}">{{ $info["text"] }}</span>
                 </div>
             @endforeach
             

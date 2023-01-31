@@ -1154,6 +1154,10 @@ textarea {
   .user-management-filter {
     display: none;
   }
+
+  .cargo-status-text {
+    font-size: 0.7rem;
+  }
 }
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
