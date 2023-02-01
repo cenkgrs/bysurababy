@@ -14,6 +14,12 @@
                     <h6>{{ __('Değerlendirmelerim') }}</h6>
                 </div>
             </div>
+
+            <div class="form-panel">
+                <div class="row">
+                    <h6>{{ __('Değerlendirmelerimeyi Bekleyen Siparişlerim') }}</h6>
+                </div>
+            </div>
                 
         </div>
     </div>
