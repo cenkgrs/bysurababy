@@ -23,21 +23,31 @@ class ReviewController extends Controller
             return view('user.reviews.index', $data);
         }
 
+    }
+
+    public function addReview()
+    {
+
+    }
+
+    public function editReview(Request $request){
+
+        $data['review'] = Reviews::getReview($request->input('review_id'));
 
     }
 
     public function getVerifiedReviews()
     {
-        $data['reviews'] = Reviews::with('product', 'booking_item')->where('st_verified', 1)->where('user_id', Auth::id())->get();
+        return Reviews::getVerifiedReviews();
     }
 
     public function getWaitingReviews()
     {
-        $data['reviews'] = Reviews::with('product', 'booking_item')->where('st_waiting', 1)->where('user_id', Auth::id())->get();
+        return Reviews::getWaitingReviews();
     }
 
     public function getDeniedReviews()
     {
-        $data['reviews'] = Reviews::with('product', 'booking_item')->where('st_denied', 1)->where('user_id', Auth::id())->get();
+        return Reviews::getDeniedReviews();
     }
 }
