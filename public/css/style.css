@@ -1150,6 +1150,38 @@ textarea {
   font-size: 0.9rem;
 }
 
+.review {
+  box-shadow: 0 0 6px #d5d5d5;
+  font-family: "Nunito";
+  transition: 0.2s;
+  border-radius: 1.3vh;
+  padding: 1.5vh;
+}
+
+.review:hover {
+  box-shadow: 0 0 10px 2px #d5d5d5;
+  transition: 0.2s;
+}
+.review:hover .review .review-summary .review-button {
+  display: block;
+}
+
+.review .review-image img {
+  width: auto;
+  height: 8vh;
+}
+
+.review .review-title {
+  font-weight: 400;
+  font-size: 1.25vh !important;
+  letter-spacing: 0.05rem;
+  line-height: 3rem;
+}
+
+.review .review-button {
+  font-size: 1.25vh !important;
+}
+
 @media screen and (max-width: 900px) {
   .user-management-filter {
     display: none;
