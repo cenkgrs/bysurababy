@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ReviewController extends Controller
 {
@@ -34,6 +35,26 @@ class ReviewController extends Controller
 
         $data['review'] = Reviews::getReview($request->input('review_id'));
 
+        if ($request->isMethod('post')) {
+
+            $validator = Validator::make(
+                [
+                    
+                ],
+                [
+                    
+                ]
+            );
+
+            if ($validator->fails())
+            {
+                // The given data did not pass validation
+                return redirect()->route('editReview')->withErrors($validator);
+            }
+
+        }
+
+        return view('user.reviews.edit.index', $data);
     }
 
     public function getVerifiedReviews()
