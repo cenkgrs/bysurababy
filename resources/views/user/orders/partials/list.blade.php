@@ -44,12 +44,12 @@
                             @endif
 
                         </div>
-                        <div class="col-lg-3 col-12">
+                        <div class="col-lg-5 col-12">
                             @foreach ($order['products'] as $product)
                                 <img src="{{ asset('images/products/'. $product['photo'] .'') }}" alt="">
                             @endforeach
                         </div>
-                        <div class="col-lg-4 col-12">
+                        <div class="col-lg-2 col-12">
                             <form method="POST" action="{{ route('orders') }}">
                                 @csrf
                                 <input type="hidden" name="operation" value="1">
