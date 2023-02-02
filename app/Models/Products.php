@@ -11,6 +11,7 @@ class Products extends Model
 
     protected $table = 'products';
 
+    /* Relations */
     public function price()
     {
         return $this->belongsTo('App\Models\Prices', 'price_id');
@@ -34,5 +35,11 @@ class Products extends Model
     public function reviews() : \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\Reviews', 'product_id');
+    }
+
+    /* Scope */
+    public function scopeGetProduct($query, $id)
+    {
+        return $query->where('id', $id)->first();
     }
 }

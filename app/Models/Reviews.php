@@ -22,6 +22,16 @@ class Reviews extends Model
         return $this->belongsTo('App\Models\BookingItems', 'product_id', 'id');
     }
 
+    public function scopeInsertReview($query, $data)
+    {
+        return $query->create($data);
+    }
+
+    public function scopeUpdateReview($query, $data)
+    {
+        return $query->where('id', $data['id'])->update($data);
+    }
+
     public function scopeGetReview($query, $id)
     {
         return $query->with('product', 'booking_item')->where('st_verified', 1)->where('user_id', Auth::id())->where('id', $id)->first();
