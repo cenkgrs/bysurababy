@@ -16,6 +16,7 @@ class ReviewController extends Controller
     {
         $data = [
             'reviews' => [
+                'products' => $this->getNonReviewedProducts(),
                 'verified' => $this->getVerifiedReviews(),
                 'waiting' => $this->getWaitingReviews(),
                 'denied' => $this->getDeniedReviews(),
@@ -49,10 +50,17 @@ class ReviewController extends Controller
 
             return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
         }
+
+        $data = [
+            'booking_item' => $booking_item,
+            'product' => $product
+        ];
+
+        return view('user.reviews.insert.index', $data);
     }
 
-    public function editReview(Request $request){
-
+    public function editReview(Request $request)
+    {
         $data['review'] = Reviews::getReview($request->input('review_id'));
 
         if ($request->isMethod('post')) {
@@ -81,6 +89,11 @@ class ReviewController extends Controller
         }
 
         return view('user.reviews.edit.index', $data);
+    }
+
+    public function getNonReviewedProducts()
+    {
+        return BookingItems::getNonReviewedProducts();
     }
 
     public function getVerifiedReviews()

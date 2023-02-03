@@ -32,6 +32,11 @@ class Reviews extends Model
         return $query->where('id', $data['id'])->update($data);
     }
 
+    public function scopeCheckReview($query, $product_id, $user_id)
+    {
+        return $query->where('product_id', $user_id)->where('product_id', $product_id)->first();
+    }
+
     public function scopeGetReview($query, $id)
     {
         return $query->with('product', 'booking_item')->where('st_verified', 1)->where('user_id', Auth::id())->where('id', $id)->first();

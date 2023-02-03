@@ -114,6 +114,7 @@ class ProductsController extends Controller
             return redirect()->route('products')->with('error_message', __('Aradığınız ürün bulunamadı'));
         }
 
+        // Get main product's color options || this one is sub product
         if ($product->parent_id) {
             $parent = Products::where('id', $product->parent_id)->first();
             $product->colors = $parent->colors;
