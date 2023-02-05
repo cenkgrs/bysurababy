@@ -44,11 +44,11 @@ let Common = function ()
             })
 
             if (typeof $("#success-modal") !== "undefined") {
-                $("#success-modal").modal();
+                //$("#success-modal").modal();
             }
 
             if (typeof $("#error-modal") !== "undefined") {
-                $("#error-modal").modal();
+                //$("#error-modal").modal();
             }
            
         })
