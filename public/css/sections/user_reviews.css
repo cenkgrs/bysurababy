@@ -1,13 +1,14 @@
 .review {
-  box-shadow: 0 0 6px #d5d5d5;
+  box-shadow: 0 0 3px #d5d5d5;
   font-family: "Nunito";
   transition: 0.2s;
   border-radius: 1.3vh;
   padding: 1.5vh;
+  margin-bottom: 1rem;
 }
 
 .review:hover {
-  box-shadow: 0 0 10px 2px #d5d5d5;
+  box-shadow: 0 0 5px 2px #d5d5d5;
   transition: 0.2s;
 }
 .review:hover .review .review-summary .review-button {

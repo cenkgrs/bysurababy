@@ -93,7 +93,7 @@ class ReviewController extends Controller
 
     public function getNonReviewedProducts()
     {
-        return BookingItems::getNonReviewedProducts();
+        return BookingItems::getNonReviewedProducts(Auth::id());
     }
 
     public function getVerifiedReviews()

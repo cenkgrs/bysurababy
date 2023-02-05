@@ -9,11 +9,7 @@
         
         <div class="col-lg-10">
 
-
-         
-
-            
-                
+            @include('user.reviews.partials.list')                
         </div>
     </div>
 

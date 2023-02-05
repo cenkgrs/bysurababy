@@ -9,6 +9,16 @@ class BookingItems extends Model
 {
     use HasFactory;
 
+    public function bookings() : \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\Bookings', 'request_id', 'request_id');
+    }
+
+    public function product() : \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\Products', 'product_id', 'id');
+    }
+
     public function scopeGetItem($query, $request_id)
     {
         return $query->where('request_id', $request_id)->first();
@@ -20,7 +30,7 @@ class BookingItems extends Model
 
         $items = $query->whereHas('bookings', function ($q) use ($user_id) {
             $q->where('user_id', $user_id);
-        })->get();
+        })->with('product')->get();
 
         foreach ($items as $item) {
 

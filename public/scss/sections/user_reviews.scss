@@ -5,15 +5,16 @@ $shadow-color: #d5d5d5;
 }
 
 .review{
-    box-shadow: 0 0 6px $shadow-color;
+    box-shadow: 0 0 3px $shadow-color;
     font-family: 'Nunito';
     transition: .2s;
     border-radius: 1.3vh;
     padding: 1.5vh;
+    margin-bottom: 1rem;
 }
 
 .review:hover{
-    box-shadow: 0 0 10px 2px $shadow-color;
+    box-shadow: 0 0 5px 2px $shadow-color;
     transition: .2s;
 
     .review .review-summary .review-button{

@@ -34,7 +34,9 @@ class Reviews extends Model
 
     public function scopeCheckReview($query, $product_id, $user_id)
     {
-        return $query->where('product_id', $user_id)->where('product_id', $product_id)->first();
+        $review = $query->where('product_id', $product_id)->where('product_id', $user_id)->first();
+    
+        return $review ? true : false;
     }
 
     public function scopeGetReview($query, $id)

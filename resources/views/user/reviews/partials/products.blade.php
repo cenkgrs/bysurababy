@@ -5,7 +5,7 @@
     <div class="panel-custom-body">
         <div class="row user-reviews">
             @foreach ($reviews['products'] as $review)
-                @include('user.reviews.partials.review', [data-operation = 'insert'])
+                @include('user.reviews.partials.review', ['operation' => 'insert', 'product' => $review])
             @endforeach
         </div>
     

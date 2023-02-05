@@ -1151,15 +1151,16 @@ textarea {
 }
 
 .review {
-  box-shadow: 0 0 6px #d5d5d5;
+  box-shadow: 0 0 3px #d5d5d5;
   font-family: "Nunito";
   transition: 0.2s;
   border-radius: 1.3vh;
   padding: 1.5vh;
+  margin-bottom: 1rem;
 }
 
 .review:hover {
-  box-shadow: 0 0 10px 2px #d5d5d5;
+  box-shadow: 0 0 5px 2px #d5d5d5;
   transition: 0.2s;
 }
 .review:hover .review .review-summary .review-button {
@@ -18941,6 +18942,86 @@ readers do not read off random characters that represent icons */
 
 .modal-confirm .error {
   background: #e91414;
+}
+
+.tabs input[type=radio] {
+  display: none;
+}
+
+.tabs label {
+  transition: background 0.4s ease-in-out, height 0.2s linear;
+  display: inline-block;
+  cursor: pointer;
+  color: #cd5b7c;
+  width: 20%;
+  height: 3em;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: #FCFCFC;
+  text-align: center;
+  line-height: 3em;
+}
+
+.tabs label:last-of-type {
+  border-bottom: none;
+}
+
+.tabs label:hover {
+  background: #cd5b7c;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 1600px) {
+  .tabs label {
+    width: 15%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .tabs label {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tabs label {
+    width: 100%;
+    display: block;
+    border-bottom: 2px solid #C7C6C4;
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tabs {
+    margin: 0;
+  }
+}
+#tab1:checked + label, #tab2:checked + label, #tab3:checked + label, #tab4:checked + label {
+  background: #cd5b7c;
+  color: #FFFFFF;
+}
+
+.tab-content {
+  position: absolute;
+  top: -9999px;
+  padding: 10px;
+}
+
+.tab-content-wrapper {
+  background: #FCFCFC;
+  border-top: #2EBEB9 5px solid;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .tab-content-wrapper, .tab1-content-wrapper {
+    border: none;
+    border-radius: 0;
+  }
+}
+#tab1:checked ~ .tab-content-wrapper #tab-content-1, #tab2:checked ~ .tab-content-wrapper #tab-content-2, #tab3:checked ~ .tab-content-wrapper #tab-content-3, #tab4:checked ~ .tab-content-wrapper #tab-content-4 {
+  position: relative;
+  top: 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
