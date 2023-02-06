@@ -40,13 +40,7 @@ Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name
 
 Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard');
 
-// Auth
-Route::match(['get', 'post'], '/login', 'App\Http\Controllers\Auth\AuthController@login')->name('login');
-Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthController@register')->name('register');
-
-Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('logout');
-
-// Pages
+// SEO Pages
 Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('vision');
 Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mission');
 Route::get('/iletisim', 'App\Http\Controllers\PagesController@contact')->name('contact');
@@ -62,18 +56,27 @@ Route::post('/partner-application', 'App\Http\Controllers\PagesController@partne
 
 /* USER MANAGEMENT */
 
-// Orders
-Route::match(['get', 'post'], '/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
-Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
+// Auth
+Route::match(['get', 'post'], '/login', 'App\Http\Controllers\Auth\AuthController@login')->name('login');
+Route::match(['get', 'post'], '/register', 'App\Http\Controllers\Auth\AuthController@register')->name('register');
+Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@signOut')->name('logout');
 
-// Addresses
-Route::get('/adres-bilgilerim', 'App\Http\Controllers\UserManagementController@addresses')->name('addresses');
-Route::post('/adres-bilgilerim/adres-ekle', 'App\Http\Controllers\UserManagementController@addAddress')->name('addAddress');
-Route::get('/adres-bilgilerim/adres-sil/{address_id}', 'App\Http\Controllers\UserManagementController@deleteAddress')->name('deleteAddress');
+Route::group(['middleware' => 'checkUser'], function () {
+    
+    // Orders
+    Route::match(['get', 'post'], '/siparislerim', 'App\Http\Controllers\OrderController@index')->name('orders');
+    Route::get('/siparislerim/{request_id}', 'App\Http\Controllers\OrderController@order')->name('order');
 
-// Reviews
-Route::match(['get', 'post'], '/degerlendirmelerim', [ReviewController::class, "index"])->name('reviews');
-Route::post('/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReview"])->name('addReview');
+    // Addresses
+    Route::get('/adres-bilgilerim', 'App\Http\Controllers\UserManagementController@addresses')->name('addresses');
+    Route::post('/adres-bilgilerim/adres-ekle', 'App\Http\Controllers\UserManagementController@addAddress')->name('addAddress');
+    Route::get('/adres-bilgilerim/adres-sil/{address_id}', 'App\Http\Controllers\UserManagementController@deleteAddress')->name('deleteAddress');
+
+    // Reviews
+    Route::match(['get', 'post'], '/degerlendirmelerim', [ReviewController::class, "index"])->name('reviews');
+    Route::match(['get', 'post'], '/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReview"])->name('addReview');
+})
+
 
 /* ADMIN */
 
