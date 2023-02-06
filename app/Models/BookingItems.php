@@ -39,6 +39,7 @@ class BookingItems extends Model
             if (!$anyReview) {
                 $products[] = [
                     "id" => $item->id,
+                    "request_id" => $item->request_id,
                     "product_id" => $item->product->id,
                     "name" => $item->product->name,
                     "image" => $item->product->photo,
