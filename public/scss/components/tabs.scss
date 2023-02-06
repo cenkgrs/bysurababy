@@ -62,7 +62,7 @@ $primary-color: #cd5b7c;
 
 .tab-content-wrapper{
     background: #FCFCFC;
-    border-top: #2EBEB9 5px solid;
+    border-top: $primary-color 5px solid;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
     border-top-right-radius: 3px;

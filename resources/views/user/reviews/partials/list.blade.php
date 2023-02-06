@@ -4,13 +4,13 @@
     <label for="tab1">{{ __('Ürün Değerlendir') }}</label>
 
     <input type="radio" name="tab" id="tab2">
-    <label for="tab2">{{ __('Onaylanan Değerlendirmelerim') }}</label>
+    <label for="tab2">{{ __('Onaylanan') }}</label>
 
     <input type="radio" name="tab" id="tab3">
-    <label for="tab3">{{ __('Onay Bekleyen Değerlendirmelerim') }}</label>
+    <label for="tab3">{{ __('Beklemede') }}</label>
 
     <input type="radio" name="tab" id="tab4">
-    <label for="tab4">{{ __('Reddedilen Değerlendirmelerim') }}</label>
+    <label for="tab4">{{ __('Reddedilen') }}</label>
   
     <div class="tab-content-wrapper">
         <div id="tab-content-1" class="tab-content">
