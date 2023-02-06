@@ -75,7 +75,7 @@ Route::group(['middleware' => 'checkUser'], function () {
     // Reviews
     Route::match(['get', 'post'], '/degerlendirmelerim', [ReviewController::class, "index"])->name('reviews');
     Route::match(['get', 'post'], '/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReview"])->name('addReview');
-})
+});
 
 
 /* ADMIN */
