@@ -29,27 +29,21 @@ class ReviewController extends Controller
 
     }
 
-    public function addReview(Request $request, $request_id)
+    public function addReviewGet(Request $request)
     {
+        $request_id = $request->input('request_id');
+
         $booking_item = BookingItems::getItem($request_id);
 
-        $product = Products::getProduct($booking_item->product_id);
-
-        if ($request->isMethod('post')) {
-            $input = $request->all();
-            
-            $validator = Validator::make([], []);
-
-            if ($validator->fails()) {
-                // The given data did not pass validation
-                return redirect()->route('addReview')->withErrors($validator)->withInput();
-            }
-
-            // Validation passed
-            Reviews::insertReview($input);
-
-            return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
+        if (!$booking_item) {
+            return redirect()->route('reviews');
         }
+
+        if (Auth::id() !== $booking_item->bookings->user_id) {
+            return redirect()->route('reviews');
+        }
+
+        $product = Products::getProduct($booking_item->product_id);
 
         $data = [
             'booking_item' => $booking_item,
@@ -57,6 +51,23 @@ class ReviewController extends Controller
         ];
 
         return view('user.reviews.insert.index', $data);
+    }
+
+    public function addReviewPost(Request $request)
+    {
+        $input = $request->all();
+        
+        $validator = Validator::make([], []);
+
+        if ($validator->fails()) {
+            // The given data did not pass validation
+            return redirect()->route('addReview')->withErrors($validator)->withInput();
+        }
+
+        // Validation passed
+        Reviews::insertReview($input);
+
+        return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
     }
 
     public function editReview(Request $request)

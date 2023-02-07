@@ -13,7 +13,7 @@
                     {{ $product['name'] }}
                 </div>
                 <div class="review-summary">
-                    <a href="{{ route('addReview', ['request_id' => $product['request_id']]) }}" class="btn review-button primary-button">{{ __("Ürünü Değerlendir") }}</a>
+                    <a href="{{ route('addReviewPost', ['request_id' => $product['request_id']]) }}" class="btn review-button primary-button">{{ __("Ürünü Değerlendir") }}</a>
                 </div>
             </div>
         @else

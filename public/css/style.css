@@ -781,6 +781,14 @@ h4, h5, h6 {
   width: 100% !important;
 }
 
+.width-auto {
+  width: auto !important;
+}
+
+.h-10 {
+  height: 10vh;
+}
+
 .pr0 {
   padding-right: 0 !important;
 }
@@ -976,10 +984,6 @@ textarea {
 
 .my-float {
   margin-top: 16px;
-}
-
-.width-auto {
-  width: auto !important;
 }
 
 @media screen and (max-width: 900px) {

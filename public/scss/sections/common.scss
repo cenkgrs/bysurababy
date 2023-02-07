@@ -39,6 +39,10 @@ h4,h5,h6{
     width: 100% !important;
 }
 
+.width-auto{width: auto !important}
+
+.h-10{height: 10vh}
+
 .pr0{padding-right: 0 !important;}
 .pl0{padding-left: 0 !important;}
 
@@ -214,6 +218,3 @@ textarea{
 	margin-top:16px;
 }
 
-.width-auto{
-    width: auto !important;
-}
