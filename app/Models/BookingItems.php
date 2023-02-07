@@ -34,16 +34,23 @@ class BookingItems extends Model
 
         foreach ($items as $item) {
 
+            // Don't show same product twice
+            if (isset($products[$item->product->id])) {
+                continue;
+            }            
+
             $anyReview = Reviews::checkReview($item->product_id, $user_id);
 
             if (!$anyReview) {
-                $products[] = [
+
+                $products[$item->product->id] = [
                     "id" => $item->id,
                     "request_id" => $item->request_id,
                     "product_id" => $item->product->id,
                     "name" => $item->product->name,
-                    "image" => $item->product->photo,
+                    "photo" => $item->product->photo,
                 ];
+
             }
             
         }

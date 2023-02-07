@@ -5,7 +5,7 @@
         @if ($operation == 'insert')
             <div class="col-lg-4">
                 <div class="review-image">
-                    <img src="{{ asset('/images/products/'.$product['id'].'.jpg') }}" alt="{{ $product['name'] }}">
+                    <img src="{{ asset('/images/products/'.$product['photo'].'') }}" alt="{{ $product['name'] }}">
                 </div>
             </div>
             <div class="col-lg-8">
