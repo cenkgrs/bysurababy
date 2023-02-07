@@ -1,14 +1,11 @@
 $primary-color: #cd5b7c;
 
 .star-wrapper {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    float: left;
     direction: rtl;
 }
 .star-wrapper a {
-    font-size: 4em;
+    font-size: 2em;
     color: #4444;
     text-decoration: none;
     transition: all 0.5s;

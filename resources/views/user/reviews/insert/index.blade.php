@@ -28,7 +28,12 @@
             <div class="form-panel">
                 
                 <div class="row">
+                    <div class="col-lg-12">
+                    <label for="">{{ __('Puanınız') }}</label>
+
+                    </div>
                     <div class="col-lg-12 col-12">
+                        
                         <div class="star-wrapper">
                             <a href="#" class="fas fa-star s1"></a>
                             <a href="#" class="fas fa-star s2"></a>
