@@ -50,6 +50,15 @@ let Common = function ()
             if (typeof $("#error-modal") !== "undefined") {
                 //$("#error-modal").modal();
             }
+
+            // Review star
+            $(".review-star").on("click", function () {
+                var rating = $(this).data("rating");
+
+                if (typeof $("input[name='rating']") !== 'undefined') {
+                    $("input[name='rating']").val(rating);
+                }
+            });
            
         })
     }

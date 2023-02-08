@@ -25,39 +25,46 @@
                 </div>
             </div>
 
-            <div class="form-panel">
-                
-                <div class="row">
-                    <div class="col-lg-12">
-                    <label for="">{{ __('Puanınız') }}</label>
+            {{ Form::open(array('route' => 'addReviewPost')) }}
 
-                    </div>
-                    <div class="col-lg-12 col-12">
-                        
-                        <div class="star-wrapper">
-                            <a href="#" class="fas fa-star s1"></a>
-                            <a href="#" class="fas fa-star s2"></a>
-                            <a href="#" class="fas fa-star s3"></a>
-                            <a href="#" class="fas fa-star s4"></a>
-                            <a href="#" class="fas fa-star s5"></a>
+                {{ Form::token(); }}
+
+                <div class="form-panel">
+                    
+                    <div class="row mt2">
+
+                        <div class="col-lg-12">
+                            <label for="">{{ __('Puanınız') }}</label>
                         </div>
+                        <div class="col-lg-12 col-12">
+                            
+                            <div class="star-wrapper">
+                                <a href="#" class="fas fa-star s1 rating-star" data-rating="1"></a>
+                                <a href="#" class="fas fa-star s2 rating-star" data-rating="2"></a>
+                                <a href="#" class="fas fa-star s3 rating-star" data-rating="3"></a>
+                                <a href="#" class="fas fa-star s4 rating-star" data-rating="4"></a>
+                                <a href="#" class="fas fa-star s5 rating-star" data-rating="5"></a>
+                            </div>
+
+                            {{ ForM::hidden('rating'), '' }}
                         
-                      
+                        </div>
+
+                        <div class="col-lg-12 col-12 form-group">
+                            <label for=""> {{ __('Yorumunuz') }}
+                                {{ Form::textarea('comment', ['class' => 'form-control']) }}
+                            </label>
+                        </div>
+
+                        <div class="col-lg-12">
+                            {{ Form::submit(__('Gönder', ['class' => 'btn btn-primary'])) }}
+                        </div>
+
                     </div>
+
                 </div>
 
-
-                <div class="row mt2">
-
-                    <div class="col-lg-12 col-12 form-group">
-                        <label for=""> {{ __('Yorumunuz') }}
-                            <textarea type="text" name="comment" class="form-control"></textarea>
-                        </label>
-                    </div>
-
-                </div>
-
-            </div>
+            {{ Form::close() }}
 
         </div>
     </div>
