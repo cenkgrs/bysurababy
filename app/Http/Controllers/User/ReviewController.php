@@ -39,9 +39,7 @@ class ReviewController extends Controller
             return redirect()->route('reviews');
         }
 
-        if (Auth::id() !== $booking_item->bookings->user_id) {
-            return redirect()->route('reviews');
-        }
+        $this->checkBookingItemOwnerShip($booking_item);
 
         $product = Products::getProduct($booking_item->product_id);
 
@@ -70,36 +68,46 @@ class ReviewController extends Controller
         return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
     }
 
-    public function editReview(Request $request)
+    public function editReviewGet(Request $request)
     {
-        $data['review'] = Reviews::getReview($request->input('review_id'));
+        $request_id = $request->input('request_id');
 
-        if ($request->isMethod('post')) {
+        $review = Reviews::getReview($request_id);
 
-            $input = $request->all();
+        $booking_item = BookingItems::getItem($request_id);
 
-            $validator = Validator::make(
-                [
-                    
-                ],
-                [
-                    
-                ]
-            );
-
-            if ($validator->fails()) {
-                // The given data did not pass validation
-                return redirect()->route('editReview')->withErrors($validator)->withInput();
-            }
-
-            // Validation passed
-            Reviews::updateReview($input);
-
-            return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
-
+        if (!$booking_item) {
+            return redirect()->route('reviews');
         }
 
-        return view('user.reviews.edit.index', $data);
+        $this->checkBookingItemOwnerShip($booking_item);
+
+        $product = Products::getProduct($booking_item->product_id);
+
+        $data = [
+            'booking_item' => $booking_item,
+            'product' => $product,
+            'review' => $review
+        ];
+
+        return view('user.reviews.insert.index', $data);
+    }
+
+    public function editReviewPost(Request $request)
+    {
+        $input = $request->all();
+
+        $validator = Validator::make([], []);
+
+        // The given data did not pass validation
+        if ($validator->fails()) {
+            return redirect()->route('editReview')->withErrors($validator)->withInput();
+        }
+
+        // Validation passed
+        Reviews::updateReview($input);
+
+        return redirect()->route('reviews')->with('success_message', __('Değerlendirmeniz alındı. Kısa süre içerisinde onaylandıktan sonra ürün sayfasında yayınlanacaktır'));
     }
 
     public function getNonReviewedProducts()
@@ -120,5 +128,12 @@ class ReviewController extends Controller
     public function getDeniedReviews()
     {
         return Reviews::getDeniedReviews();
+    }
+
+    private function checkBookingItemOwnerShip($booking_item)
+    {
+        if (Auth::id() !== $booking_item->bookings->user_id) {
+            return redirect()->route('reviews');
+        }
     }
 }
