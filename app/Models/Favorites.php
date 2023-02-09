@@ -19,6 +19,28 @@ class Favorites extends Model
 
     public function scopeGetFavorites($query)
     {
-        return $query->where('user_id', Auth::id())->get() ?? null;
+        return $query->with('product', 'product.colors', 'product.prices')->where('user_id', Auth::id())->get() ?? null;
     }
+
+    public function scopeGetFavorite($query, $id)
+    {
+        return $query->where('id', $id)->first() ?? null;
+    }
+
+    public function scopeCheckFavorite($query, $id)
+    {
+        return $query->where('product_id', $id)->where('user_id', Auth::id())->first() ?? null;
+    }
+
+    public function scopeAddFavorite($query, $id)
+    {
+        return $query->create(['product_id', $id, 'user_id' => Auth::id()]);
+    }
+
+    public function scopeRemoveFavorite($query, $id)
+    {
+        return $query->where('id', $id)->delete();
+    }
+
+
 }

@@ -80,6 +80,8 @@ Route::group(['middleware' => 'checkUser'], function () {
 
     // Favorites
     Route::get('favorilerim', [FavoritesController::class, 'index'])->name('favorites');
+    Route::post('/favorilerim/favori-ekle', [FavoritesController::class, "addFavorite"])->name('addFavorite');
+    Route::post('/favorilerim/favori-kaldır', [FavoritesController::class, "removeFavorite"])->name('removeFavorite');
 });
 
 

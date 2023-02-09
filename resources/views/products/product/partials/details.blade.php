@@ -1,7 +1,19 @@
-<small class="color-muted bolded">{{ $product->sub_category->name }}</small>
-<h4 class="product-title">{{ $product->name }}</h4>
+<div class="row">
+    <div class="col-lg-6">
+        <small class="color-muted bolded">{{ $product->sub_category->name }}</small>
+        <h4 class="product-title">{{ $product->name }}</h4>
 
-<div class="product-price">{{ number_format((float)$product->price->sale_price, 2, '.', '') }} TL</div>
+        <div class="product-price">{{ format_price($product->price->sale_price) }} TL</div>
+    </div>
+
+    <div class="col-lg-6">
+        @if ($is_favorite)
+            <button class="remove-favorite" data-id="{{ $product->id }}"><i class="fa fa-heart-filled"></i></button>
+        @else
+            <button class="add-favorite" data-id="{{ $product->id }}"><i class="fa fa-heart"></i></button>
+        @endif
+    </div>
+</div>
 
 <div class="row mt2">
     <div class="col-lg-4 col-6">

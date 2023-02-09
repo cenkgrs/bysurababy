@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Products;
 use App\Models\Categories;
+use App\Models\Favorites;
 use App\Models\SubCategories;
 
 class ProductsController extends Controller
@@ -122,12 +123,15 @@ class ProductsController extends Controller
 
         $categories = Categories::with('subCategories')->get();
 
+        $is_favorite = Favorites::checkFavorite($product_id);
+
         $similar_products = Products::where('category_id', $product->category_id)->whereNull('parent_id')->where('id', '!=', $product->id)->where('id', '!=', $product->parent_id)->where('status', 1)->get();
 
         $data = [
             "product" => $product,
             "parent" => $parent ?? null,
             "similar_products" => $similar_products ?? null,
+            "is_favorite" => $is_favorite,
             //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [

@@ -74,4 +74,9 @@ class Helper
 
         return $categories;
     }
+
+    public static function formatPrice($price)
+    {
+        return number_format( (float) $price, 2, '.', '');
+    }
 }

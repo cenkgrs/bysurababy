@@ -106,6 +106,60 @@ let Cart = function ()
                 });
             });
 
+            $(".add-favorite").on("click", function () {
+
+                var id = $(this).data("id");
+
+                $.ajax({
+                    url: '/favorilerim/favori-ekle',
+                    type: "POST",
+                    data: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        'id': id,
+                    },
+                    success: function (response) {
+                        $(".alert-bar").addClass("alert-bar-fade");
+                        $(".alert-bar span").html("Ürün Favorilere Eklendi");
+        
+                        setTimeout(function () {
+                            $(".alert-bar").removeClass("alert-bar-fade");
+                        }, 3000);
+                    },
+                    error: function (response) {
+                        $(".alert-bar").addClass("alert-bar-fade");
+                        $(".alert-bar span").html("Ürün Favorilere Eklenemedi");
+        
+                        setTimeout(function () {
+                            $(".alert-bar").removeClass("alert-bar-fade");
+                        }, 3000);
+                    }
+                });
+            })
+
+            $(".remove-favorite").on("click", function () {
+
+                var id = $(this).data("id");
+
+                $.ajax({
+                    url: '/favorilerim/favori-kaldır',
+                    type: "POST",
+                    data: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        'id': id,
+                    },
+                    success: function (response) {
+                        $(".alert-bar").addClass("alert-bar-fade");
+                        $(".alert-bar span").html("Ürün Favorilerden Kaldırıldı");
+        
+                        setTimeout(function () {
+                            $(".alert-bar").removeClass("alert-bar-fade");
+                        }, 3000);
+                    },
+                    error: function (response) {
+                    }
+                });
+            })
+
         });
 
 
