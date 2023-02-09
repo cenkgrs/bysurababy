@@ -41,7 +41,17 @@ class Reviews extends Model
 
     public function scopeGetReview($query, $id)
     {
-        return $query->with('product', 'booking_item')->where('st_verified', 1)->where('user_id', Auth::id())->where('id', $id)->first();
+        return $query->with('product', 'booking_item')
+            ->where(function ($q) {
+                $q->where('st_verified', 1)
+                ->orWhere('st_waiting', 1)
+                ->orWhere('st_denied', 1);
+            })->where('user_id', Auth::id())->where('id', $id)->first();
+    }
+
+    public function scopeDeleteReview($query, $id)
+    {
+        return $query->where('id', $id)->delete();
     }
 
     public function scopeGetVerifiedReviews($query)

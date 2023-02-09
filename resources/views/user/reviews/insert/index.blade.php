@@ -29,6 +29,8 @@
 
                 {{ Form::token(); }}
 
+                {{ Form::hidden('request_id'), $booking_item->request_id }}
+
                 <div class="form-panel">
                     
                     <div class="row mt2">
@@ -46,7 +48,7 @@
                                 <a href="#" class="fas fa-star s5 rating-star" data-rating="5"></a>
                             </div>
 
-                            {{ ForM::hidden('rating'), '' }}
+                            {{ Form::hidden('rating'), '' }}
                         
                         </div>
 
