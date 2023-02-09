@@ -76,11 +76,11 @@ class ProductsController extends Controller
             "title" => __("Ürünler"),
             "breadcrumbs" => [
                 0 => [
-                    "title" => "Ana Sayfa",
+                    "title" => __('Ana Sayfa'),
                     "route" => "index"
                 ],
                 1 => [
-                    "title" => "Ürünler",
+                    "title" => __('Ürünler'),
                     "route" => "products",
                 ]
             ],
@@ -135,16 +135,16 @@ class ProductsController extends Controller
             //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [
-                    "title" => "Ana Sayfa",
-                    "route" => "/index"
+                    "title" => __('Ana Sayfa'),
+                    "route" => '/index'
                 ],
                 1 => [
-                    "title" => "Ürünler",
-                    "route" => "/products",
+                    "title" => __('Ürünler'),
+                    "route" => '/products',
                 ],
                 2 => [
                     "title" => $product->name,
-                    "route" => "/products/" . $product->id,
+                    "route" => '/products/' . $product->id,
                 ]
             ]
         ];
