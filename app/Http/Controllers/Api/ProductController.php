@@ -10,9 +10,7 @@ class ProductController extends Controller
 {
     public function getProducts()
     {
-        $response = [
-
-        ];
+        $response = [];
 
         $products = Products::with('category', 'price')->get();
 
@@ -21,7 +19,7 @@ class ProductController extends Controller
                 "name" => $product->name,
                 "code" => $product->code,
                 "category" => $product->category->name,
-                "price" => $product->price->price,
+                "price" => $product->price->sale_price,
             ];
         }
 

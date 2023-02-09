@@ -46,6 +46,8 @@
                                             <div class="dropdown-content">
                                                 <a href="{{ route('orders') }}">{{ __("Siparişlerim") }}</a>
                                                 <a href="{{ route('addresses') }}">{{ __("Adreslerim") }}</a>
+                                                <a href="{{ route('reviews') }}">{{ __("Değerlendirmelerim") }}</a>
+                                                <a href="{{ route('favorites') }}">{{ __("Favorilerim") }}</a>
                                                 <a href="#">{{ __("Ayarlarım") }}</a>
                                                 <a href="{{ route('logout') }}">{{ __("Çıkış Yap") }}</a>
                                             </div>

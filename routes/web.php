@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\User\FavoritesController;
 use App\Http\Controllers\User\ReviewController;
 
 
@@ -76,6 +77,9 @@ Route::group(['middleware' => 'checkUser'], function () {
     Route::match(['get', 'post'], '/degerlendirmelerim', [ReviewController::class, "index"])->name('reviews');
     Route::get('/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReviewGet"])->name('addReviewGet');
     Route::post('/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReviewPost"])->name('addReviewPost');
+
+    // Favorites
+    Route::get('favorilerim', [FavoritesController::class, 'index'])->name('favorites');
 });
 
 
