@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -18,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [TestController::class, 'login'])->name('login');
+Route::get('/logout', [TestController::class, 'logout'])->name('logout');
 Route::get('/get-products', [ProductController::class, 'getProducts'])->name('getProducts');
