@@ -16,17 +16,17 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->null();
-            $table->varchar('code', 50)->notNull();
-            $table->varchar('name', 50)->notNull();
-            $table->integer('category_id', 11)->notNull();
-            $table->integer('sub_category_id', 11)->notNull();
-            $table->integer('price_id', 11)->notNull();
-            $table->varchar('color', 50)->notNull();
+            $table->string('code', 50)->notNull();
+            $table->string('name', 50)->notNull();
+            $table->integer('category_id')->notNull();
+            $table->integer('sub_category_id')->notNull();
+            $table->integer('price_id')->notNull();
+            $table->string('color', 50)->notNull();
             $table->enum('gender',['unisex', 'male', 'female']);
-            $table->varchar('age', 50)->notNull();
-            $table->varchar('photo', 50)->notNull();
-            $table->integer('stock', 11)->default(0);
-            $table->integer('status', 11)->default(1);
+            $table->string('age', 50)->notNull();
+            $table->string('photo', 50)->notNull();
+            $table->integer('stock')->default(0);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

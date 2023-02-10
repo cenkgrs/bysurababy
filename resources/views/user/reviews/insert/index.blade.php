@@ -25,11 +25,11 @@
                 </div>
             </div>
 
-            {{ Form::open(array('route' => 'addReviewPost')) }}
+            {{ Form::open( array('route' => 'addReviewPost') ) }}
 
-                {{ Form::token(); }}
+                {{ Form::token() }}
 
-                {{ Form::hidden('request_id'), $booking_item->request_id }}
+                {{ Form::hidden('request_id', $booking_item->request_id) }}
 
                 <div class="form-panel">
                     
@@ -48,18 +48,18 @@
                                 <a href="#" class="fas fa-star s5 rating-star" data-rating="5"></a>
                             </div>
 
-                            {{ Form::hidden('rating'), '' }}
+                            {{ Form::hidden('rating') }}
                         
                         </div>
 
                         <div class="col-lg-12 col-12 form-group">
                             <label for=""> {{ __('Yorumunuz') }}
-                                {{ Form::textarea('comment', ['class' => 'form-control']) }}
+                                {{ Form::textarea('comment', '', ['class' => 'form-control']) }}
                             </label>
                         </div>
 
                         <div class="col-lg-12">
-                            {{ Form::submit(__('Gönder', ['class' => 'btn btn-primary'])) }}
+                            {{ Form::submit( __('Gönder'), ['class' => 'btn primary-button'] ) }}
                         </div>
 
                     </div>

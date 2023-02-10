@@ -19,6 +19,10 @@
                     <a href="{{ route('reviews') }}">{{ __('Değerlendirmelerim') }}</a>
                 </div>
                 <div class="col-lg-12 side-link mt1">
+                    <i class="mdi mdi-heart-outline mr1"></i>
+                    <a href="{{ route('favorites') }}">{{ __('Favorilerim') }}</a>
+                </div>
+                <div class="col-lg-12 side-link mt1">
                     <i class="mdi mdi-map-marker-outline mr1"></i>
                     <a href="{{ route('addresses') }}">{{ __('Adreslerim') }}</a>
                 </div>

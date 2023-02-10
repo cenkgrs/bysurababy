@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubCategoriesTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSubCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
-            $table->string('name', 25);
-            $table->string('slug', 50);
-            $table->integer('rating');
+            $table->string('name', 50);
+            $table->string('email', 50)->index();
+            $table->datetime('email_verified_at');
+            $table->string('password', 255);
+            $table->string('remember_token', 100);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateSubCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('admins');
     }
 }
