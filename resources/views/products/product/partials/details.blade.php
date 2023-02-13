@@ -3,7 +3,7 @@
         <small class="color-muted bolded">{{ $product->sub_category->name }}</small>
         <h4 class="product-title">{{ $product->name }}</h4>
 
-        <div class="product-price">{{ format_price($product->price->sale_price) }} TL</div>
+        <div class="product-price">{{ formatPrice($product->price->sale_price) }} TL</div>
     </div>
 
     <div class="col-lg-6">
