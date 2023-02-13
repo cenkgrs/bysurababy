@@ -27,7 +27,7 @@
                         </div>
                         <div class="product-summary">
                             <div class="product-price">
-                                {{ formatPrice($favorite->product->price->sale_price) }} ₺
+                                {{ Helper::formatPrice($favorite->product->price->sale_price) }} ₺
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
