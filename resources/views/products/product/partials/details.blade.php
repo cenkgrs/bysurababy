@@ -8,9 +8,9 @@
 
     <div class="col-lg-6">
         @if ($is_favorite)
-            <button class="remove-favorite" data-id="{{ $product->id }}"><i class="fa fa-heart-filled"></i></button>
+            <i class="mdi mdi-heart remove-favorite" data-id="{{ $product->id }}"></i>
         @else
-            <button class="add-favorite" data-id="{{ $product->id }}"><i class="fa fa-heart"></i></button>
+            <i class="mdi mdi-heart-outline add-favorite" data-id="{{ $product->id }}"></i>
         @endif
     </div>
 </div>

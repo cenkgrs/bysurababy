@@ -12,6 +12,8 @@ class Favorites extends Model
 
     protected $table = 'favorites';
 
+    protected $fillable = ['product_id', 'user_id'];
+
     public function product() : \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Products', 'product_id', 'id');

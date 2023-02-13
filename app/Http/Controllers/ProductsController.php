@@ -131,7 +131,7 @@ class ProductsController extends Controller
             "product" => $product,
             "parent" => $parent ?? null,
             "similar_products" => $similar_products ?? null,
-            "is_favorite" => $is_favorite,
+            "is_favorite" => $is_favorite->first(),
             //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [
