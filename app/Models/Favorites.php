@@ -19,9 +19,9 @@ class Favorites extends Model
         return $this->belongsTo('App\Models\Products', 'product_id', 'id');
     }
 
-    public function scopeGetFavorites($query)
+    public static function getFavorites()
     {
-        return $query->with('product', 'product.colors', 'product.prices')->where('user_id', Auth::id())->get() ?? null;
+        return static::with('product', 'product.colors', 'product.prices')->where('user_id', Auth::id())->get();
     }
 
     public function scopeGetFavorite($query, $id)
