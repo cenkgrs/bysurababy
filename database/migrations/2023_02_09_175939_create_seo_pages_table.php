@@ -15,8 +15,8 @@ class CreateSeoPagesTable extends Migration
     {
         Schema::create('seo_pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->varchar('slug', 50);
-            $table->varchar('text', 5000);
+            $table->string('slug', 50);
+            $table->string('text', 5000);
             $table->timestamps();
         });
     }

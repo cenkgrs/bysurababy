@@ -78,6 +78,11 @@ Route::group(['middleware' => 'checkUser'], function () {
     Route::get('/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReviewGet"])->name('addReviewGet');
     Route::post('/degelendirmelerim/degerlendirme-ekle', [ReviewController::class, "addReviewPost"])->name('addReviewPost');
 
+    Route::get('/degelendirmelerim/degerlendirme-duzenle', [ReviewController::class, "editReviewGet"])->name('editReviewGet');
+    Route::post('/degelendirmelerim/degerlendirme-duzenle', [ReviewController::class, "editReviewPost"])->name('editReviewPost');
+
+    Route::post('/degelendirmelerim/degerlendirme-kaldır', [ReviewController::class, "deleteReview"])->name('deleteReview');
+
     // Favorites
     Route::get('favorilerim', [FavoritesController::class, 'index'])->name('favorites');
     Route::post('/favorilerim/favori-ekle', [FavoritesController::class, "addFavorite"])->name('addFavorite');

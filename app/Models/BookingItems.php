@@ -21,7 +21,7 @@ class BookingItems extends Model
 
     public function scopeGetItem($query, $request_id)
     {
-        return $query->where('request_id', $request_id)->first() ?? false;
+        return $query->with('bookings')->where('request_id', $request_id)->get() ?? false;
     }
 
     public function scopeGetNonReviewedProducts($query, $user_id)

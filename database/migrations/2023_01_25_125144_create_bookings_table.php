@@ -17,8 +17,8 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->string('request_id', 20)->notNull();
             $table->string('order_no', 6)->notNull();
-            $table->integer('user_id');
-            $table->integer('address_id', 11)->notNull();
+            $table->integer('user_id')->notNull();
+            $table->integer('address_id')->notNull();
             $table->float('cargo_price');
             $table->float('total_earning');
             $table->float('total_price');

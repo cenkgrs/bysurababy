@@ -41,12 +41,13 @@ class ReviewController extends Controller
             return redirect()->route('reviews');
         }
 
-        $this->checkBookingItemOwnerShip($booking_item);
-
         // Multiple item booking - get precise one for our review
         if ($booking_item->count() > 1) {
 
             foreach ($booking_item as $item) {
+
+                $this->checkBookingItemOwnerShip($item);
+
                 if ($item->product_id == $request->input('product_id')) {
                     $booking_item = $item;
 
