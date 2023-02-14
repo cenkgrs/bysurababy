@@ -7,10 +7,10 @@
     </div>
 
     <div class="col-lg-6">
-        @if ($is_favorite)
-            <i class="mdi mdi-heart remove-favorite" data-id="{{ $product->id }}"></i>
+        @if ($favorite)
+            <i class="mdi mdi-heart remove-favorite" data-id="{{ $favorite->id }}"></i>
         @else
-            <i class="mdi mdi-heart-outline add-favorite" data-id="{{ $product->id }}"></i>
+            <i class="mdi mdi-heart-outline add-favorite color-primary" data-id="{{ $product->id }}"></i>
         @endif
     </div>
 </div>

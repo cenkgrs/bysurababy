@@ -123,7 +123,7 @@ class ProductsController extends Controller
 
         $categories = Categories::with('subCategories')->get();
 
-        $is_favorite = Favorites::checkFavorite($product_id);
+        $favorite = Favorites::checkFavorite($product_id);
 
         $similar_products = Products::where('category_id', $product->category_id)->whereNull('parent_id')->where('id', '!=', $product->id)->where('id', '!=', $product->parent_id)->where('status', 1)->get();
 
@@ -131,7 +131,7 @@ class ProductsController extends Controller
             "product" => $product,
             "parent" => $parent ?? null,
             "similar_products" => $similar_products ?? null,
-            "is_favorite" => $is_favorite->first(),
+            "favorite" => $favorite->first(),
             //"categories" => $categories,
             "breadcrumbs" => [
                 0 => [
