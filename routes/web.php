@@ -109,6 +109,7 @@ Route::group(['middleware' => 'checkAdmin'], function () {
     // Categories
     Route::match(['get', 'post'], '/panel/categories', 'App\Http\Controllers\Admin\CategoriesController@mainCategories')->name('admin.mainCategories');
     Route::match(['get', 'post'], '/panel/sub-categories', 'App\Http\Controllers\Admin\CategoriesController@subCategories')->name('admin.subCategories');
+    Route::get('/panel/remove-category', 'App\Http\Controllers\Admin\CategoriesController@removeCategory')->name('admin.removeCategory');
     
     // Reports
     Route::match(['get', 'post'], '/panel/reports/sales', 'App\Http\Controllers\Admin\ReportsController@sales')->name('admin.reports.sales');

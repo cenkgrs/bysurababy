@@ -63,7 +63,7 @@ class ProductController extends Controller
 
             $rules = [
                 'name' => 'required|max:255',
-                'code' => 'required|numeric',
+                'code' => 'required',
                 'purchase_price' => 'required|numeric',
                 'sale_price' => 'required|numeric',
                 'color' => 'required',
@@ -107,7 +107,7 @@ class ProductController extends Controller
                 "status" => $input["status"],
             ]);
 
-            $input['imagename'] = $product_id . '.' . $image->getClientOriginalExtension();
+            $input['imagename'] = $input['code'] . '-' . $product_id . '.' . $image->getClientOriginalExtension();
     
             $destinationPath = public_path('images/products');
     

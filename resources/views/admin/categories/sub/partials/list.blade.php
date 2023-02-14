@@ -27,6 +27,12 @@
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->category->name }}</td>
                                 <td>{{ $category->rating }}</td>
+                                <td>
+                                    <a href="{{ route('admin.removeCategory', ['type' => 'category', 'id' => $category->id]) }}">
+                                        <i class="mdi mdi-trash-can-outline"></i>
+                                        Kaldır
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

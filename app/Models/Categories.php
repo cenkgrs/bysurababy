@@ -14,4 +14,9 @@ class Categories extends Model
     public function subCategories(){
         return $this->hasMany('App\Models\SubCategories', 'category_id');
     }
+
+    public function scopeRemoveCategory($query, $id)
+    {
+        return $query->where('id', $id)->delete();
+    }
 }

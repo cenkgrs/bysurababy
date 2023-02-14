@@ -14,4 +14,9 @@ class SubCategories extends Model
     public function category(){
         return $this->belongsTo('App\Models\Categories', 'category_id');
     }
+
+    public function scopeRemoveCategory($query, $id)
+    {
+        return $query->where('id', $id)->delete();
+    }
 }

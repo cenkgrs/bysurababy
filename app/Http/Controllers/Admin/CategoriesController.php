@@ -53,4 +53,20 @@ class CategoriesController extends Controller
         return view('admin.categories.sub.index', $data);
     }
 
+    public function removeCategory(Request $request)
+    {
+        $input = $request->all();
+
+        if ($input["type"] = "category") {
+            Categories::removeCategory($input["id"]);
+
+            return redirect()->route('admin.mainCategories')->with('success_message', 'Kategori kaldırıldı');
+        } else {
+            SubCategories::removeCategory($input["id"]);
+        
+            return redirect()->route('admin.subCategories')->with('success_message', 'Alt Kategori kaldırıldı');
+        }
+
+    }
+
 }
