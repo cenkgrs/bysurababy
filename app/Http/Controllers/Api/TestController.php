@@ -18,7 +18,7 @@ class TestController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('api')->attempt($credentials)) {
             return response()->json([
                 "status" => true,
             ]);
@@ -31,7 +31,7 @@ class TestController extends Controller
 
     public function logout() {
         Session::flush();
-        Auth::logout();
+        Auth::guard('api')->logout();
 
         return response()->json([
             "status" => true,
