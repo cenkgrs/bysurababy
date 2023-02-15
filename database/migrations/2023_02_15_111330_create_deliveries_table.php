@@ -17,12 +17,12 @@ class CreateDeliveriesTable extends Migration
             $table->increments('id');
             $table->integer('delivery_no')->notNull();
             $table->integer('driver_id')->notNull();
-            $table->string('address', 50)->notNull();
-            $table->integer('status');
-            $table->integer('st_delivery');
-            $table->dateTime('tt_delivery');
-            $table->integer('st_complete');
-            $table->dateTime('tt_complete');
+            $table->string('address', 250)->notNull();
+            $table->integer('status')->default(0);
+            $table->integer('st_delivery')->default(0);
+            $table->dateTime('tt_delivery')->nullable();
+            $table->integer('st_complete')->default(0);
+            $table->dateTime('tt_complete')->nullable();
             $table->string('delivered_person')->nullable();
             $table->timestamps();
         });

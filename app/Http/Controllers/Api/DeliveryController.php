@@ -7,9 +7,9 @@ use App\Models\Deliveries;
 use DateTime;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class DeliveryController extends Controller
 {
-    public function getProducts()
+    public function getDeliveries()
     {
         $_deliveries = [];
 

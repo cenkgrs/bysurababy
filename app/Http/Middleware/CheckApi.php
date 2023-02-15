@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdmin
+class CheckApi
 {
     /**
      * Handle an incoming request.
@@ -21,6 +21,6 @@ class CheckAdmin
             return $next($request);
         }
 
-        return redirect()->response(['status' => false], 404); // If user is not an admin.
+        return response(['status' => false], 404); // If user is not an api user.
     }
 }

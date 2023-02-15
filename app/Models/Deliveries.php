@@ -13,7 +13,7 @@ class Deliveries extends Model
 
     public function driver() : \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne('App\Models\ApiUsers', 'driver_id');
+        return $this->hasOne('App\Models\ApiUsers', 'id');
     }
 
 }
