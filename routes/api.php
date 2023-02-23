@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\DeliveryController;
 use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    /* Fetch Request */
     Route::get('/get-products', [ProductController::class, 'getProducts'])->name('getProducts');
     Route::get('/get-deliveries', [DeliveryController::class, 'getDeliveries'])->name('getDeliveries');
+    Route::get('/get-drivers', [DriverController::class, 'getDrivers'])->name('getDrivers');
+
+    Route::post('/start-delivery', [DeliveryController::class, 'startDelivery'])->name('startDelivery');
     Route::post('/complete-delivery', [DeliveryController::class, 'completeDelivery'])->name('completeDelivery');
     Route::post('/add-delivery', [DeliveryController::class, 'addDelivery'])->name('addDelivery');
 });

@@ -58,6 +58,18 @@ class DeliveryController extends Controller
         return response()->json(['status' => false, 'message' => 'İrsaliye Kaydı Eklenemedi'], 200);
     }
 
+    public function startDelivery(Request $request)
+    {
+        $input = $request->all();
+
+        Deliveries::where('delivery_no', $input['delivery_no'])->update([
+            'st_delivery' => true,
+            'tt_delivery' => new DateTime()
+        ]);
+        
+        return response()->json(['status' => true, 'message' => 'Teslimat Başlatıldı'], 200);
+    }
+
     public function completeDelivery(Request $request)
     {
         $input = $request->all();
