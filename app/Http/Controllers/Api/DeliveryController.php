@@ -33,7 +33,29 @@ class DeliveryController extends Controller
         return response()->json(["deliveries" => $_deliveries], 200);
     }
 
-    public function addDelivery(Request $request)
+    public function getDelivery(Request $request)
+    {
+        $input = $request->all();
+
+        $delivery = Deliveries::with('driver')->where('delivery_no', $input['delivery_no'])->first();
+
+        $_delivery = [
+            "delivery_no" => $delivery->delivery_no,
+            "driver_id" => $delivery->driver->id,
+            "driver_name" => $delivery->driver->name,
+            "address" => $delivery->address,
+            "status" => $delivery->status,
+            "st_delivery" => $delivery->st_delivery,
+            "tt_delivery" => $delivery->tt_delivery,
+            "st_complete" => $delivery->st_complete,
+            "tt_complete" => $delivery->tt_complete,
+            "delivered_person" => $delivery->delivered_person,
+        ];
+
+        return response()->json(["delivery" => $_delivery], 200);
+    }
+
+    public function createDelivery(Request $request)
     {
         $input = $request->all();
 
@@ -86,5 +108,30 @@ class DeliveryController extends Controller
         }
 
         return response()->json(['status' => false, 'message' => 'Teslimat Kaydı Eklenemedi'], 200);
+    }
+
+    public function searchDelivery(Request $request)
+    {
+        $input = $request->all();
+
+        $deliveries = Deliveries::where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
+
+        foreach ($deliveries as $delivery) {
+            $_deliveries[] = [
+                "delivery_no" => $delivery->delivery_no,
+                "driver_id" => $delivery->driver->id,
+                "driver_name" => $delivery->driver->name,
+                "address" => $delivery->address,
+                "status" => $delivery->status,
+                "st_delivery" => $delivery->st_delivery,
+                "tt_delivery" => $delivery->tt_delivery,
+                "st_complete" => $delivery->st_complete,
+                "tt_complete" => $delivery->tt_complete,
+                "delivered_person" => $delivery->delivered_person,
+            ];
+        }
+
+        return response()->json(['status' => true, 'deliveries' => $_deliveries], 200);
+
     }
 }

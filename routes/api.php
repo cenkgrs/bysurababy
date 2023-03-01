@@ -21,11 +21,15 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     /* Fetch Request */
     Route::get('/get-products', [ProductController::class, 'getProducts'])->name('getProducts');
     Route::get('/get-deliveries', [DeliveryController::class, 'getDeliveries'])->name('getDeliveries');
+    Route::get('/get-delivery', [DeliveryController::class, 'getDelivery'])->name('getDelivery');
+    Route::get('/search-delivery', [DeliveryController::class, 'searchDelivery'])->name('searchDelivery');
+
     Route::get('/get-drivers', [DriverController::class, 'getDrivers'])->name('getDrivers');
 
+    /* Post Requests */
     Route::post('/start-delivery', [DeliveryController::class, 'startDelivery'])->name('startDelivery');
     Route::post('/complete-delivery', [DeliveryController::class, 'completeDelivery'])->name('completeDelivery');
-    Route::post('/add-delivery', [DeliveryController::class, 'addDelivery'])->name('addDelivery');
+    Route::post('/create-delivery', [DeliveryController::class, 'createDelivery'])->name('createDelivery');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
