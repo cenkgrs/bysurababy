@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Deliveries;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class DeliveryController extends Controller
 {
@@ -31,6 +33,32 @@ class DeliveryController extends Controller
         }
 
         return response()->json(["deliveries" => $_deliveries], 200);
+    }
+
+    public function getActiveDelivery()
+    {
+        $driver_id = Auth::id();
+
+        $delivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->first();
+
+        if (!$delivery) {
+            return response()->json(["status" => false], 404);
+        }
+
+        $_delivery = [
+            "delivery_no" => $delivery->delivery_no,
+            "driver_id" => $delivery->driver->id,
+            "driver_name" => $delivery->driver->name,
+            "address" => $delivery->address,
+            "status" => $delivery->status,
+            "st_delivery" => $delivery->st_delivery,
+            "tt_delivery" => $delivery->tt_delivery,
+            "st_complete" => $delivery->st_complete,
+            "tt_complete" => $delivery->tt_complete,
+            "delivered_person" => $delivery->delivered_person,
+        ];
+
+        return response()->json(["delivery" => $_delivery], 200);
     }
 
     public function getDelivery(Request $request)
@@ -134,4 +162,6 @@ class DeliveryController extends Controller
         return response()->json(['status' => true, 'deliveries' => $_deliveries], 200);
 
     }
+
+ 
 }

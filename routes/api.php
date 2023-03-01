@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get-products', [ProductController::class, 'getProducts'])->name('getProducts');
     Route::get('/get-deliveries', [DeliveryController::class, 'getDeliveries'])->name('getDeliveries');
     Route::get('/get-delivery', [DeliveryController::class, 'getDelivery'])->name('getDelivery');
-    Route::get('/search-delivery', [DeliveryController::class, 'searchDelivery'])->name('searchDelivery');
+    Route::get('/get-active-delivery', [DeliveryController::class, 'getActiveDelivery'])->name('getActiveDelivery');
 
     Route::get('/get-drivers', [DriverController::class, 'getDrivers'])->name('getDrivers');
 
@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/start-delivery', [DeliveryController::class, 'startDelivery'])->name('startDelivery');
     Route::post('/complete-delivery', [DeliveryController::class, 'completeDelivery'])->name('completeDelivery');
     Route::post('/create-delivery', [DeliveryController::class, 'createDelivery'])->name('createDelivery');
+    Route::post('/search-delivery', [DeliveryController::class, 'searchDelivery'])->name('searchDelivery');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
