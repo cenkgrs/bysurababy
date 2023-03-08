@@ -129,6 +129,31 @@ class DeliveryController extends Controller
         return response()->json(['status' => true, 'message' => 'Teslimat Başlatıldı'], 200);
     }
 
+    public function cancelDelivery(Request $request)
+    {
+        $input = $request->all();
+
+        $driver_id = Auth::id();
+
+        // First check if there is any active delivery
+        $anyDelivery = Deliveries::where('delivery_no', $input['delivery_no'])->where('st_delivery', true)->first();
+
+        if (!$anyDelivery) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat aktif değildir. İptal edilemez'], 404);
+        }
+
+        if ($anyDelivery->driver_id !== $driver_id) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat size ait değildir. İptal edemezsiniz'], 404);
+        }
+
+        Deliveries::where('delivery_no', $input['delivery_no'])->update([
+            'st_delivery' => false,
+            'tt_delivery' => null
+        ]);
+        
+        return response()->json(['status' => true, 'message' => 'Teslimat Başlatıldı'], 200);
+    }
+
     public function completeDelivery(Request $request)
     {
         $input = $request->all();

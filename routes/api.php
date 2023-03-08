@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     /* Post Requests */
     Route::post('/start-delivery', [DeliveryController::class, 'startDelivery'])->name('startDelivery');
+    Route::post('/cancel-delivery', [DeliveryController::class, 'cancelDelivery'])->name('cancelDelivery');
     Route::post('/complete-delivery', [DeliveryController::class, 'completeDelivery'])->name('completeDelivery');
     Route::post('/create-delivery', [DeliveryController::class, 'createDelivery'])->name('createDelivery');
     Route::post('/search-delivery', [DeliveryController::class, 'searchDelivery'])->name('searchDelivery');
