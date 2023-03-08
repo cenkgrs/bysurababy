@@ -112,6 +112,15 @@ class DeliveryController extends Controller
     {
         $input = $request->all();
 
+        $driver_id = Auth::id();
+
+        // First check if there is any active delivery
+        $anyDelivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->first();
+
+        if ($anyDelivery) {
+            return response()->json(['status' => false, 'message' => 'Aktif bir teslimatınız bulunmaktadır. Farklı bir teslimata başlamadan önce aktif teslimatı tamamlamalı veya iptal etmelisiniz'], 404);
+        }
+
         Deliveries::where('delivery_no', $input['delivery_no'])->update([
             'st_delivery' => true,
             'tt_delivery' => new DateTime()
