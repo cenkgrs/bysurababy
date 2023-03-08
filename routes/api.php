@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/complete-delivery', [DeliveryController::class, 'completeDelivery'])->name('completeDelivery');
     Route::post('/create-delivery', [DeliveryController::class, 'createDelivery'])->name('createDelivery');
     Route::post('/search-delivery', [DeliveryController::class, 'searchDelivery'])->name('searchDelivery');
-    Route::post('/add-location-record', [DeliveryController::class, 'addLocationRecord'])->name('addLocationRecord');
+    Route::post('/add-location-record', [LocationController::class, 'addLocationRecord'])->name('addLocationRecord');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -8,6 +8,7 @@ use App\Models\ApiUsers;
 use App\Models\DriverLocations;
 use DateTime;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class LocationController extends Controller
 {
@@ -16,8 +17,10 @@ class LocationController extends Controller
     {
         $input = $request->all();
 
+        $driver_id = Auth::id();
+        
         $id = DriverLocations::insertGetId([
-            'driver_id' => $input['driver_id'],
+            'driver_id' => $driver_id,
             'address' => $input['address'],
             'latitude' => $input['latitude'],
             'longitude' => $input['longitude'],

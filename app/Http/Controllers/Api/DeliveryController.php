@@ -160,6 +160,7 @@ class DeliveryController extends Controller
 
         $affectedRow = Deliveries::where('delivery_no', $input['delivery_no'])->update([
             'status' => 1,
+            'st_delivery' => 0,
             'st_complete' => 1,
             'tt_complete' => new DateTime(),
             'delivered_person' => $input['delivered_person'],
