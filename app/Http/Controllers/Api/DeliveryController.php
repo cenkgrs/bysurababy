@@ -90,10 +90,14 @@ class DeliveryController extends Controller
     {
         $input = $request->all();
 
+        $coordinates = $this->getCoordinates($input['address']);
+        
         $id = Deliveries::insertGetId([
             'delivery_no' => $input['delivery_no'],
             'driver_id' => $input['driver_id'],
             'address' => $input['address'],
+            'latitude' => $coordinates['lat'],
+            'longitude' => $coordinates['long'],
             "firm_name" => $input['firm_name'],
             'status' => 0,
             'st_delivery' => 0,
@@ -203,5 +207,29 @@ class DeliveryController extends Controller
 
     }
 
- 
+    public function getCoordinates($address)
+    {
+        $apiKey = env('GEOAPIFY_KEY'); // Geoaoşfy Api Key
+
+        $params = [
+            'apiKey' => $apiKey,
+            'text' => $address,
+            'format' => 'json',
+        ];
+
+        $url = 'https://api.geoapify.com/v1/geocode/search?' . http_build_query($params);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);    
+        $responseJson = curl_exec($ch);
+        curl_close($ch);
+
+        $response = json_decode($responseJson);
+
+        $latitude = $response->results[0]->lat;
+        $longitude = $response->results[0]->lon;
+
+        return ["lat" => $latitude, "long" => $longitude];
+    }
 }
