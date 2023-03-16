@@ -24,6 +24,8 @@ class DeliveryController extends Controller
                 "driver_name" => $delivery->driver->name,
                 "firm_name" => $delivery->firm_name,
                 "address" => $delivery->address,
+                "latitude" => $delivery->latitude,
+                "longitude" => $delivery->longitude,
                 "status" => $delivery->status,
                 "st_delivery" => $delivery->st_delivery,
                 "tt_delivery" => $delivery->tt_delivery,
@@ -52,6 +54,8 @@ class DeliveryController extends Controller
             "driver_name" => $delivery->driver->name,
             "firm_name" => $delivery->firm_name,
             "address" => $delivery->address,
+            "latitude" => $delivery->latitude,
+            "longitude" => $delivery->longitude,
             "status" => $delivery->status,
             "st_delivery" => $delivery->st_delivery,
             "tt_delivery" => $delivery->tt_delivery,
@@ -75,6 +79,8 @@ class DeliveryController extends Controller
             "driver_name" => $delivery->driver->name,
             "firm_name" => $delivery->firm_name,
             "address" => $delivery->address,
+            "latitude" => $delivery->latitude,
+            "longitude" => $delivery->longitude,
             "status" => $delivery->status,
             "st_delivery" => $delivery->st_delivery,
             "tt_delivery" => $delivery->tt_delivery,
@@ -194,6 +200,8 @@ class DeliveryController extends Controller
                 "driver_name" => $delivery->driver->name,
                 "firm_name" => $delivery->firm_name,
                 "address" => $delivery->address,
+                "latitude" => $delivery->latitude,
+                "longitude" => $delivery->longitude,
                 "status" => $delivery->status,
                 "st_delivery" => $delivery->st_delivery,
                 "tt_delivery" => $delivery->tt_delivery,
@@ -209,7 +217,7 @@ class DeliveryController extends Controller
 
     public function getCoordinates($address)
     {
-        $apiKey = env('GEOAPIFY_KEY'); // Geoaoşfy Api Key
+        $apiKey = env('GEOAPIFY_KEY'); // Geoapify Api Key
 
         $params = [
             'apiKey' => $apiKey,
