@@ -43,7 +43,11 @@ class LocationController extends Controller
         $drivers = ApiUsers::where('user_type', 'driver')->get();
         
         foreach ($drivers as $driver) {
-            $lastLocation = DriverLocations::where('id', $driver->id)->orderBy('created_at', 'DESC')->frist();
+            $lastLocation = DriverLocations::where('id', $driver->id)->orderBy('created_at', 'DESC')->first();
+
+            if (!$lastLocation) {
+                continue;
+            }
 
             $locations[] = [
                 'driver_name' => $driver->name,
