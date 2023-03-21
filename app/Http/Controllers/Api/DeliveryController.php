@@ -178,6 +178,7 @@ class DeliveryController extends Controller
             'st_complete' => 1,
             'tt_complete' => new DateTime(),
             'delivered_person' => $input['delivered_person'],
+            'national_id' => $input['national_id'],
         ]);
 
         if ($affectedRow) {
