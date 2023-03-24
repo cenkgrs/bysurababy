@@ -46,4 +46,25 @@ class DriverController extends Controller
         return response()->json(["status" => 'active'], 200);
     }
 
+    public function createDriver(Request $request)
+    {
+        $input = $request->all();
+
+        $id = ApiUsers::insertGetId([
+            'user_type'     => 'driver',
+            'name'          => $input['driver_name'],
+            'email'         => $input['email'],
+            'password'      => Hash::make($input['password']),
+            'created_at'    => new DateTime(),
+            'updated_at'    => new DateTime()
+        ]);
+
+        if ($id) {
+            return response()->json(['status' => true, 'message' => 'Yeni Şöför Eklendi'], 200);
+        }
+
+        return response()->json(['status' => false, 'message' => 'Yeni Şöför Eklenemedi'], 200);
+    }
+
+
 }
