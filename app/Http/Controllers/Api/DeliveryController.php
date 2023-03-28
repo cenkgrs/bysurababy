@@ -11,11 +11,40 @@ use Illuminate\Support\Facades\Auth;
 
 class DeliveryController extends Controller
 {
-    public function getDeliveries()
+    public function getAllDeliveries()
     {
         $_deliveries = [];
 
         $deliveries = Deliveries::with('driver')->get();
+
+        foreach ($deliveries as $delivery) {
+            $_deliveries[] = [
+                "delivery_no" => $delivery->delivery_no,
+                "driver_id" => $delivery->driver->id,
+                "driver_name" => $delivery->driver->name,
+                "firm_name" => $delivery->firm_name,
+                "address" => $delivery->address,
+                "latitude" => $delivery->latitude,
+                "longitude" => $delivery->longitude,
+                "status" => $delivery->status,
+                "st_delivery" => $delivery->st_delivery,
+                "tt_delivery" => $delivery->tt_delivery,
+                "st_complete" => $delivery->st_complete,
+                "tt_complete" => $delivery->tt_complete,
+                "delivered_person" => $delivery->delivered_person,
+            ];
+        }
+
+        return response()->json(["deliveries" => $_deliveries], 200);
+    }
+
+    public function getDeliveries()
+    {
+        $driver_id = Auth::id();
+
+        $_deliveries = [];
+
+        $deliveries = Deliveries::with('driver')->where('driver_id', $driver_id)->get();
 
         foreach ($deliveries as $delivery) {
             $_deliveries[] = [

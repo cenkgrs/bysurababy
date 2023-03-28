@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth:sanctum'], function () {
     /* Fetch Request */
     Route::get('/get-products', [ProductController::class, 'getProducts'])->name('getProducts');
+    Route::get('/get-all-deliveries', [DeliveryController::class, 'getAllDeliveries'])->name('getAllDeliveries');
     Route::get('/get-deliveries', [DeliveryController::class, 'getDeliveries'])->name('getDeliveries');
     Route::get('/get-delivery', [DeliveryController::class, 'getDelivery'])->name('getDelivery');
     Route::get('/get-active-delivery', [DeliveryController::class, 'getActiveDelivery'])->name('getActiveDelivery');
