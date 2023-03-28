@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ApiUsers;
 use App\Models\Deliveries;
+use Illuminate\Support\Facades\Hash;
 
 class DriverController extends Controller
 {
@@ -55,8 +56,6 @@ class DriverController extends Controller
             'name'          => $input['driver_name'],
             'email'         => $input['email'],
             'password'      => Hash::make($input['password']),
-            'created_at'    => new DateTime(),
-            'updated_at'    => new DateTime()
         ]);
 
         if ($id) {

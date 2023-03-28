@@ -50,6 +50,7 @@ class LocationController extends Controller
             }
 
             $locations[] = [
+                'driver_id' => $driver->id,
                 'driver_name' => $driver->name,
                 'address' => $lastLocation->address,
                 'latitude' => $lastLocation->latitude,
