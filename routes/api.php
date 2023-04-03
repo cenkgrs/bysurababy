@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get-active-delivery', [DeliveryController::class, 'getActiveDelivery'])->name('getActiveDelivery');
 
     Route::get('/get-drivers', [DriverController::class, 'getDrivers'])->name('getDrivers');
-    Route::get('/check-driver-status', [DriverController::class, 'checkDriverStatus'])->name('checkDriverStatus');
+    Route::get('/check-driver-status/{driverId}', [DriverController::class, 'checkDriverStatus'])->name('checkDriverStatus');
 
     Route::get('/get-last-locations', [LocationController::class, 'getLastLocations'])->name('getLastLocations');
     Route::get('/map-today-locations', [LocationController::class, 'mapTodayLocations'])->name('mapTodayLocations');

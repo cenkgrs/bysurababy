@@ -29,12 +29,10 @@ class DriverController extends Controller
         return response()->json(["drivers" => $_drivers], 200);
     }
 
-    public function checkDriverStatus(Request $request)
+    public function checkDriverStatus(Request $request, $driver_id)
     {
-        $input = $request->all();
-
         // Get driver first
-        $driver = ApiUsers::where('user_type', 'driver')->where('id', $input['driver_id'])->first();
+        $driver = ApiUsers::where('user_type', 'driver')->where('id', $driver_id)->first();
 
         // Check if driver has any active delivery
         $delivery = Deliveries::where('driver_id', $driver->id)->where('st_delivery', 1)->first();
