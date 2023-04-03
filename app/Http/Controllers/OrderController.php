@@ -73,6 +73,7 @@ class OrderController extends Controller
 
         $data = [
             "orders" => $orders ?? null,
+            "title" => __("Siparişlerim"),
         ];
 
         return view('user.orders.index', $data);
@@ -157,7 +158,10 @@ class OrderController extends Controller
             ]
         ];
 
-        $data["order"] = $order;
+        $data = [
+            "order" => $order,
+            "title" => __("Siparişlerim"),
+        ];
 
         return view('user.order_detail.index', $data);
     }

@@ -1,6 +1,6 @@
 @if (isset($similar_products) && !$similar_products->isEmpty())
 
-    <h3 class="title-main text-center">Benzer Ürünler</h3>
+    <h3 class="title-main text-center">{{ __('Benzer Ürünler') }}</h3>
 
     <div class="row mt2">
         @foreach ($similar_products as $product)
