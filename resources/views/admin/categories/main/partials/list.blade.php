@@ -26,6 +26,12 @@
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->rating }}</td>
                                 <td>
+                                    <a class="edit-category" data-category="{{ $category }}" href="#">
+                                        <i class="mdi mdi-pencil-outline"></i>
+                                        Düzenle
+                                    </a>    
+                                </td>
+                                <td>
                                     <a href="{{ route('admin.removeCategory', ['type' => 'category', 'id' => $category->id]) }}">
                                         <i class="mdi mdi-trash-can-outline"></i>
                                         Kaldır

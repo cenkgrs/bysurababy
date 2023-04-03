@@ -17,14 +17,35 @@ class CategoriesController extends Controller
 
             $input = $request->all();
 
-            Categories::insert([
-                "name" => $input["name"],
-                "slug" => strtolower(str_replace(' ', '-', $input["name"])),
-                "rating" => $input["rating"],
-            ]);
+            if ($input["operation"] == "edit") {
 
-            return redirect()->route('admin.mainCategories')->with('success_message', 'Kategori başarılı bir şekilde eklendi');
+                // Check any same rating
+                $any = Categories::where('rating', $input['rating'])->first();
 
+                if ($any) {
+                    return redirect()->route('admin.mainCategories')->with('error_messages', 'Aynı ratinge sahip farklı bir ürün var');
+                }
+
+                Categories::where('id', $input['category_id'])->update([
+                    'name' => $input['name'],
+                    'slug' => strtolower(str_replace(' ', '-', $input["name"])),
+                    'rating' => $input['rating'],
+                ]);
+
+                return redirect()->route('admin.mainCategories')->with('success_message', 'Kategori başarılı bir şekilde güncellendi');
+
+            } else if ($input["operation"] == "insert") {
+                Categories::insert([
+                    "name" => $input["name"],
+                    "slug" => strtolower(str_replace(' ', '-', $input["name"])),
+                    "rating" => $input["rating"],
+                ]);
+    
+                return redirect()->route('admin.mainCategories')->with('success_message', 'Kategori başarılı bir şekilde eklendi');
+    
+            }
+
+           
         }
 
         return view('admin.categories.main.index', $data);
