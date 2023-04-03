@@ -2,10 +2,6 @@ var Admin = (function () {
 
     var Pages = new Pages()
 
-    var Server = new Server()
-
-    var Helpers = new Helpers()
-
     init()
 
     function init() {
@@ -73,4 +69,4 @@ var Admin = (function () {
         
     }
 
-});
+})();

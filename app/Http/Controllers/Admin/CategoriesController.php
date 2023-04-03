@@ -20,10 +20,10 @@ class CategoriesController extends Controller
             if ($input["operation"] == "edit") {
 
                 // Check any same rating
-                $any = Categories::where('rating', $input['rating'])->first();
+                $any = Categories::where('id', '!==', $input['category_id'])->where('rating', $input['rating'])->first();
 
                 if ($any) {
-                    return redirect()->route('admin.mainCategories')->with('error_messages', 'Aynı ratinge sahip farklı bir ürün var');
+                    return redirect()->route('admin.mainCategories')->with('error_message', 'Aynı ratinge sahip farklı bir ürün var');
                 }
 
                 Categories::where('id', $input['category_id'])->update([
@@ -63,10 +63,10 @@ class CategoriesController extends Controller
             if ($input["operation"] == "edit") {
 
                 // Check any same rating
-                $any = SubCategories::where('rating', $input['rating'])->first();
+                $any = SubCategories::where('id', '!==', $input['category_id'])->where('rating', $input['rating'])->first();
 
                 if ($any) {
-                    return redirect()->route('admin.subCategories')->with('error_messages', 'Aynı ratinge sahip farklı bir kategori var');
+                    return redirect()->route('admin.subCategories')->with('error_message', 'Aynı ratinge sahip farklı bir kategori var');
                 }
 
                 SubCategories::where('id', $input['category_id'])->update([
