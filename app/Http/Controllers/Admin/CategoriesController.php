@@ -60,14 +60,34 @@ class CategoriesController extends Controller
 
             $input = $request->all();
 
-            SubCategories::insert([
-                "name" => $input["name"],
-                "category_id" => $input["main_category"],
-                "slug" => strtolower(str_replace(' ', '-', $input["name"])),
-                "rating" => $input["rating"],
-            ]);
+            if ($input["operation"] == "edit") {
 
-            return redirect()->route('admin.subCategories')->with('success_message', 'Alt Kategori başarılı bir şekilde eklendi');
+                // Check any same rating
+                $any = SubCategories::where('rating', $input['rating'])->first();
+
+                if ($any) {
+                    return redirect()->route('admin.subCategories')->with('error_messages', 'Aynı ratinge sahip farklı bir kategori var');
+                }
+
+                SubCategories::where('id', $input['category_id'])->update([
+                    'name' => $input['name'],
+                    'slug' => strtolower(str_replace(' ', '-', $input["name"])),
+                    'rating' => $input['rating'],
+                ]);
+
+                return redirect()->route('admin.subCategories')->with('success_message', 'Kategori başarılı bir şekilde güncellendi');
+
+            } else if ($input["operation"] == "insert") {
+                SubCategories::insert([
+                    "name" => $input["name"],
+                    "category_id" => $input["main_category"],
+                    "slug" => strtolower(str_replace(' ', '-', $input["name"])),
+                    "rating" => $input["rating"],
+                ]);
+    
+                return redirect()->route('admin.subCategories')->with('success_message', 'Alt Kategori başarılı bir şekilde eklendi');
+    
+            }            
 
         }
 
