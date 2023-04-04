@@ -7,10 +7,14 @@ use App\Models\Deliveries;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Api\Traits\Methods;
 
 
 class DeliveryController extends Controller
 {
+
+    use Methods;
+
     public function getAllDeliveries()
     {
         $_deliveries = [];
@@ -123,6 +127,8 @@ class DeliveryController extends Controller
 
     public function createDelivery(Request $request)
     {
+        $this->logRequest($request);
+
         $input = $request->all();
 
         $coordinates = $this->getCoordinates($input['address']);
@@ -143,6 +149,8 @@ class DeliveryController extends Controller
             'created_at' => new DateTime(),
             'updated_at' => new DateTime()
         ]);
+
+        $this->logResponse($request, $id);
 
         if ($id) {
             return response()->json(['status' => true, 'message' => 'İrsaliye Kaydı Eklendi'], 200);
