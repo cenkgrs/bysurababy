@@ -21,6 +21,7 @@ class LocationController extends Controller
         
         $id = DriverLocations::insertGetId([
             'driver_id' => $driver_id,
+            'type' => $input['type'],
             'address' => $input['address'],
             'latitude' => $input['latitude'],
             'longitude' => $input['longitude'],
