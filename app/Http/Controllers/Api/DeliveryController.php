@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Deliveries;
+use App\Models\ApiUsers;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -295,5 +296,21 @@ class DeliveryController extends Controller
         $this->logResult(["lat" => $latitude, "long" => $longitude]);
 
         return ["lat" => $latitude, "long" => $longitude];
+    }
+
+    public function getDeliveryNo($driver_id)
+    {
+        // Get driver first
+        $driver = ApiUsers::where('user_type', 'driver')->where('id', $driver_id)->first();
+
+        // Check if driver has any active delivery
+        $delivery = Deliveries::where('driver_id', $driver->id)->where('st_delivery', 1)->first();
+
+        // Driver is idle
+        if (!$delivery) {
+            return response()->json(["status" => false], 200);
+        }
+
+        return response()->json(['status' => true, 'delivery_no' => $delivery->delivery_no], 200);
     }
 }
