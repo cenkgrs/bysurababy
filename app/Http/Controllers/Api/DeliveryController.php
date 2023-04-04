@@ -39,6 +39,8 @@ class DeliveryController extends Controller
             ];
         }
 
+        $this->logResult($_deliveries);
+
         return response()->json(["deliveries" => $_deliveries], 200);
     }
 
@@ -67,6 +69,8 @@ class DeliveryController extends Controller
                 "delivered_person" => $delivery->delivered_person,
             ];
         }
+
+        $this->logResult($_deliveries);
 
         return response()->json(["deliveries" => $_deliveries], 200);
     }
@@ -97,6 +101,8 @@ class DeliveryController extends Controller
             "delivered_person" => $delivery->delivered_person,
         ];
 
+        $this->logResult($_delivery);
+
         return response()->json(["delivery" => $_delivery], 200);
     }
 
@@ -121,6 +127,8 @@ class DeliveryController extends Controller
             "tt_complete" => $delivery->tt_complete,
             "delivered_person" => $delivery->delivered_person,
         ];
+
+        $this->logResult($_delivery);
 
         return response()->json(["delivery" => $_delivery], 200);
     }
@@ -207,6 +215,8 @@ class DeliveryController extends Controller
 
     public function completeDelivery(Request $request)
     {
+        $this->logRequest($request);
+
         $input = $request->all();
 
         $affectedRow = Deliveries::where('delivery_no', $input['delivery_no'])->update([
@@ -218,6 +228,8 @@ class DeliveryController extends Controller
             'national_id' => $input['national_id'],
         ]);
 
+        $this->logResponse($request, ['affected_row' => $affectedRow]);
+
         if ($affectedRow) {
             return response()->json(['status' => true, 'message' => 'Teslimat Kaydı Eklendi'], 200);
         }
@@ -228,6 +240,8 @@ class DeliveryController extends Controller
     public function searchDelivery(Request $request)
     {
         $input = $request->all();
+
+        $this->logRequest($request);
 
         $deliveries = Deliveries::where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
 
@@ -248,6 +262,8 @@ class DeliveryController extends Controller
                 "delivered_person" => $delivery->delivered_person,
             ];
         }
+
+        $this->logResponse($request, json_encode($_deliveries));
 
         return response()->json(['status' => true, 'deliveries' => $_deliveries], 200);
 
@@ -275,6 +291,8 @@ class DeliveryController extends Controller
 
         $latitude = $response->results[0]->lat;
         $longitude = $response->results[0]->lon;
+
+        $this->logResult(["lat" => $latitude, "long" => $longitude]);
 
         return ["lat" => $latitude, "long" => $longitude];
     }
