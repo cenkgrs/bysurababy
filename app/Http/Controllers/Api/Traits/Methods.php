@@ -16,7 +16,7 @@ trait Methods {
         $log->type = 'request';
         $log->url = $request->getUri();
         $log->method = $request->getMethod();
-        $log->body = $request->all();
+        $log->body = json_encode($request->all());
 
         $log->save();
     }

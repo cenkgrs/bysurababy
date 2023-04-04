@@ -17,9 +17,9 @@ class CreateApiLogsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->enum('type', ['request', 'response']);
-            $table->string('method');
-            $table->string('body');
-            $table->string('url');
+            $table->string('method', 100);
+            $table->string('body', 255);
+            $table->string('url', 100);
             $table->timestamps();
         });
     }
