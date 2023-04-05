@@ -43,7 +43,7 @@ trait Methods {
 
         $log->user_id = Auth::id();
         $log->type = 'response';
-        $log->url = null;
+        $log->url = 'null';
         $log->method = $caller['function'];
         $log->body = json_encode($result);
 
