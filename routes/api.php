@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get-delivery-no/{driverId}', [DeliveryController::class, 'getDeliveryNo'])->name('getDeliveryNo');
 
     Route::get('/get-last-locations', [LocationController::class, 'getLastLocations'])->name('getLastLocations');
-    Route::get('/map-today-locations', [LocationController::class, 'mapTodayLocations'])->name('mapTodayLocations');
+    Route::get('/get-last-driver-locations{driverId}', [LocationController::class, 'mapTodayLocations'])->name('mapTodayLocations');
 
     /* Post Requests */
     Route::post('/start-delivery', [DeliveryController::class, 'startDelivery'])->name('startDelivery');

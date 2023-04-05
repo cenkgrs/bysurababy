@@ -64,14 +64,19 @@ class LocationController extends Controller
         return response()->json(["locations" => $locations], 200);
     }
 
-    public function mapTodayLocations(Request $request)
+    public function mapTodayLocations($driver_id)
     {
+        $driver = ApiUsers::where('id', $driver_id)->where('user_type', 'driver')->first();
+
         $locations = [];
 
-        $lastLocations = DriverLocations::where('id', $request->input('driver_id'))->whereDate('created_at', Carbon::today())->get();
+        $lastLocations = DriverLocations::where('id', $driver_id)->whereDate('created_at', Carbon::today())->get();
 
         foreach ($lastLocations as $l) {
             $locations[] = [
+                'driver_id' => $driver->id,
+                'driver_name' => $driver->name,
+                'type' => $l->type,
                 'address' => $l->address,
                 'latitude' => $l->latitude,
                 'longitude' => $l->longitude,
