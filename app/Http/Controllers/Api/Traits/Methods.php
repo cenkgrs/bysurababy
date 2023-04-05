@@ -29,7 +29,7 @@ trait Methods {
         $log->type = 'response';
         $log->url = $request->getUri();
         $log->method = $request->getMethod();
-        $log->body = $result;
+        $log->body = json_encode($result);
 
         $log->save();
     }
