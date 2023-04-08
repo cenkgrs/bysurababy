@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Hash;
 
 class DriverController extends Controller
 {
+    public function getDriver($driver_id)
+    {
+        $driver = ApiUsers::where('user_type', 'driver')->where('id', $driver_id)->first();
+
+        if (!$driver) {
+            return response()->json(["status" => false, "message" => 'Şöför bulunamadı'], 200);
+        }
+
+        return response()->json(["driver" => $driver], 200);
+    }
    
     public function getDrivers()
     {
