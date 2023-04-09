@@ -246,6 +246,10 @@ class DeliveryController extends Controller
 
         $deliveries = Deliveries::where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
 
+        if (!count($deliveries)) {
+            return response()->json(['status' => false, 'deliveries' => []], 200);
+        }
+
         foreach ($deliveries as $delivery) {
             $_deliveries[] = [
                 "delivery_no" => $delivery->delivery_no,
