@@ -244,7 +244,12 @@ class DeliveryController extends Controller
 
         $this->logRequest($request);
 
-        $deliveries = Deliveries::where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
+        if ($input['user_type'] == 'admin') {
+            $deliveries = Deliveries::where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
+        } else {
+            $deliveries = Deliveries::where('driver_id', Auth::id())->where('delivery_no', 'LIKE', '%'.$input['query'].'%')->get();
+        }
+
 
         if (!count($deliveries)) {
             return response()->json(['status' => false, 'deliveries' => []], 200);
