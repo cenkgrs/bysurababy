@@ -80,7 +80,7 @@ class DeliveryController extends Controller
     {
         $driver_id = Auth::id();
 
-        $delivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->first();
+        $delivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->where('st_complete', false)->first();
 
         if (!$delivery) {
             return response()->json(["status" => false], 404);
@@ -175,7 +175,7 @@ class DeliveryController extends Controller
         $driver_id = Auth::id();
 
         // First check if there is any active delivery
-        $anyDelivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->first();
+        $anyDelivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->where('st_complete', false)->first();
 
         if ($anyDelivery) {
             return response()->json(['status' => false, 'message' => 'Aktif bir teslimatınız bulunmaktadır. Farklı bir teslimata başlamadan önce aktif teslimatı tamamlamalı veya iptal etmelisiniz'], 404);
@@ -196,14 +196,22 @@ class DeliveryController extends Controller
         $driver_id = Auth::id();
 
         // First check if there is any active delivery
-        $anyDelivery = Deliveries::where('delivery_no', $input['delivery_no'])->where('st_delivery', true)->first();
+        $delivery = Deliveries::where('delivery_no', $input['delivery_no'])->first();
 
-        if (!$anyDelivery) {
-            return response()->json(['status' => false, 'message' => 'Bu teslimat aktif değildir. İptal edilemez'], 404);
+        if (!$delivery) {
+            return response()->json(['status' => false, 'message' => 'İlgili teslimat bulunamadı.'], 404);
         }
 
-        if ($anyDelivery->driver_id !== $driver_id) {
-            return response()->json(['status' => false, 'message' => 'Bu teslimat size ait değildir. İptal edemezsiniz'], 404);
+        if (!$delivery->st_delivery) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat aktif değildir. İptal edilemez.'], 404);
+        }
+
+        if ($delivery->driver_id !== $driver_id) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat size ait değildir. İptal edemezsiniz.'], 404);
+        }
+
+        if ($delivery->st_complete) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat tamamlanmış. İptal edemezsiniz.'], 404);
         }
 
         Deliveries::where('delivery_no', $input['delivery_no'])->update([
@@ -211,7 +219,7 @@ class DeliveryController extends Controller
             'tt_delivery' => null
         ]);
         
-        return response()->json(['status' => true, 'message' => 'Teslimat Başlatıldı'], 200);
+        return response()->json(['status' => true, 'message' => 'Teslimat İptal Edildi'], 200);
     }
 
     public function completeDelivery(Request $request)
@@ -220,13 +228,34 @@ class DeliveryController extends Controller
 
         $input = $request->all();
 
+        $driver_id = Auth::id();
+
+        // First check if there is any active delivery
+        $delivery = Deliveries::where('delivery_no', $input['delivery_no'])->first();
+
+        if (!$delivery) {
+            return response()->json(['status' => false, 'message' => 'İlgili teslimat bulunamadı'], 404);
+        }
+
+        if (!$delivery->st_delivery) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat aktif değil.'], 404);
+        }
+
+        if ($delivery->driver_id !== $driver_id) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat size ait değildir. İşlem yapamazsınız'], 404);
+        }
+
+        // Aldready finished
+        if ($delivery->st_complete) {
+            return response()->json(['status' => false, 'message' => 'Bu teslimat zaten tamamlanmış.'], 404);
+        }
+
         $affectedRow = Deliveries::where('delivery_no', $input['delivery_no'])->update([
-            'status' => 1,
-            'st_delivery' => 0,
-            'st_complete' => 1,
-            'tt_complete' => new DateTime(),
-            'delivered_person' => $input['delivered_person'],
-            'national_id' => $input['national_id'],
+            'status'            => 1,
+            'st_complete'       => 1,
+            'tt_complete'       => new DateTime(),
+            'delivered_person'  => $input['delivered_person'],
+            'national_id'       => $input['national_id'],
         ]);
 
         $this->logResponse($request, ['affected_row' => $affectedRow]);
