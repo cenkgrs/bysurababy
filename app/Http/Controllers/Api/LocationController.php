@@ -18,16 +18,29 @@ class LocationController extends Controller
         $input = $request->all();
 
         $driver_id = Auth::id();
+
+        // Check if any timelapse record last 5 minutes
+        if ($input['type'] == 'timelapse') {
+            // Get last timelapse record
+            $any = DriverLocations::where('type', 'timelapse')->orderBy('id', 'desc')->first();
+
+            $date = Carbon::now()->subMinutes(5)->toDateTimeString();
+
+            // Timelapse request has been made recently so cancel it
+            if ($any->created_at >= $date) {
+                return response()->json(['status' => false, 'message' => 'Lokasyon Kaydı Eklenemedi'], 200);
+            }
+        }
         
         $id = DriverLocations::insertGetId([
-            'driver_id' => $driver_id,
-            'type' => $input['type'],
-            'address' => $input['address'],
-            'latitude' => $input['latitude'],
-            'longitude' => $input['longitude'],
-            'time' => new DateTime(),
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
+            'driver_id'     => $driver_id,
+            'type'          => $input['type'],
+            'address'       => $input['address'],
+            'latitude'      => $input['latitude'],
+            'longitude'     => $input['longitude'],
+            'time'          => new DateTime(),
+            'created_at'    => new DateTime(),
+            'updated_at'    => new DateTime()
         ]);
 
         if ($id) {
@@ -51,13 +64,13 @@ class LocationController extends Controller
             }
 
             $locations[] = [
-                'driver_id' => $lastLocation->driver_id,
-                'driver_name' => $driver->name,
-                'type' => $lastLocation->type,
-                'address' => $lastLocation->address,
-                'latitude' => $lastLocation->latitude,
-                'longitude' => $lastLocation->longitude,
-                'time' => $lastLocation->time
+                'driver_id'     => $lastLocation->driver_id,
+                'driver_name'   => $driver->name,
+                'type'          => $lastLocation->type,
+                'address'       => $lastLocation->address,
+                'latitude'      => $lastLocation->latitude,
+                'longitude'     => $lastLocation->longitude,
+                'time'          => $lastLocation->time
             ];
         }
 
@@ -70,17 +83,17 @@ class LocationController extends Controller
 
         $locations = [];
 
-        $lastLocations = DriverLocations::where('id', $driver_id)->whereDate('created_at', Carbon::today())->get();
+        $lastLocations = DriverLocations::where('id', $driver_id)->whereDate('created_at', Carbon::today())->orderBy('id', 'desc')->get();
 
         foreach ($lastLocations as $l) {
             $locations[] = [
-                'driver_id' => $driver->id,
-                'driver_name' => $driver->name,
-                'type' => $l->type,
-                'address' => $l->address,
-                'latitude' => $l->latitude,
-                'longitude' => $l->longitude,
-                'time' => $l->time
+                'driver_id'     => $driver->id,
+                'driver_name'   => $driver->name,
+                'type'          => $l->type,
+                'address'       => $l->address,
+                'latitude'      => $l->latitude,
+                'longitude'     => $l->longitude,
+                'time'          => $l->time
             ];
         }
 
