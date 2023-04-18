@@ -54,12 +54,24 @@ class LocationController extends Controller
     {
         $locations = [];
 
+        $emptyLocations = [];
+
         $drivers = ApiUsers::where('user_type', 'driver')->get();
         
         foreach ($drivers as $driver) {
-            $lastLocation = DriverLocations::where('driver_id', $driver->id)->orderBy('created_at', 'DESC')->first();
+            $lastLocation = DriverLocations::where('driver_id', $driver->id)->whereDate('created_at', Carbon::today())->orderBy('created_at', 'DESC')->first();
 
             if (!$lastLocation) {
+                $emptyLocations[] = [
+                    'driver_id'     => $driver->id,
+                    'driver_name'   => $driver->name,
+                    'type'          => 'empty',
+                    'address'       => 'empty',
+                    'latitude'      => null,
+                    'longitude'     => null,
+                    'time'          => null
+                ];
+
                 continue;
             }
 
@@ -74,7 +86,7 @@ class LocationController extends Controller
             ];
         }
 
-        return response()->json(["locations" => $locations], 200);
+        return response()->json(['locations' => $locations, 'empty_locations' => $emptyLocations], 200);
     }
 
     public function mapTodayLocations($driver_id)
