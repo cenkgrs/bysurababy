@@ -83,7 +83,7 @@ class DeliveryController extends Controller
         $delivery = Deliveries::where('driver_id', $driver_id)->where('st_delivery', true)->where('st_complete', false)->first();
 
         if (!$delivery) {
-            return response()->json(["status" => false], 404);
+            return response()->json(["status" => false], 200);
         }
 
         $_delivery = [

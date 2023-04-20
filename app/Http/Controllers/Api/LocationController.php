@@ -95,7 +95,7 @@ class LocationController extends Controller
 
         $locations = [];
 
-        $lastLocations = DriverLocations::where('id', $driver_id)->whereDate('created_at', Carbon::today())->orderBy('id', 'desc')->get();
+        $lastLocations = DriverLocations::where('driver_id', $driver_id)->orderBy('created_at', 'DESC')->get();
 
         foreach ($lastLocations as $l) {
             $locations[] = [
