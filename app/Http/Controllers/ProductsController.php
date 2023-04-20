@@ -107,8 +107,6 @@ class ProductsController extends Controller
 
     public function product(Request $request, $product_id)
     {
-        $input = $request->all();
-
         $product = Products::with('price', 'category', 'sub_category', 'colors', 'reviews')->where('id', $product_id)->where('status', 1)->first();
 
         if (!$product) {

@@ -111,7 +111,8 @@ class CartController extends Controller
             isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
         }
 
-        if (isset($total_price) && $total_price > 150) {
+        // Check if cargo is free after new calculation
+        if (isset($total_price) && $total_price > config('price.cargo.limit')) {
             $free_cargo = true;
         }
 
