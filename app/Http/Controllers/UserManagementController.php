@@ -8,6 +8,9 @@ use App\Models\Addresses;
 
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Hash;
 
 class UserManagementController extends Controller
 {
@@ -77,6 +80,40 @@ class UserManagementController extends Controller
         }
 
         return redirect()->route('addresses')->with('success_message', "Adres Silindi");
+    }
+
+    public function preferences()
+    {
+        $user = User::where('id', Auth::id())->first();
+
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+        ];
+
+        return view('user.preferences.index', $data);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $input = $request->all();
+
+        // Check old password first
+        $user = User::where('id', Auth::id())->first();
+
+        if (!Hash::check($input['password'], $user->password)) {
+            return redirect()->back()->with('error_message', __('Eski şifrenizi yanlış girdiniz. Lütfen kontrol edip tekrar deneyiniz.'));
+        }
+
+        try {
+            $user->password = Hash::make($input['password']);
+            $user->save();
+        } catch (Exception $ex) {
+
+            return redirect()->back()->with('error_message', __('Şifre değişitirilirken hata oluştu. Lütfen daha sonra tekrar deneyiniz.'));
+        }
+
+        return redirect()->back()->with('success_message', __('Şifreniz başarılı bir şekilde değiştirildi.'));
     }
 
 }
