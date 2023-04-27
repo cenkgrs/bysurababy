@@ -151,18 +151,22 @@ class BookingController extends Controller
             "updated_at" => new DateTime,
         ]);
 
-        /*
         //Insert Address Informations
-        Addresses::updateOrInsert(["request_id" => $this->request_id], [
-            "user_id" => Auth::id(),
-            "name" => "",
-            "city" => "",
-            "district" => "",
-            "address" => "",
-            "created_at" => new DateTime,
-            "updated_at" => new DateTime,
-        ]);
-        */
+        if (isset($input['address_id']) && $input['address_id']) {
+            $address_id = Addresses::insertGetId([
+                "user_id" => Auth::id(),
+                "address_name" => $input["address_name"],
+                "name" => $input["name"],
+                "surname" => $input["surname"],
+                "phone" => $input["phone"],
+                "city" => $input["city"],
+                "district" => $input["district"],
+                "zip_no" => $input["zip_no"],
+                "address" => $input["address"],
+                "created_at" => new DateTime,
+                "updated_at" => new DateTime,
+            ]);
+        }
 
         $cart = session()->get('cart');
 
@@ -205,7 +209,7 @@ class BookingController extends Controller
             "request_id" => $this->request_id,
             "order_no" => $order_no,
             "user_id" => Auth::id(),
-            "address_id" => $input["address"],
+            "address_id" => $address_id ?? $input['address_id'],
             "cargo_price" => isset($free_cargo) ? 0 : config('price.cargo.price') ,
             "total_earning" => $total_earning,
             "total_price" => $total_price,
