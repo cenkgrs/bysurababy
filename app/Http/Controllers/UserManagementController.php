@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Addresses;
-
+use App\Models\PasswordResets;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 use App\Models\User;
@@ -114,6 +114,55 @@ class UserManagementController extends Controller
         }
 
         return redirect()->back()->with('success_message', __('Şifreniz başarılı bir şekilde değiştirildi.'));
+    }
+
+    public function forgotPasswordGet()
+    {
+        $user = User::where('id', Auth::id())->first();
+
+        $length = 10;
+
+        $characters = '0123456789';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        
+        PasswordResets::insert([
+            'email' => $user->email,
+            'token' => $randomString,
+            'created_at' => new DateTime,
+        ]);
+
+        // Send email here
+
+        // Return info
+        return response()->json([
+            'status' => true,
+            'message' => __('Şifre sıfırlama isteğiniz başarıyla alınmıştır. Lütfen e-postanıza gelen kodu aşağıya giriniz.')
+        ]);
+    }
+
+    public function forgotPasswordPost(Request $request)
+    {
+        $input = $request->all();
+        
+        $user = User::where('id', Auth::id())->first();
+
+        // Check token first
+        $match = PasswordResets::where('email', $user->email)->where('token', $input['token'])->first();
+    
+        if (!$match) {
+            return redirect()->back()->with('error_message', __('Girdiğiniz şifre doğru değildir lütfen size gönderlien e-postayı tekrar kontrol edin'));
+        }
+
+        // Matched now update password
+        $user->password = Hash::make($input['password']);
+        $user->save();
+
+        return redirect()->back()->with('success_message', __('Şifreniz başarıyla sıfırlanmıştır. Yeni şifre ile giriş yapabilirsiniz'));
     }
 
 }
