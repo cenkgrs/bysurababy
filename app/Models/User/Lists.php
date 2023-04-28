@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,5 +21,22 @@ class Lists extends Model
     {
         return $this->hasMany('App\Models\ListProducts', 'id', 'list_id');
     }
+
+    public function scopeCreateList($query, $data)
+    {
+        return $query->insert([
+            'user_id' => Auth::id(),
+            'name' => $data['name'],
+        ]);
+    }
+
+    public function scopeUpdateList($query, $data)
+    {
+        return $query->where('id', $data['list_id'], [
+            'name' => $data['name'],
+        ]);
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +20,24 @@ class ListProducts extends Model
     public function products() : \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\Products', 'product_id', 'id');
+    }
+
+    public function scopeClearList($query, $data)
+    {
+        return $query->where('list_id', $data['list_id'])->delete();
+    }
+
+    public function scopeAddProductToList($query, $product_id, $list_id)
+    {
+        return $query->insert([
+            'list_id' => $list_id,
+            'product_id' => $product_id
+        ]);
+    }
+
+    public function scopeRemoveProductFromList($query, $product_id, $list_id)
+    {
+        return $query->where('list_id', $list_id)->where('product_id', $product_id)->delete();
     }
 
 }
