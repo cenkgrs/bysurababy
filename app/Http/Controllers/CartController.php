@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Products;
+use App\Models\SalesWith;
 
 class CartController extends Controller
 {
@@ -13,6 +14,11 @@ class CartController extends Controller
         $cart = session()->get('cart');
 
         if ($cart) {
+
+            $count = 0;
+
+            $relatives = [];
+
             foreach ($cart as $id => $cart_product) {
                 $product = Products::with('category', 'sub_category')->where('id', $id)->first();
 
@@ -25,6 +31,22 @@ class CartController extends Controller
                 ];
 
                 isset($total_price) ? $total_price += $product->price->sale_price * $cart_product["quantity"] : $total_price = $product->price->sale_price * $cart_product["quantity"];
+            
+                // Get only 1 set of relatives according to product
+                if ($count == 0 || !$relatives) {
+                    $relative_data = SalesWith::with('product.price', 'colors')->where('product_id', $id)->orderBy('rating', 'asc')->get();
+
+                    foreach ($relative_data as $r) {
+                        $relatives[] = [
+                            'id' => $r->product->id,
+                            'name' => $r->product->name,
+                            'photo' => $r->product->photo,
+                            'price' => $r->price->sale_price,
+                            'colors' => $r->colors,
+                            'age' => $r->product->age,
+                        ];
+                    } 
+                }
             }
         }
 
@@ -38,6 +60,7 @@ class CartController extends Controller
             "title" => __("Sepetim"),
             "free_cargo" => $free_cargo ?? false,
             "cargo_price" => config('price.cargo.price'),
+            "relatives" => $relatives,
             "breadcrumbs" => [
                 0 => [
                     "title" => __("Ana Sayfa"),

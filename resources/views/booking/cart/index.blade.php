@@ -12,6 +12,8 @@
         @else
             <div class="col-lg-9">
                 @include('booking.cart.partials.products')
+
+                @include('booking.cart.partials.relatives')
             </div>
             <div class="col-lg-3">
                 @include('booking.cart.partials.payment')
