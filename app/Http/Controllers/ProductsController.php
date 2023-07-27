@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Products;
 use App\Models\Categories;
-use App\Models\Favorites;
+use App\Models\User\Favorites;
 use App\Models\SubCategories;
 
 class ProductsController extends Controller

@@ -7,9 +7,27 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\MailController;
 use App\Models\SeoPages;
-
+use App\Models\Categories;
 class PagesController extends Controller
 {
+    public function search(Request $request)
+    {
+        $input = $request->all();
+
+        $data = [];
+
+        $results = Categories::where('slug', '%', $input['text'])->take(3)->get();
+
+        foreach ($results as $r) {
+            $data['results'][] = [
+                'name' => $r->name,
+                'route' => route('category', $r->slug)
+            ];
+        }
+
+        return view('products.index', $data);
+    }
+
     public function vision()
     {
         $data = [
@@ -103,7 +121,7 @@ class PagesController extends Controller
     {
         $input = $request->all();
 
-        MailController::basic_email($input);
+        MailController::partnerEmail($input);
 
         return view('pages.partner.form');
     }

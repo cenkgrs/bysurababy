@@ -26,10 +26,12 @@
                     </div>
                     <div class="col-lg-6 col-0" id="search-column">
                         <div class="nav-bar-search">
-                            <input class="form-control" type="text" name="search" placeholder="{{ __("Aramak istediğiniz ürünün ismini veya kategorisini giriniz") }}...">
+                            <input class="form-control dynamic-search" type="text" name="search" placeholder="{{ __('Aramak istediğiniz ürünün ismini veya kategorisini giriniz') }}...">
                             <button class="btn search-button">
                                 <i class="fa fa-search"></i>
                             </button>
+
+                            <ul class="search-results display-none"></ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">

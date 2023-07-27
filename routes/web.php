@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\User\FavoritesController;
 use App\Http\Controllers\User\ReviewController;
@@ -37,7 +38,9 @@ Route::post('/change-cart', [CartController::class, "changeProductQuantity"])->n
 Route::match(['get', 'post'], '/booking', 'App\Http\Controllers\BookingController@booking')->name('booking');
 Route::get('/finalize', 'App\Http\Controllers\BookingController@finalize')->name('finalize');
 
-Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
+// Category
+Route::get('/kategoriler', [CategoryController::class, "index"])->name('categories');
+Route::get('/kategori/{slug}', [CategoryController::class, "category"])->name('category');
 
 Route::get('dashboard', 'App\Http\Controllers\Auth\AuthController@dashboard')->name('dashboard');
 
@@ -54,6 +57,10 @@ Route::get('/blog/{slug}', 'App\Http\Controllers\BlogController@blog')->name('bl
 // Partner
 Route::get('/partner', 'App\Http\Controllers\PagesController@partner')->name('partner');
 Route::post('/partner-application', 'App\Http\Controllers\PagesController@partnerApply')->name('partner-application');
+
+// Ajax
+Route::post('/arama', 'App\Http\Controllers\PagesController@search')->name('search');
+
 
 /* USER MANAGEMENT */
 

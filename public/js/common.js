@@ -59,6 +59,46 @@ let Common = function ()
                     $("input[name='rating']").val(rating);
                 }
             });
+
+            $(document).undelegate('.dynamic-search', 'keyup');
+            $(docuemnt).delegate('dynamic-search', 'keyup', function () {
+
+                var query = $(this).val();
+
+                if (query.length < 3 && (e.keyCode !== 8 && e.keyCode !== 48)) {
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/arama',
+                    dataType: 'json',
+                    data: {'text': query},
+                    success: function (response) {
+
+                        if (typeof response.results === 'undefined' && response.results.length == 0) {
+                            return false;
+                        }
+
+                        $('.search-results').toggle('display-none');
+
+                        response.results.forEach(element => {
+                            $('<li class="dynamic-search-item" data-route="'+ element.route +'"><i class="mdi mdi-info"></i>'+ element.name +'</li>').appendTo('.search-results');
+                        });
+
+                    }
+
+                });
+
+            });
+
+            $(document).undelegate('dynamic-search-item', 'click');
+            $(document).delegate('dynamic-search-item', 'click', function () {
+
+                var route = $(this).data('route');
+
+                window.location(route);
+            });
            
         })
     }
