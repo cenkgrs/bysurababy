@@ -49,6 +49,7 @@ Route::get('/vizyon', 'App\Http\Controllers\PagesController@vision')->name('visi
 Route::get('/misyon', 'App\Http\Controllers\PagesController@mission')->name('mission');
 Route::get('/iletisim', 'App\Http\Controllers\PagesController@contact')->name('contact');
 Route::get('/sss', 'App\Http\Controllers\PagesController@sss')->name('sss');
+Route::get('/seo/{slug}', 'App\Http\Controllers\PagesController@seo')->name('seo');
 
 // Blogs
 Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blogs');

@@ -112,6 +112,33 @@ class PagesController extends Controller
         return view('pages.sss.index', $data);
     }
 
+    // Dynamic Seo Page
+    public function seo($slug)
+    {
+        $seo = $this->getSeo($slug);
+
+        if (!$seo) {
+            abort('404', 404);
+        }
+
+        $data = [
+            "title" => __($seo->title),
+            "breadcrumbs" => [
+                0 => [
+                    "title" => __('Ana Sayfa'),
+                    "route" => "/index"
+                ],
+                1 => [
+                    "title" => __($seo->title),
+                    "route" => "/" . $seo->slug,
+                ]
+            ],
+            "text" => $seo->text
+        ];
+
+        return view('pages.seo.index', $data);
+    }
+
     public function partner()
     {
         return view('pages.partner.form');
@@ -124,6 +151,11 @@ class PagesController extends Controller
         MailController::partnerEmail($input);
 
         return view('pages.partner.form');
+    }
+
+    public function getSeo($slug)
+    {
+        return SeoPages::where('slug', $slug)->first();
     }
 
     public function getSeoText($slug)
