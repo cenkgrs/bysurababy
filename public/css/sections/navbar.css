@@ -90,7 +90,7 @@
 
 .upper-navbar li a {
   text-decoration: none;
-  color: #000000c9;
+  color: rgba(0, 0, 0, 0.7882352941);
 }
 
 .navbar-categories {
@@ -114,12 +114,12 @@
   padding: 10px 120px;
   border-width: 0 1px 0 1px;
   border-style: solid;
-  border-color: #d5d5d561;
+  border-color: rgba(213, 213, 213, 0.3803921569);
 }
 
 .navbar-categories ul li a {
   text-decoration: none;
-  color: #000000c9;
+  color: rgba(0, 0, 0, 0.7882352941);
 }
 
 /*# sourceMappingURL=navbar.css.map */

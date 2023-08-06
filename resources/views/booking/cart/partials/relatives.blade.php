@@ -1,4 +1,4 @@
-@if (!$relatives->isEmpty())
+@if (!empty($relatives))
 
     <h3 class="title-main text-center">{{ __('Birlikte Alabileceğiniz Ürünler') }}</h3>
 

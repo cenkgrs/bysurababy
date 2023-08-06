@@ -15,7 +15,9 @@
     @else
 
         <div class="payment-address">
-            <h5 class="mb1">{{ __("Teslimat Adresi") }} {{ (__('Yeni Adres Ekle')) }}</h5>
+            <h5 class="mb1">{{ __("Teslimat Adresi") }}</h5>
+
+            <h6>{{ (__('Yeni Adres Ekle')) }}</h6>
 
             <div class="row">
                 <div class="col-lg-12 mb-3">

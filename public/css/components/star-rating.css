@@ -5,7 +5,7 @@
 
 .star-wrapper a {
   font-size: 2em;
-  color: #4444;
+  color: rgba(68, 68, 68, 0.2666666667);
   text-decoration: none;
   transition: all 0.5s;
   margin: 4px;

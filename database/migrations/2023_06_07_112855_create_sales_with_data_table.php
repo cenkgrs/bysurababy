@@ -15,8 +15,8 @@ class CreateSalesWithDataTable extends Migration
     {
         Schema::create('sales_with_data', function (Blueprint $table) {
             $table->increments('id');
-            $table->id('product_id')->notNull();
-            $table->id('relative_id')->notNull();
+            $table->integer('product_id')->notNull();
+            $table->integer('relative_id')->notNull();
             $table->integer('rating')->notNull();
             $table->timestamps();
         });

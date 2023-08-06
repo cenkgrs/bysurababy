@@ -8,7 +8,7 @@
                 Siparişiniz Tamamlanmıştır. Siparişinizi <a class="color-primary" href="{{ route('order', $booking['request_id']) }}"><b>buraya</b></a> tıklayarak takip edebilirsiniz.
             </p>
             <p>
-                Sipariş Numaranız: <b class="color-primary">{{ $booking['request_id'] }}</b>
+                Sipariş Numaranız: <b class="color-primary">{{ $booking['order_no'] }}</b>
             </p>
         </div>
     </div>
@@ -84,7 +84,7 @@
                             <div class="col-lg-6 col-12">
                                 <div class="cart-product-count">
                                     <div class="counter">
-                                        {{ $product["quantity"] }}
+                                        {{ $product["quantity"] }} {{ __('Adet') }}
                                     </div>
                                 </div>
                             </div>

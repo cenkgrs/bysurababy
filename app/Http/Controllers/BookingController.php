@@ -54,7 +54,7 @@ class BookingController extends Controller
             $data = [
                 "products" => $products,
                 "total_price" => $total_price ?? null,
-                "addresses" => $addresses ?? null,
+                "addresses" => isset($addresses) && $addresses->count() ? $addresses : null,
                 "title" => __("Ödeme"),
                 "free_cargo" => $free_cargo ?? false,
                 "breadcrumbs" => [
@@ -151,8 +151,9 @@ class BookingController extends Controller
             "updated_at" => new DateTime,
         ]);
 
-        //Insert Address Informations
-        if (isset($input['address_id']) && $input['address_id']) {
+        // Create New Address
+        if (!isset($input['address_id']) || !$input['address_id']) {
+            
             $address_id = Addresses::insertGetId([
                 "user_id" => Auth::id(),
                 "address_name" => $input["address_name"],
@@ -258,6 +259,7 @@ class BookingController extends Controller
             "booking" => [
                 "request_id" => $this->request_id,
                 "total_price" => $booking->total_price,
+                "order_no" => $booking->order_no,
                 "items" => $items,
                 "billing" => [
                     "name" => $booking->billing->name,
